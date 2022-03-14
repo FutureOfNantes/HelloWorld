@@ -10,10 +10,13 @@ import { connectReducer } from '../features/reducers/slices';
 
 const Dashboard = () => {
     const account = useSelector((state) => state.connection.account);
+    const did = useSelector((state) => state.connection.did);
+    console.log(did);
     const dispatch = useDispatch();
     const [myOffer, setMyOffer] = useState(true)
     const [serviceSelected, setServiceSelected] = useState(false)
-    // const shortDID = (account.did.substring(1,22)+ '...'+account.did.substring(54))
+    const shortDID = (did.substring(1,22)+ '...'+did.substring(54))
+    console.log(shortDID);
 
     const handleDisconnect = async () => {
         dispatch(connectReducer(false))
@@ -51,7 +54,7 @@ const Dashboard = () => {
                     <ul className="actAsButton userService flex row center">
                         <li className="userInformations">
                             <strong>{account.givenName} {account.familyName}</strong><br />
-                            <span className="didNumber">{account.did}</span>
+                            <span className="didNumber">{shortDID}</span>
                         </li>
                         <li>
                             <button className="ellipsis"></button>

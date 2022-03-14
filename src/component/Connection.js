@@ -73,7 +73,7 @@ const Connection = () => {
                     name: 'rinkeby'
                 }
                 const currentUser = await usersList.filter(users => (users.did === ethrDid.did));
-
+                dispatch(didReducer(ethrDid.did));
                 if (currentUser[0] != null) {
 
                     dispatch(accountReducer(currentUser[0]));
@@ -81,7 +81,6 @@ const Connection = () => {
 
                 } else {
                     dispatch(accountReducer({}));
-                    dispatch(didReducer(ethrDid.did));
                     dispatch(onboardedReducer(false));
                 }
             }

@@ -7,9 +7,9 @@ import './style/dashboard.css';
 
 import NoMetamask from './page/NoMetamask'
 import Catalog from './page/Catalog';
-import Dashboard from './page/Dashboard';
 import VerifiableCredential from './page/VerifiableCredential';
 import PageNotFound from './page/PageNotFound';
+import Dashboard from './page/Dashboard';
 import { useSelector } from 'react-redux';
 
 
