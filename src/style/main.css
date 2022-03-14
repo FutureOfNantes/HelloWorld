@@ -109,6 +109,9 @@ h1, h2, h3, h4 {
 .floatRight { float: right; }
 strong {font-weight: 700;}
 
+.textCenter { text-align: center; }
+.p01em { padding: 0 1em 1em 0; }
+
 
 /* ------------- HEADER --------------*/
 
@@ -118,7 +121,7 @@ header {
 
 .header_topBar {
 	text-align: left;
-	background: linear-gradient(90.77deg, var(--pink) 27.77%, var(--blue) 64.42%);
+	background: linear-gradient(90.77deg, var(--blue) 27.77%, var(--black) 64.42%);
 	padding: 1em;
 	color: #fff;
 	vertical-align: middle;
@@ -181,7 +184,7 @@ header {
 }
 
 .mainNav li button.current {
-	color: var(--blue);
+	color: var(--pink);
 }
 
 .mainNav li button.roundPink {
@@ -400,7 +403,7 @@ section.hero {
 	align-items: center;
 }
 
-.flex.flex-1 {
+.flex-1 {
 	flex: 1;
 }
 
@@ -480,6 +483,7 @@ section.hero {
 	max-width: 27.5%;
 	cursor: pointer;
 	border: 3px solid transparent;
+	outline: 1px solid #0a102a1c;
 }
 
 .catalogueCell:hover {
@@ -551,6 +555,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	padding: 1.5em 0;
 	width: 100%;
 	border-bottom: 1px solid var(--pink);
+	margin-bottom: 1em;
 }
 
 .breadcrumb li {
@@ -600,7 +605,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 
 /** ------------------- PAGE SERVICE ------------------ **/
 
-body.servicePage main {
+.servicePage main {
 	border-radius: 0.5em;
 	box-shadow: 
 		0px 22px 81px -11px rgba(2, 32, 57, 0.16),
@@ -651,14 +656,10 @@ body.servicePage main {
 .servicePageTitle .ctas a {
 	text-decoration: none;
 	padding: 1em 2em;
-	border-radius: 2em;
 }
 
 .servicePageTitle .ctas a.useService {
-	background: var(--blue);
-	color: #fff;
 	font-weight: 700;
-	font-size: 1.135em;
 }
 
 .servicePageContent {
@@ -672,6 +673,10 @@ body.servicePage main {
 }
 
 /**** -------------- DASHBOARD ------------ ****/ 
+
+.block {
+	display: block;
+}
 
 .alert {
 	position: relative;
@@ -710,6 +715,7 @@ body.servicePage main {
 	box-shadow: 
 		0px 22px 81px -11px rgba(2, 32, 57, 0.16),
 		0px 2px 2px 0 rgba(2, 32, 57, 0.07);
+	outline: 1px solid #0a102a1c;
 }
 
 .dashboard .mainNav li > ul {
@@ -835,17 +841,32 @@ body.servicePage main {
 	margin-right: 0.5em
 }
 
+.button img {
+	max-height: 1.5em;
+	position: relative;
+	top: 0.25em;
+	margin-left: 1em;
+}
 
 .button {
+	line-height: 1.75;
 	border-radius: 0.5em;
 	padding: 1em 2em;
 	cursor: pointer;
 	font-family: 'Inter', sans-serif;
-	border: 3px solid transparent;
+	border: 3px solid #0a102a03;
 	transition: all 0.2s;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
 	font-weight: 700;
 	font-family: Inter, sans-serif;
+	outline: 1px solid #0a102a1c;
+}
+
+.button.external {
+	padding: 1em 4em 1em 2em;
+	background-image: url(img/link.svg);
+	background-position: 97% center;
+	background-repeat: no-repeat;
 }
 
 .button.rounded {border-radius: 4em;}
@@ -855,7 +876,7 @@ body.servicePage main {
 }
 
 .button:active {
-	border: 3px solid rgba(0, 0, 0, 0.2);
+	border: 3px solid var(--pink);
 }
 
 .button.pinkButton {
@@ -1025,6 +1046,12 @@ body.servicePage main {
 	line-height: 2.5;
 	width: 100%;
 	outline: 3px solid rgba(0, 0, 0, .15);
+	font-weight: 700
+}
+
+.form .formField.select {
+	padding: 1.5em;
+	cursor: pointer;
 }
 
 .form .formField:hover {
@@ -1067,15 +1094,20 @@ body.servicePage main {
 	color: var(--black);
 }
 
+.formLabel.button {
+	text-align: center;
+}
+
 .form input[type=submit] {
 	width: 100%;
 }
 
-.form .formGroup.radio input[type=radio] {
+.form .formGroup.radio input[type=radio] {  
 	visibility: hidden;
+	height: 0;
 }
 
-.form .formGroup.radio .radioLabel {
+.form .formGroup.radio .selectServiceType .radioLabel {
 	background-color: #fff;
 	padding: 4em 3em 1.5em 3em;
 	display: block;
@@ -1114,4 +1146,12 @@ fieldset legend {
 	font-weight: 700;
 	color: var(--black);
 	padding: 2em 0 1em;
+}
+
+.form .formGroup.select {
+	margin-bottom: 1em;
+}
+
+.form .formGroup.select label {
+	visibility: hidden;
 }

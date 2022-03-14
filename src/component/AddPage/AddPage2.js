@@ -1,4 +1,4 @@
-const AddPage2 = ({ newService, setNewService }) => {
+const AddPage2 = () => {
   return (
     <div>
       <fieldset className="formGroup radio">
@@ -50,7 +50,7 @@ const AddPage2 = ({ newService, setNewService }) => {
           <option value="">Supérieur</option>
           <option value="">Formation tout au long de la vie</option>
         </select>
-        <label htmlFor="dataLevel" class="formLabel">Niveau concerné par les données</label>
+        <label htmlFor="dataLevel" className="formLabel">Niveau concerné par les données</label>
       </div>
 
       <div className="formGroup select">
@@ -59,7 +59,7 @@ const AddPage2 = ({ newService, setNewService }) => {
           <option value="">Json</option>
           <option value="">XML</option>
         </select>
-        <label htmFor="dataFormat" className="formLabel">Format des données</label>
+        <label htmlFor="dataFormat" className="formLabel">Format des données</label>
       </div>
 
       <div className="formGroup select">
