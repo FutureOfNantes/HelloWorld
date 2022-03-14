@@ -1,4 +1,4 @@
-import inokufuLogo from '../assets/logos/inokufu.png'
+import inokufuLogo from '../../assets/logos/inokufu.png'
 
 
 const DashboardService = ({ setServiceSelected }) => {

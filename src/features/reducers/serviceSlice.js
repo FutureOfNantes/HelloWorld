@@ -33,17 +33,17 @@ export const serviceSlice = createSlice({
     },
     extraReducers: {
         [fetchAsyncServices.pending]: () => {
-            console.log("Pending");
+            console.log("Pending Services");
         },
         [fetchAsyncServices.fulfilled]: (state, {payload}) => {
-            console.log("Fetched Successfully");
-            state.user = payload;
+            console.log("Services Fetched Successfully");
+            state.service = payload;
         },
         [fetchAsyncServices.rejected]: () => {
-            console.log("Rejected");
+            console.log("Services Rejected");
         },
         [addAsyncService.fulfilled]: (state, {payload}) => {
-            console.log("Added Successfully");
+            console.log("Service Added Successfully");
         },
 
     }

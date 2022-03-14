@@ -1,5 +1,5 @@
-import serviceOfferingEmpty from '../assets/img/serviceOfferingEmpty.svg'
-import serviceOffering from '../style/img/serviceOffering.svg'
+import serviceOfferingEmpty from '../../assets/img/serviceOfferingEmpty.svg'
+import serviceOffering from '../../style/img/serviceOffering.svg'
 
 const DashboardMyOffer = ({ setNewService }) => {
 	const handleRessource = () => {

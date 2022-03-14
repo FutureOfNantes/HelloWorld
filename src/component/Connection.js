@@ -5,9 +5,11 @@ import { ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
 import { EthrDID } from 'ethr-did';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Connection = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
 
     const handleConnect = async () => {
@@ -78,10 +80,12 @@ const Connection = () => {
 
                     dispatch(accountReducer(currentUser[0]));
                     dispatch(onboardedReducer(true));
+                    navigate("/dashboard")
 
                 } else {
                     dispatch(accountReducer({}));
                     dispatch(onboardedReducer(false));
+                    navigate("/vc");
                 }
             }
 
@@ -95,6 +99,7 @@ const Connection = () => {
         else {
             console.log('Pas de Metamask');
             dispatch(walletReducer(false));
+            navigate("/metamask");
         }
     }
 

@@ -1,5 +1,5 @@
-import inokufuLogo from '../assets/logos/inokufu.png'
-import searchIcon from '../style/img/searchIcon.svg'
+import inokufuLogo from '../../assets/logos/inokufu.png'
+import searchIcon from '../../style/img/searchIcon.svg'
 
 const DashboardCatalog = ( {setServiceSelected}) => {
     const serviceHandler = () => {

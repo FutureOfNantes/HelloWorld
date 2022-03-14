@@ -1,15 +1,15 @@
-import entityUnkown from '../assets/entityUnKnown.svg'
-import { useDispatch, useSelector } from 'react-redux';
-import { connectReducer } from '../features/reducers/connectionSlice';
+import entityUnkown from '../../assets/entityUnKnown.svg'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
-const DashboardNav = ({ myOffer, setMyOffer, serviceSelected, setServiceSelected }) => {
+const DashboardNav = ({ myOffer, setMyOffer }) => {
     const account = useSelector((state) => state.connection.account);
     const did = useSelector((state) => state.connection.did);
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const shortDID = (did.substring(1,22)+ '...'+did.substring(54))
     
     const handleDisconnect = async () => {
-        dispatch(connectReducer(false))
+        navigate("/");
     }
     
     const handleMyOffer = async () => {
@@ -47,7 +47,7 @@ const DashboardNav = ({ myOffer, setMyOffer, serviceSelected, setServiceSelected
                         <button className="ellipsis"></button>
                         <ul>
                             <li>Mes informations</li>
-                            <li>Déconnexion</li>
+                            <li onClick={handleDisconnect}>Déconnexion</li>
                         </ul>
                     </li>
                     <li>

@@ -7,16 +7,18 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import Service from './Service'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchAsyncUsers } from '../features/reducers/userSlice';
+import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 
 const Catalog = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchAsyncUsers());
-
 	}, [dispatch])
+
+
 
 	const [serviceSelected, setServiceSelected] = useState(false)
 
@@ -29,7 +31,7 @@ const Catalog = () => {
 			{!serviceSelected && <section className="searchEngine container flex wrap row">
 				<SearchBar />
 			</section>}
-			{!serviceSelected && <CatalogList setServiceSelected={setServiceSelected}/>}
+			{!serviceSelected && <CatalogList />}
 			{serviceSelected && <Service setServiceSelected={setServiceSelected}/>}
 			<Footer />
 		</div>

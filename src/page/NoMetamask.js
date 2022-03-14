@@ -1,13 +1,12 @@
-import { useDispatch } from 'react-redux';
-import { walletReducer } from '../features/reducers/connectionSlice';
+import { useNavigate } from 'react-router-dom';
 
 import logoDasesLab from '../style/img/logoDL.svg'
 
 const NoMetamask = () => {
-	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	
     const handleClose = () => {
-		dispatch(walletReducer(true))
+		navigate("/");
     }
 
     return (

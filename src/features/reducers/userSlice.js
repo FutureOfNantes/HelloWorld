@@ -33,17 +33,17 @@ export const userSlice = createSlice({
     },
     extraReducers: {
         [fetchAsyncUsers.pending]: () => {
-            console.log("Pending");
+            console.log("Pending Users");
         },
         [fetchAsyncUsers.fulfilled]: (state, {payload}) => {
-            console.log("Fetched Successfully");
+            console.log("Users Fetched Successfully");
             state.user = payload;
         },
         [fetchAsyncUsers.rejected]: () => {
-            console.log("Rejected");
+            console.log("Users Rejected");
         },
         [addAsyncUser.fulfilled]: (state, {payload}) => {
-            console.log("Added Successfully");
+            console.log("User Added Successfully");
         },
 
     }
