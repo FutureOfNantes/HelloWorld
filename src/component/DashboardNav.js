@@ -1,0 +1,73 @@
+import entityUnkown from '../assets/entityUnKnown.svg'
+import { useDispatch, useSelector } from 'react-redux';
+import { connectReducer } from '../features/reducers/connectionSlice';
+
+const DashboardNav = ({ myOffer, setMyOffer, serviceSelected, setServiceSelected }) => {
+    const account = useSelector((state) => state.connection.account);
+    const did = useSelector((state) => state.connection.did);
+    const dispatch = useDispatch();
+    const shortDID = (did.substring(1,22)+ '...'+did.substring(54))
+    
+    const handleDisconnect = async () => {
+        dispatch(connectReducer(false))
+    }
+    
+    const handleMyOffer = async () => {
+        setMyOffer(true)
+    }
+    
+    const handleCatalog = async () => {
+        setMyOffer(false)
+    }
+
+    return (
+            <aside className="mainNav">
+            <header>
+                <ul className="contextNav flex row wrap center">
+                    <li>
+                        <button className="mainLogo">
+                            <img src="favicon.svg" alt="" />
+                        </button>
+                    </li>
+                    <li>
+                        <button className="userLogo alert">
+                            <img src={entityUnkown} alt="" />
+                        </button>
+                    </li>
+                    <li>
+                        Dashboard
+                    </li>
+                </ul>
+                <ul className="actAsButton userService flex row center">
+                    <li className="userInformations">
+                        <strong>{account.givenName} {account.familyName}</strong><br />
+                        <span className="didNumber">{shortDID}</span>
+                    </li>
+                    <li>
+                        <button className="ellipsis"></button>
+                        <ul>
+                            <li>Mes informations</li>
+                            <li>Déconnexion</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button className="notifications"></button>
+                    </li>
+                </ul>
+            </header>
+            <nav className="appNav">
+                <ul className="flex column">
+                    {myOffer && <li className="actAsButton serviceOffering current"  onClick={handleMyOffer}>Mon offre</li>}
+                    {!myOffer && <li className="actAsButton serviceOffering" onClick={handleMyOffer}>Mon offre</li>}
+                    {myOffer && <li className="actAsButton catalogue" onClick={handleCatalog}>Catalogue</li>}
+                    {!myOffer && <li className="actAsButton catalogue current" onClick={handleCatalog}>Catalogue</li>}
+                    <li className="actAsButton" onClick={handleDisconnect}>
+                        Déconnexion
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    )
+}
+
+export default DashboardNav;

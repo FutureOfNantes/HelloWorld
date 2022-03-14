@@ -1,86 +1,21 @@
-import entityUnkown from '../assets/entityUnKnown.svg'
-
 import { useState } from 'react';
 import DashboardCatalog from '../component/DashboardCatalog'
 import DashboardMyOffer from '../component/DashboardMyOffer'
 import DashboardService from '../component/DashboardService';
-import { useDispatch, useSelector } from 'react-redux';
-import { connectReducer } from '../features/reducers/connectionSlice';
+import DashboardNav from '../component/DashboardNav';
+import AddService from './AddService';
 
 
 const Dashboard = () => {
-    const account = useSelector((state) => state.connection.account);
-    const did = useSelector((state) => state.connection.did);
-    console.log(did);
-    const dispatch = useDispatch();
+    const [newService, setNewService] = useState(0)
     const [myOffer, setMyOffer] = useState(true)
     const [serviceSelected, setServiceSelected] = useState(false)
-    const shortDID = (did.substring(1,22)+ '...'+did.substring(54))
-    console.log(shortDID);
-
-    const handleDisconnect = async () => {
-        dispatch(connectReducer(false))
-    }
-
-    const handleMyOffer = async () => {
-        setMyOffer(true)
-    }
-
-    const handleCatalog = async () => {
-        setMyOffer(false)
-    }
-
-
 
     return (
         <div className="dashboard serviceOffering">
-            <aside className="mainNav">
-                <header>
-                    <ul className="contextNav flex row wrap center">
-                        <li>
-                            <button className="mainLogo">
-                                <img src="favicon.svg" alt="" />
-                            </button>
-                        </li>
-                        <li>
-                            <button className="userLogo alert">
-                                <img src={entityUnkown} alt="" />
-                            </button>
-                        </li>
-                        <li>
-                            Dashboard
-                        </li>
-                    </ul>
-                    <ul className="actAsButton userService flex row center">
-                        <li className="userInformations">
-                            <strong>{account.givenName} {account.familyName}</strong><br />
-                            <span className="didNumber">{shortDID}</span>
-                        </li>
-                        <li>
-                            <button className="ellipsis"></button>
-                            <ul>
-                                <li>Mes informations</li>
-                                <li>Déconnexion</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <button className="notifications"></button>
-                        </li>
-                    </ul>
-                </header>
-                <nav className="appNav">
-                    <ul className="flex column">
-                        {myOffer && <li className="actAsButton serviceOffering current"  onClick={handleMyOffer}>Mon offre</li>}
-                        {!myOffer && <li className="actAsButton serviceOffering" onClick={handleMyOffer}>Mon offre</li>}
-                        {myOffer && <li className="actAsButton catalogue" onClick={handleCatalog}>Catalogue</li>}
-                        {!myOffer && <li className="actAsButton catalogue current" onClick={handleCatalog}>Catalogue</li>}
-                        <li className="actAsButton" onClick={handleDisconnect}>
-                            Déconnexion
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
-            {myOffer && <DashboardMyOffer/>}
+            <DashboardNav myOffer={myOffer} setMyOffer={setMyOffer} serviceSelected={serviceSelected} setServiceSelected={setServiceSelected} setNewService={setNewService} />
+            {myOffer && newService === 0 && <DashboardMyOffer setNewService={setNewService} />}
+            {myOffer && newService !== 0 && <AddService newService={newService} setNewService={setNewService} />}           
             {!myOffer && !serviceSelected && <DashboardCatalog setServiceSelected={setServiceSelected}/>}
             {!myOffer && serviceSelected && <DashboardService setServiceSelected={setServiceSelected}/>}
         </div>

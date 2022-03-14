@@ -1,7 +1,10 @@
 import serviceOfferingEmpty from '../assets/img/serviceOfferingEmpty.svg'
 import serviceOffering from '../style/img/serviceOffering.svg'
 
-const DashboardMyOffer = () => {
+const DashboardMyOffer = ({ setNewService }) => {
+	const handleRessource = () => {
+		setNewService(1);
+	}
     return (
 		<section className="main flex column flex-1">	
 			<header>
@@ -12,7 +15,7 @@ const DashboardMyOffer = () => {
 					<img src={serviceOfferingEmpty} alt=""/> <br/><br/>
 					Vous n'avez encore rien partagé à la communauté
 				</p>
-				<button className="button pinkButton">Partager une ressource sur le portail</button>
+				<button className="button pinkButton" onClick={handleRessource}>Partager une ressource sur le portail</button>
 			</div>
 		</section>	
     )

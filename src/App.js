@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 
 import './App.css';
@@ -11,6 +11,7 @@ import VerifiableCredential from './page/VerifiableCredential';
 import PageNotFound from './page/PageNotFound';
 import Dashboard from './page/Dashboard';
 import { useSelector } from 'react-redux';
+import AddService from './page/AddService';
 
 
 
@@ -20,18 +21,14 @@ const App = () => {
 
   return (
     <div className="App">
-
-      {/* <Router>
-          <Routes>
-          <Route path="/" element={<Catalog />} />
-          <Route element={<PageNotFound />} /> */}
-
-      {!auth.connected && !auth.wallet && <NoMetamask />}
-        {!auth.connected && auth.wallet && <Catalog />}
-        {auth.connected && !auth.onboarded && <VerifiableCredential />}
-        {auth.connected && auth.onboarded && <Dashboard />}
-      {/* </Routes>
-        </Router> */}
+           <Routes>
+          <Route path="/add" element={<AddService />} />
+        {!auth.connected && auth.wallet && <Route path="/" element={<Catalog />} />}
+        {!auth.connected && !auth.wallet && <Route path="/metamask" element={<NoMetamask />} />}
+        {auth.connected && !auth.onboarded && <Route path="/creation" element={<VerifiableCredential />} />}
+        {auth.connected && auth.onboarded && <Route path="/" element={<Dashboard />} />}
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </div>
   );
 }
