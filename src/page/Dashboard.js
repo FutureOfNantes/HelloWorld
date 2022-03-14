@@ -13,7 +13,7 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const [myOffer, setMyOffer] = useState(true)
     const [serviceSelected, setServiceSelected] = useState(false)
-    const shortDID = (account.did.substring(1,22)+ '...'+account.did.substring(54))
+    // const shortDID = (account.did.substring(1,22)+ '...'+account.did.substring(54))
 
     const handleDisconnect = async () => {
         dispatch(connectReducer(false))
@@ -51,7 +51,7 @@ const Dashboard = () => {
                     <ul className="actAsButton userService flex row center">
                         <li className="userInformations">
                             <strong>{account.givenName} {account.familyName}</strong><br />
-                            <span className="didNumber">{shortDID}</span>
+                            <span className="didNumber">{account.did}</span>
                         </li>
                         <li>
                             <button className="ellipsis"></button>
