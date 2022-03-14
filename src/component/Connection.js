@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
 import { EthrDID } from 'ethr-did';
-import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/slices';
+import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 
 const Connection = () => {
     const dispatch = useDispatch();

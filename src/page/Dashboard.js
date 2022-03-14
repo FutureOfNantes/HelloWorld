@@ -5,7 +5,7 @@ import DashboardCatalog from '../component/DashboardCatalog'
 import DashboardMyOffer from '../component/DashboardMyOffer'
 import DashboardService from '../component/DashboardService';
 import { useDispatch, useSelector } from 'react-redux';
-import { connectReducer } from '../features/reducers/slices';
+import { connectReducer } from '../features/reducers/connectionSlice';
 
 
 const Dashboard = () => {

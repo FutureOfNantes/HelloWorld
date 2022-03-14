@@ -8,7 +8,7 @@ import Footer from '../component/Footer'
 import Service from './Service'
 
 import { useDispatch } from 'react-redux';
-import { fetchAsyncUsers } from '../features/reducers/slices';
+import { fetchAsyncUsers } from '../features/reducers/userSlice';
 
 const Catalog = () => {
 	const dispatch = useDispatch();

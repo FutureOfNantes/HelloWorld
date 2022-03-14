@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
-import { connectReducer } from '../features/reducers/slices';
+import { connectReducer } from '../features/reducers/connectionSlice';
 import logoDasesLab from '../style/img/logoDL.svg';
-import { addAsyncUser } from '../features/reducers/slices';
+import { addAsyncUser } from '../features/reducers/userSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -25,6 +25,7 @@ const VerifiableCredential = () => {
     const onSubmit = (data) => {
         dispatch(addAsyncUser(data));
         dispatch(connectReducer(false));
+        
     }
 
     return (

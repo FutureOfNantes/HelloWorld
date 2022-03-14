@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { walletReducer } from '../features/reducers/slices';
+import { walletReducer } from '../features/reducers/connectionSlice';
 
 import logoDasesLab from '../style/img/logoDL.svg'
 
