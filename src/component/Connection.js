@@ -7,7 +7,7 @@ import { EthrDID } from 'ethr-did';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Connection = () => {
+const Connection = ({ buttonName }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
@@ -92,9 +92,9 @@ const Connection = () => {
             await connectWallet();
             await signInWithEthereum();
             dispatch(connectReducer(true));
-            await sendForVerification();            
+            await sendForVerification();
             await verifyVC();
-            
+
         }
         else {
             console.log('Pas de Metamask');
@@ -104,13 +104,8 @@ const Connection = () => {
     }
 
     return (
-        <button className="roundPink" onClick={handleConnect} >Connexion</button>
-
+        <button className="button blackButton connectWallet" onClick={handleConnect} >{buttonName}</button>
     )
 }
 
 export default Connection;
-
-
-
-
