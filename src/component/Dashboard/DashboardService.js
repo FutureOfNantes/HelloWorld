@@ -10,10 +10,10 @@ const DashboardService = ({ setServiceSelected }) => {
         <body className="dashboard servicePage">
 		<section className="main flex column flex-1">	
 
-			<ul className="container breadcrumb flex row">
-				<li className="back" onClick={serviceHandler}><p>retour</p></li>
-				<li><a href="dashboard-catalogue.html">Catalogue</a></li>
-				<li className="current"><a href="/">Inokufu Competency V2</a></li>
+			<ul className="breadcrumb flex row">
+				<li className="back"><button onClick={serviceHandler}>retour</button></li>
+				<li><button onClick={serviceHandler}>Catalogue</button></li>
+				<li className="current"><button onClick={serviceHandler}>Inokufu Competency V2</button></li>
 			</ul>
 
 			<main className="container sectionContent">

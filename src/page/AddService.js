@@ -1,3 +1,4 @@
+import AddPage0 from "../component/AddPage/AddPage0";
 import AddPage1 from "../component/AddPage/AddPage1";
 import AddPage2 from "../component/AddPage/AddPage2";
 import AddPage3 from "../component/AddPage/AddPage3";
@@ -7,6 +8,7 @@ import AddPage5 from "../component/AddPage/AddPage5";
 import separator from '../style/img/separator.svg';
 
 const AddService = ({ newService, setNewService }) => {
+    console.log(newService)
     const stylegreenButton = "current button actAsButton greenButton"
     const styleblackButton = "current button actAsButton blackButton"
     const stylewhiteButton = "current button actAsButton whiteButton"
@@ -74,9 +76,6 @@ const AddService = ({ newService, setNewService }) => {
         setNewService(5)
     }
 
-
-
-    console.log(newService)
     return (
         <div className="dashboard addServices">
             <section className="main flex column centerJustify flex-1">
@@ -99,6 +98,7 @@ const AddService = ({ newService, setNewService }) => {
                     <li className={publ} onClick={handlePubl}>Publication</li>
                 </ul>
                 <form className="form flex column" action="">
+                    {newService === 0 && <AddPage0 />}
                     {newService === 1 && <AddPage1 />}
                     {newService === 2 && <AddPage2 />}
                     {newService === 3 && <AddPage3 />}

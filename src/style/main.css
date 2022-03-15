@@ -2,7 +2,10 @@
 
 .App {
 	text-align: left !important;
+}
 
+html, body, #root, .app {
+	height: 100%;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -67,6 +70,7 @@ table {
  	--lightGrey : #F2F6F6;
  	--turquoise: #8A90AD;
  	--green: #005550;
+ 	--lightGreyTransparent: #0a102a1c;
 }
 
 
@@ -88,6 +92,7 @@ body {
 	line-height: 1.5;
 	color: var(--black);
 	overflow-y: scroll;
+	font-smooth: always;
 }
 
 h1, h2, h3, h4 {
@@ -105,12 +110,16 @@ h1, h2, h3, h4 {
 	margin: 0 auto;
 }
 
+.w1240 { width: 1240px; }
+.w100p {width: 100%;}
+
 .floatLeft { float: left; }
 .floatRight { float: right; }
 strong {font-weight: 700;}
 
 .textCenter { text-align: center; }
 .p01em { padding: 0 1em 1em 0; }
+.absolute {position: absolute;}
 
 
 /* ------------- HEADER --------------*/
@@ -121,7 +130,7 @@ header {
 
 .header_topBar {
 	text-align: left;
-	background: linear-gradient(90.77deg, var(--blue) 27.77%, var(--black) 64.42%);
+	background: linear-gradient(90.77deg, var(--blue) 0, var(--black) 24.42%);
 	padding: 1em;
 	color: #fff;
 	vertical-align: middle;
@@ -188,12 +197,20 @@ header {
 }
 
 .mainNav li button.roundPink {
-	background: var(--pink);
+	background-color: var(--pink);
 	color: #fff;
 	border-radius: 2em;
 	padding: 0.5em 1em;
 	margin-right: 1em;
 	text-transform: initial;
+}
+
+.mainNav li button.connectWallet {
+	background-image: url(img/wallet.svg);
+	background-size: 1em;
+	background-position: 85% center;
+	background-repeat: no-repeat;
+	padding: 0.5em 3em 0.5em 1em;
 }
 
 .mainNav li button.roundblue {
@@ -562,29 +579,31 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	position: relative;
 }
 
-.breadcrumb li.back {
-	padding-right: 1em;
-}
 
-.breadcrumb li.back a {
-	position: relative;
-}
-
-.breadcrumb li.back a:before {
-	position: absolute;
-	display: block;
-	content: '';
-	background: url(img/back.svg);
-	width: 0.5em;
-	height: 0.875em;
-	top: 1.3em;
-}
-
-.breadcrumb li a {
+.breadcrumb li button {
+	background: none;
+	border: none;
 	padding: 1em;
 	text-decoration: none;
 	color: var(--black);
 	font-weight: 700;
+	cursor: pointer;
+}
+
+.breadcrumb li.back button {
+	position: relative;
+	padding-left: 1.5em;
+}
+
+.breadcrumb li.back button:before {
+	position: absolute;
+	display: block;
+	content: '';
+	background: url(img/back.svg) center no-repeat;
+	width: 0.75em;
+	height: 1em;
+	top: 1.2em;
+	left: 0
 }
 
 .breadcrumb li:after {
@@ -592,14 +611,14 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	content: '/';
 	position: absolute;
 	right: -0.3em;
-	top: 0;
+	top: 0.5em;
 }
 
 .breadcrumb li:last-child:after,.breadcrumb li.back:after  {
 	display: none;
 }
 
-.breadcrumb li.current a {
+.breadcrumb li.current button {
 	color: var(--pink);
 }
 
@@ -759,15 +778,19 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 }
 
 .userService button:hover {
-	background-color: var(--lightGrey) !important;
+	background-color: #0a102a1c ;
 }
 
 .userService button.ellipsis {
-	background: url(img/ellipsis.svg) center no-repeat;
+	background-image: url(img/ellipsis.svg) ;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .userService button.notifications {
-	background: url(img/notif.svg) center no-repeat;
+	background: url(img/notif.svg);
+	background-position: center ;
+	background-repeat: no-repeat;
 	display: none;
 }
 
@@ -800,6 +823,8 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 
 .appNav li.current {
 	background: var(--lightGrey);
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
+	outline: 1px solid #0a102a1c;
 }
 
 .appNav li:before {
@@ -826,6 +851,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 
 .dashboard .main header {
 	padding-bottom: 2em;
+	position: relative;
 }
 
 .dashboard .main header h1 {
@@ -859,7 +885,8 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
 	font-weight: 700;
 	font-family: Inter, sans-serif;
-	outline: 1px solid #0a102a1c;
+	outline: 1px solid var(--lightGreyTransparent);
+	font-family: Inter, sans-serif;
 }
 
 .button.external {
@@ -945,11 +972,12 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 }
 
 .onboardingStep {
-	height: 100vh;
    justify-content: center;
    display: flex;
    align-items: center;
    flex-direction: column;
+   width: 40%;
+   padding: 5em 0;
 }
 
 .onboardingStep h1 {
@@ -970,6 +998,12 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	line-height: 3em;
 }
 
+input[type=submit].connectMetamask {
+	background-image: url(img/metamask.png);
+	background-position: 97% center;
+	background-repeat: no-repeat;
+}
+
 .button.connectMetamask:before {
 	content: '';
 	background: url(img/metamask.png);
@@ -980,10 +1014,6 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	position: relative;
 	top: 0.5em;
 	margin-right: 1em
-}
-
-.onboardingStep {
-	width: 40%;
 }
 
 .onboardingStep .publicKey {
@@ -1050,7 +1080,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 }
 
 .form .formField.select {
-	padding: 1.5em;
+	padding: 2.75em 1em 1.25em 1em;
 	cursor: pointer;
 }
 
@@ -1061,8 +1091,8 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 
 .form .formField + .formLabel {
 	font-size: 0.75em;
-	top: 0.5em;	
-	left: 1em;
+	top: 0.75em;
+    left: 1.5em;
 	color: var(--black);
 	position: absolute;
 	transition: all 0.2s;
@@ -1112,7 +1142,15 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	padding: 4em 3em 1.5em 3em;
 	display: block;
 	border-radius: 0.5em;
+	
+}
+
+.form .formGroup.radio .selectServiceType div {
 	margin-right: 1em;
+}
+
+.form .formGroup.radio .selectServiceType div:last-child {
+	margin-right: 0;
 }
 
 .form .formGroup.radio input[type=radio]:checked + .radioLabel {
@@ -1145,13 +1183,142 @@ fieldset legend {
 	text-transform: uppercase;
 	font-weight: 700;
 	color: var(--black);
-	padding: 2em 0 1em;
+	padding: 1em 0 0.75em;
 }
 
-.form .formGroup.select {
-	margin-bottom: 1em;
-}
 
 .form .formGroup.select label {
-	visibility: hidden;
+
+}
+
+
+/*********** ---------------- SERVICE OFFERING ----------------- ************/
+
+.addService {
+	top: 1em;
+	right: 1em;
+}
+
+.serviceOfferingList .serviceOffer {
+	flex: 1 1 24%;
+	background: #fff;
+	border-radius: 0.5em;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
+	padding: 1.5em;
+	max-width: 31%;
+	margin: 0.5em;
+	box-sizing: border-box;
+}
+
+.serviceOfferingList .serviceOffer h2 {
+	font-weight: 700;
+	font-size: 1.125em;
+}
+
+.serviceOfferingList .serviceOffer .serviceTitle {
+	position: relative;
+	padding-bottom: 1em;
+}
+
+.serviceOfferingList .serviceOffer .serviceTitle .publishedOn {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.66em;
+	color: var(--pink);
+}
+
+.serviceOfferingList .serviceOffer .serviceTitle .tags span {
+	display: inline-block;
+	padding: 0.33em 0.5em;
+	font-size: 0.75em;
+	color: rgba(0,0,0,0.65);
+	font-weight: 700;
+	border-radius: 0.5em;
+}
+
+.blueTag {
+	background: #D4F7F7;
+}
+
+.pinkTag {
+	background: #FBEBFF;
+}
+
+.serviceOfferingList .serviceOffer .serviceDescription {
+	font-size: 0.875em;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons {
+	padding: 1.5em 0 1em;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons > li {
+	margin: 0 0.5em;
+	position: relative;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons > li:first-child {
+	margin-left: 0;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons > li:last-child {
+	margin-right: 0;
+}
+
+
+.serviceOfferingList .serviceOffer .actionButtons > 	li button {
+	text-align: left;
+	background-position: 80% center;
+	background-repeat: no-repeat;
+	background-size: 1em;
+	display: block;
+	width: 100%;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons button.edit {
+	background-image: url(img/edit.svg);
+}
+
+.serviceOfferingList .serviceOffer .actionButtons button.publishState {
+	background-image: url(img/downArrow.svg);
+}
+
+.serviceOfferingList .serviceOffer .actionButtons button.publishState + .changeState {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #fff;
+	padding: 0.5em;
+	border-radius: 0.5em;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
+}
+
+
+.serviceOfferingList .serviceOffer .actionButtons button.publishState:focus + .changeState {
+	display: block;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons button.publishState + .changeState li {
+	display: block;
+}
+
+.serviceOfferingList .serviceOffer .actionButtons button.publishState + .changeState li:last-child {
+	margin-top: 0.5em;
+}
+
+.serviceOfferingList .serviceOffer .serviceOfferId {
+	text-align: right;
+	border-top: 1px solid var(--lightGreyTransparent);
+	padding-top: 1em;
+}
+
+.serviceOfferingList .serviceOffer .serviceOfferId button {
+	border: none;
+	font-size: 0.66em;
+	background: transparent;
+	cursor: pointer;
+	color: var(--pink)
 }

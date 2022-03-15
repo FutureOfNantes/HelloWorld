@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     const navigate = useNavigate();
     const auth = useSelector((state) => state.connection);
-    const [newService, setNewService] = useState(0)
+    const [newService, setNewService] = useState(-1);
     const [myOffer, setMyOffer] = useState(true)
     const [serviceSelected, setServiceSelected] = useState(false)
 
@@ -23,8 +23,8 @@ const Dashboard = () => {
     return (
         <div className="dashboard serviceOffering">
             <DashboardNav myOffer={myOffer} setMyOffer={setMyOffer} serviceSelected={serviceSelected} setServiceSelected={setServiceSelected} setNewService={setNewService} />
-            {myOffer && newService === 0 && <DashboardMyOffer setNewService={setNewService} />}
-            {myOffer && newService !== 0 && <AddService newService={newService} setNewService={setNewService} />}
+            {myOffer && newService < 0  && <DashboardMyOffer setNewService={setNewService} />}
+            {myOffer && newService >= 0 && <AddService newService={newService} setNewService={setNewService} />}
             {!myOffer && !serviceSelected && <DashboardCatalog setServiceSelected={setServiceSelected} />}
             {!myOffer && serviceSelected && <DashboardService setServiceSelected={setServiceSelected} />}
         </div>

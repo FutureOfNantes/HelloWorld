@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import serviceOfferingEmpty from '../../assets/img/serviceOfferingEmpty.svg'
 import serviceOffering from '../../style/img/serviceOffering.svg'
 
 const DashboardMyOffer = ({ setNewService }) => {
+	const navigate=useNavigate();
 	const handleRessource = () => {
-		setNewService(1);
+		setNewService(0);
 	}
     return (
 		<section className="main flex column flex-1">	
