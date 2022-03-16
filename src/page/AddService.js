@@ -97,8 +97,8 @@ const AddService = ({ newService, setNewService }) => {
                     <li><button>mon offre</button></li>
                     <li><button className="current">ajout de ressource</button></li>
                 </ul>
-            </section>
             <div className="sectionContent empty flex column center">
+            {newService>0 &&
                 <ul className="formProgression flex row center">
                     <li className={info} onClick={handleInfo}>Informations sur la ressource</li>
                     <li className="sep"><img src={separator} alt="" /></li>
@@ -109,7 +109,7 @@ const AddService = ({ newService, setNewService }) => {
                     <li className={cond} onClick={handleCond} >Conditions d'utilisation</li>
                     <li className="sep"><img src={separator} alt="" /></li>
                     <li className={publ} onClick={handlePubl}>Publication</li>
-                </ul>
+                </ul>}
                 <form className="form flex column" action="">
                     {newService === 0 && <AddPage0 setButtonContinuer={setButtonContinuer} />}
                     {newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} />}
@@ -124,6 +124,7 @@ const AddService = ({ newService, setNewService }) => {
                <input type="submit" className="button blackButton connectMetamask" value="Signer l'ajout au catalogue sur Metamask" /> 
                 }
             </div>
+            </section>
         </div>
     )
 }
