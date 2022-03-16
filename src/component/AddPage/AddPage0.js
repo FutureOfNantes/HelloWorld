@@ -1,15 +1,18 @@
-const AddPage0 = () => {
+const AddPage0 = ({ setButtonContinuer }) => {
+    
     return (
         <div className="sectionContent flex column center">
             <fieldset className="formGroup radio">
                 <legend>disposez-vous d’un fichier de self description ?</legend>
                 <div className="flex row">
                     <div className="flex-1 p01em">
-                        <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="hadSd" id='hadSdNo' value="false" required />
+                        <input type="radio" className="formField" name="hadSd" id='hadSdNo' required 
+                        onClick={() => setButtonContinuer(true)} />
                         <label htmlFor="hadSdNo" className="button actAsButton radioLabel button whiteButton block textCenter">Non</label>
                     </div>
                     <div className="flex-1 p01em">
-                        <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="hadSd" id='hadSdYes' value="true" required />
+                        <input type="radio" className="formField" name="hadSd" id='hadSdYes' required 
+                        onClick={() => setButtonContinuer(false)} />
                         <label htmlFor="hadSdYes" className="button actAsButton radioLabel button whiteButton block textCenter">Oui</label>
                     </div>
                 </div>

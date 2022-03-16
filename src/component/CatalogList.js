@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import inokufuLogo from '../assets/logos/inokufu.png';
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
+import Connection from './Connection';
 
 const CatalogList = () => {
 	const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const CatalogList = () => {
 	}, [])
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
+	const buttonName="Participer à l'offre de catalogue en ajoutant mon offre de services"
 	
 	if (!servicesList.length) return <h3>Loading...</h3>;
 	
@@ -37,9 +39,7 @@ const CatalogList = () => {
 			</p>
 		</div>))}
 		<div className="catalogueCell addService">
-			<button>
-				Participer au catalogue en ajoutant mon offre de services
-			</button>
+			<Connection buttonName={buttonName}/>
 		</div>
 	</section>
     )

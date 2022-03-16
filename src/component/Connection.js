@@ -7,7 +7,7 @@ import { EthrDID } from 'ethr-did';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Connection = ({ buttonName }) => {
+const Connection = ({ buttonName, addService }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
@@ -80,7 +80,8 @@ const Connection = ({ buttonName }) => {
 
                     dispatch(accountReducer(currentUser[0]));
                     dispatch(onboardedReducer(true));
-                    navigate("/dashboard")
+                    if (!addService) navigate("/dashboard")
+                    else navigate("/dashboard/")
 
                 } else {
                     dispatch(accountReducer({}));

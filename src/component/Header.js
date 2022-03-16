@@ -1,7 +1,7 @@
 import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Connection from './Connection'
 
-const Header = () => {
+const Header = ({ addService }) => {
     const buttonName = "CONNECTER"
 
     return (
@@ -20,7 +20,7 @@ const Header = () => {
                         </li>
                         <li><button>Communauté</button></li>
                         <li>
-                            <Connection buttonName={buttonName} />
+                            <Connection buttonName={buttonName} addService={addService} />
                         </li>
                     </ul>
                 </div>

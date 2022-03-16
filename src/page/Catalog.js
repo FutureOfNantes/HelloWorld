@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAsyncUsers } from '../features/reducers/userSlice';
 
@@ -8,6 +8,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 
 const Catalog = () => {
+	const[addService, setAddService] = useState(false); 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -16,7 +17,7 @@ const Catalog = () => {
 
 	return (
 		<div>
-			<Header />
+			<Header addService={addService}/>
 			<section className="container hero">
 				<h1>Catalogue des données et services du<br />Data Space Education & Competences</h1>
 			</section>
