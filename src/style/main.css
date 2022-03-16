@@ -682,13 +682,42 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 }
 
 .servicePageContent {
-	padding: 2em;
 	font-family: Inter, sans-serif;
 }
 
-.servicePageContent h1 {
+.servicePageContent > div {
+	padding: 3em;
+}
+
+.servicePageContent .serviceDetails {
+	border-right: 1px solid var(--lightGreyTransparent);
+}
+
+.servicePageContent .serviceDetails tr {
+	border-bottom: 1px solid var(--lightGreyTransparent);
+}
+
+.servicePageContent .serviceDetails tbody tr td {
+	padding: 1.5em 0;
+	font-size: 0.875em;
+	vertical-align: top;
+}
+
+.servicePageContent .serviceDetails tbody tr td:first-child {
+	text-transform: uppercase;
+	font-weight: 700;
+	color: var(--pink);
+	width: 33%;
+}
+
+.servicePageContent .serviceDetails tbody tr td:last-child {
+	padding-left: 2em;
+}
+
+.servicePageContent h2 {
 	font-size: 1.5em;
-	margin: 1em 0;
+	margin: 0 0 1em;
+	font-weight: 700;
 }
 
 /**** -------------- DASHBOARD ------------ ****/ 
@@ -724,11 +753,15 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 }
 
 .dashboard .mainNav {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	font-size: 0.875em;
 	background: #fff;
 	float: none;
 	width: 20%;
-	max-width: 380px;
-	min-width: 320px;
+	max-width: 320px;
+	min-width: 280px;
 	border: none;
 	margin-right: 1em;
 	box-shadow: 
@@ -831,22 +864,27 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	content: '';
 	display: block;
 	position: absolute;
-	height: 1em;
-	width: 1em;
+	height: 1.25em;
+	width: 1.25em;
 	left: 1em;
 	top: 1.25em
 }
 
 .appNav li.catalogue:before {
-	background: url(img/searchIcon.svg);
+	background: url(img/searchIcon.svg) center no-repeat;
 }
 
 .appNav li.serviceOffering:before {
-	background: url(img/serviceOffering.svg);
+	background: url(img/serviceOffering.svg) center no-repeat;
+}
+
+.appNav li.feedback:before {
+	background: url(img/feedbackIcon.svg) center no-repeat;
 }
 
 .dashboard .main {
 	padding: 1em;
+    margin-left: 320px;
 }
 
 .dashboard .main header {
@@ -1321,4 +1359,32 @@ fieldset legend {
 	background: transparent;
 	cursor: pointer;
 	color: var(--pink)
+}
+
+/************ ------------- CONTENT PAGE ------------ ***********/
+
+.textBlock {
+	padding: 2em 2em 3em 2em;
+	background: #fff;
+	border-radius: 0.5em;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
+}
+
+.textBlock a {
+	text-decoration: none;
+}
+
+.textBlock h2 {
+	font-size: 1.5em;
+	font-weight: 700;
+	margin: 1em 0 0.5em;
+}
+
+.textBlock p {
+	margin-bottom: 2em;
+}
+
+.textBlock hr {
+	margin: 3em 0 1em;
+	border: 1px solid var(--lightGreyTransparent);
 }
