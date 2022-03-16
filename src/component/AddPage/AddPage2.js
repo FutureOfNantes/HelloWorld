@@ -1,14 +1,58 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addType, addTypeData, addLevelData, addFormatData, addOriginalData, addPersonalData, addLabel } from '../../features/reducers/serviceSlice';
 
 const AddPage2 = ({ setButtonContinuer }) => {
-  const [resourceType, setResourceType] = useState('')
+  const dispatch = useDispatch();
+  const service = useSelector((state) => state.newService);
+
+  const buttonDisplay = () => {
+    if (!service.type.length || !service.typeData.length || !service.levelData.length || !service.formatData.length || !service.originalData.length )
+    setButtonContinuer(false)
+   else setButtonContinuer(true)
+}
+  
 
   const handleRessource = (event) => {
-    setResourceType(event.target.value)
-    if (event.target.value === "isDataset" || event.target.value === "isCode") setButtonContinuer(true)
-    else setButtonContinuer(false)
+    const serviceType = event.target.value
+      dispatch(addType(serviceType))
+      buttonDisplay()
   }
 
+  const handleType = (event) => {
+    const typeData = event.target.value
+    dispatch(addTypeData(typeData))
+    buttonDisplay()
+  }
+
+  const handleLevel = (event) => {
+    const levelData = event.target.value
+    dispatch(addLevelData(levelData))
+    buttonDisplay()
+  }
+
+  const handleFormat = (event) => {
+    const formatData = event.target.value
+    dispatch(addFormatData(formatData))
+    buttonDisplay()
+  }
+
+  const handleStandard = (event) => {
+    const originalData = event.target.value
+    dispatch(addOriginalData(originalData))
+    buttonDisplay()
+  }
+
+  const handlePersonnal = (event) => {
+    const personalData = event.target.value
+    dispatch(addPersonalData(personalData))
+    buttonDisplay()
+  }
+
+  const handleLabel = (event) => {
+    const labelData = event.target.value
+    dispatch(addLabel(labelData))
+    buttonDisplay()
+  }
 
   return (
     <div>
@@ -19,19 +63,19 @@ const AddPage2 = ({ setButtonContinuer }) => {
         <div className="flex row selectServiceType">
 
           <div className="flex-1">
-            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="isDataset" required
+            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="data" required
               onClick={handleRessource} />
             <label htmlFor="resourceTypeDataSet" className="button actAsButton radioLabel forresourceTypeDataSet">Données</label>
           </div>
 
           <div className="flex-1">
-            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="isService" required
+            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="service" required
               onClick={handleRessource} />
             <label htmlFor="resourceTypeService" className="button actAsButton radioLabel forresourceTypeService">Service</label>
           </div>
 
           <div className="flex-1">
-            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeCode' value="isCode" required
+            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeCode' value="code" required
               onClick={handleRessource} />
             <label htmlFor="resourceTypeCode" className="button actAsButton radioLabel forresourceTypeCode">Code</label>
           </div>
@@ -39,52 +83,57 @@ const AddPage2 = ({ setButtonContinuer }) => {
         </div>
 
       </fieldset >
-      {resourceType === "isDataset" && <div>
+      {service.type === "data" && <div>
         <div className="formGroup select">
-          <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required>
+          <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
+          onChange={handleType}>
             <option value="">Type de données proposées</option>
-            <option value="">Données démographiques</option>
-            <option value="">Données sociétales</option>
-            <option value="">Données sur les traces d'apprentissage</option>
-            <option value="">Données sur les diplômes</option>
-            <option value="">Données sur les formations</option>
-            <option value="">Données issues de la recherche</option>
-            <option value="">Données périscolaires</option>
-            <option value="">Données parascolaires</option>
-            <option value="">Données extrascolaires</option>
+            <option value="Données démographiques">Données démographiques</option>
+            <option value="Données sociétales">Données sociétales</option>
+            <option value="Données sur les traces d'apprentissage">Données sur les traces d'apprentissage</option>
+            <option value="Données sur les diplômes">Données sur les diplômes</option>
+            <option value="Données sur les formations">Données sur les formations</option>
+            <option value="Données issues de la recherche">Données issues de la recherche</option>
+            <option value="Données périscolaires">Données périscolaires</option>
+            <option value="Données parascolaires">Données parascolaires</option>
+            <option value="Données extrascolaires">Données extrascolaires</option>
           </select>
           <label htmlFor="dataType" className="formLabel">Type de données proposées</label>
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required>
+          <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required
+          onChange={handleLevel}>
             <option value="">Niveau concerné par les données</option>
-            <option value="">Primaire</option>
-            <option value="">Secondaire</option>
-            <option value="">Supérieur</option>
-            <option value="">Formation tout au long de la vie</option>
+            <option value="Primaire">Primaire</option>
+            <option value="Secondaire">Secondaire</option>
+            <option value="Supérieur">Supérieur</option>
+            <option value="Formation tout au long de la vie">Formation tout au long de la vie</option>
           </select>
           <label htmlFor="dataLevel" className="formLabel">Niveau concerné par les données</label>
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required>
+          <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required
+          onChange={handleFormat}>
             <option value="">Format des données</option>
-            <option value="">Json</option>
-            <option value="">XML</option>
+            <option value="Json">Json</option>
+            <option value="XML">XML</option>
           </select>
           <label htmlFor="dataFormat" className="formLabel">Format des données</label>
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required>
-            <option value="">JSON-LD</option>
-            <option value="">Microdonnées</option>
-            <option value="">RDFA</option>
-            <option value="">Traces d'apprentissage</option>
-            <option value="">Données sur les diplômes</option>
-            <option value="">Données sur les formations</option>
-            <option value="">Données issues de la recherche</option>
+          <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required
+          onChange={handleStandard}>
+            <option value="">Standard de description des données</option>
+            <option value="JSON-LD">JSON-LD</option>
+            <option value="Microdonnées">Microdonnées</option>
+            <option value="RDFA">RDFA</option>
+            <option value="Traces d'apprentissage">Traces d'apprentissage</option>
+            <option value="Données sur les diplômes">Données sur les diplômes</option>
+            <option value="Données sur les formations">Données sur les formations</option>
+            <option value="Données issues de la recherche">Données issues de la recherche</option>
           </select>
           <label htmlFor="dataStandard" className="formLabel">Standard de description des données</label>
         </div>
@@ -96,48 +145,49 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <div className="flex row">
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="false" required />
+              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="false" required 
+              onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataNo" className="button actAsButton radioLabel">Non</label>
             </div>
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="true" required />
+              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="true" required 
+              onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataYes" className="button actAsButton radioLabel">Oui</label>
             </div>
 
           </div>
 
-          <p><br />Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
+          <p><br/>Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
           <legend>La ressource que je partage satisfait le label</legend>
-          <div className="flex row selectServiceType">
+          <div className="flex row">
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="isDataset" required />
-              <label htmlFor="resourceTypeDataSet" className="button actAsButton radioLabel">GAIA-X 1</label>
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType1' value="label1" required
+              onClick={handleLabel} />
+              <label htmlFor="labelType1" className="button actAsButton radioLabel">GAIA-X 1</label>
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="isService" required />
-              <label htmlFor="resourceTypeService" className="button actAsButton radioLabel">GAIA-X 2</label>
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType2' value="label2" required 
+              onClick={handleLabel} />
+              <label htmlFor="labelType2" className="button actAsButton radioLabel">GAIA-X 2</label>
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeCode' value="isCode" required />
-              <label htmlFor="resourceTypeCode" className="button actAsButton radioLabel">GAIA-X 3</label>
+              <input type="radio" className="formField" placeholder="Type de label" name="resourceType" id='labelType3' value="label3" required 
+              onClick={handleLabel} />
+              <label htmlFor="labelType3" className="button actAsButton radioLabel">GAIA-X 3</label>
             </div>
           </div>
         </fieldset>
       </div>}
-      {resourceType === "isService" && <div>
+      {service.type === "service" && <div>
         L'ajout de services sera possible dans quelques semaines
         </div>}
-        {resourceType === "isCode" &&
-        <div className="formGroup field">
-				<input type="input" className="formField" placeholder="Documentation" name="resourceName" id='documentation' required />
-				<label htmlFor="documentation" className="formLabel">Github/Gitlab</label>
+        {service.type === "code" && <div>
+        L'ajout de code sera possible dans quelques semaines
         </div>}
     </div>
-
-
   )
 }
 

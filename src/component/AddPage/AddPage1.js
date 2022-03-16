@@ -1,13 +1,23 @@
+import { useDispatch, useSelector } from "react-redux";
+import { addTitle, addDescription } from '../../features/reducers/serviceSlice';
+
 const AddPage1 = ({ setButtonContinuer }) => {
-    const fulled = {title: false, description: false}
+    const dispatch = useDispatch();
+    const service = useSelector((state) => state.newService);
+
+    const buttonDisplay = () => {
+        if (service.title.length > 5 && service.description.length > 5) setButtonContinuer(true)
+        else setButtonContinuer(false)
+    }
+ 
     const handleTitle = (event) => {
-        if (event.target.value !== "") fulled.title = true;
-        if (fulled.title && fulled.description) setButtonContinuer(true)
+        dispatch(addTitle(event.target.value))
+        buttonDisplay()
     }
 
     const handleDescription = (event) => {
-        if (event.target.value !== "") fulled.description = true;
-        if (fulled.title && fulled.description) setButtonContinuer(true)
+        dispatch(addDescription(event.target.value))
+        buttonDisplay()
     }
 
 

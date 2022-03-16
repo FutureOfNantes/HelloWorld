@@ -65,7 +65,7 @@ const DashboardNav = ({ myOffer, setMyOffer }) => {
                     {!myOffer && <li className="actAsButton serviceOffering" onClick={handleMyOffer}>Mon offre</li>}
                     {myOffer && <li className="actAsButton catalogue" onClick={handleCatalog}>Catalogue</li>}
                     {!myOffer && <li className="actAsButton catalogue current" onClick={handleCatalog}>Catalogue</li>}
-                    <li class="actAsButton feedback current" onClick={handleSurvey}>
+                    <li className="actAsButton feedback current" onClick={handleSurvey}>
 							Donnez-nous votre avis !
 						</li>
                     <li className="actAsButton" onClick={handleDisconnect}>

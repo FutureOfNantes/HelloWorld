@@ -18,6 +18,78 @@ export const addAsyncService = createAsyncThunk(
     }
 );
 
+export const newServiceSlice = createSlice({
+    name: "newService",
+    initialState: {
+        id: '',
+        title: '',
+        description: '',
+        type:'',
+        typeData: '',
+        levelData: '',
+        formatData: '',
+        originalData: '',
+        personalData: false,
+        labelData: '',
+        accessData: '',
+        accessType: '',
+        urlType: '',
+        documentation: '',
+        conditions: '',
+        entity: '',
+        authorDid: ''
+    },
+    reducers: {
+        addTitle: (state, { payload }) => {
+            state.title = payload;
+        },
+        addDescription: (state, { payload }) => {
+            state.description = payload;
+        },
+        addType: (state, { payload }) => {
+            state.type = payload;
+        },
+        addTypeData: (state, { payload }) => {
+            state.typeData = payload;
+        },
+        addLevelData: (state, { payload }) => {
+            state.levelData = payload;
+        },
+        addFormatData: (state, { payload }) => {
+            state.formatData = payload;
+        },
+        addOriginalData: (state, { payload }) => {
+            state.originalData = payload;
+        },
+        addPersonalData: (state, { payload }) => {
+            state.personalData = payload;
+        },
+        addLabel: (state, { payload }) => {
+            state.labelData = payload;
+        },
+        addAccessData: (state, { payload }) => {
+            state.accessData = payload;
+        },
+        addAccessType: (state, { payload }) => {
+            state.accessType = payload;
+        },
+        addUrl: (state, { payload }) => {
+            state.urlType = payload;
+        },
+        addDocumentation: (state, { payload }) => {
+            state.documentation = payload;
+        },
+        addConditions: (state, { payload }) => {
+            state.conditions = payload;
+        },
+        addInfo: (state, { payload }) => {
+            state.entity = payload.entity;
+            state.authorDid = payload.authorDid;
+            state.id = payload.id;
+        }
+    }
+})
+
 export const serviceSlice = createSlice({
     name: "servicesList",
     initialState: {
@@ -25,10 +97,10 @@ export const serviceSlice = createSlice({
     },
     reducers: {
         getServices: (state, { payload }) => {
-            state.user = payload;
+            state.service = payload;
         },
         addService: (state, { payload }) => {
-            state.user = payload;
+            state.service = payload;
         }
     },
     extraReducers: {
@@ -42,11 +114,20 @@ export const serviceSlice = createSlice({
         [fetchAsyncServices.rejected]: () => {
             console.log("Services Rejected");
         },
+        [addAsyncService.pending]: (state, {payload}) => {
+            console.log("Pending Adding Service");
+        },
         [addAsyncService.fulfilled]: (state, {payload}) => {
             console.log("Service Added Successfully");
+        },
+        [addAsyncService.rejected]: (state, {payload}) => {
+            console.log("Adding Service Rejected");
         },
 
     }
 });
 
 export const { getServices, addService } = serviceSlice.actions;
+export const { addTitle, addDescription, addType, addTypeData, addLevelData, 
+    addFormatData, addOriginalData, addPersonalData, addLabel, addAccessData,
+    addAccessType, addUrl, addDocumentation, addConditions, addInfo } = newServiceSlice.actions;

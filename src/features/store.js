@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { connectionSlice } from "./reducers/connectionSlice"
 import { userSlice } from "./reducers/userSlice"
-import { serviceSlice } from "./reducers/serviceSlice"
+import { newServiceSlice, serviceSlice } from "./reducers/serviceSlice"
 import { visionsSlice } from "./reducers/visionsSlice"
 
 export const store = configureStore({
@@ -9,6 +9,7 @@ export const store = configureStore({
         connection: connectionSlice.reducer,
         usersList: userSlice.reducer,
         servicesList:  serviceSlice.reducer,
-        visions: visionsSlice.reducer
+        visions: visionsSlice.reducer,
+        newService: newServiceSlice.reducer
     }
 })

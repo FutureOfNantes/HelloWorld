@@ -1,14 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
+import { v4 as uuid } from 'uuid';
 import AddPage0 from "../component/AddPage/AddPage0";
 import AddPage1 from "../component/AddPage/AddPage1";
 import AddPage2 from "../component/AddPage/AddPage2";
 import AddPage3 from "../component/AddPage/AddPage3";
 import AddPage4 from "../component/AddPage/AddPage4";
 import AddPage5 from "../component/AddPage/AddPage5";
-
+import { addInfo, addAsyncService } from '../features/reducers/serviceSlice';
 import separator from '../style/img/separator.svg';
 
 const AddService = ({ newService, setNewService }) => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+	const service = useSelector((state) => state.newService);
+    const account = useSelector((state) => state.connection.account);
+
+
+    useEffect(() => {
+        const unique_id = uuid()
+        const infos = {
+            id: unique_id,
+            authorDid: account.did,
+            entity: account.companyName
+            
+        }
+        dispatch(addInfo(infos));
+
+	}, [])
+
+    const handleSign = () => {
+		dispatch(addAsyncService(service));
+        navigate("/dashboard")
+    }
+
+
+
+
     const stylegreenButton = "current button actAsButton greenButton"
     const styleblackButton = "current button actAsButton blackButton"
     const stylewhiteButton = "current button actAsButton whiteButton"
@@ -121,7 +150,8 @@ const AddService = ({ newService, setNewService }) => {
                 { newService<5 && buttonContinuer &&
                 <button className="button blackButton" onClick={handleSubmit}>Continuer</button>}
                 {newService === 5 &&
-               <input type="submit" className="button blackButton connectMetamask" value="Signer l'ajout au catalogue sur Metamask" /> 
+               <input type="submit" className="button blackButton connectMetamask" value="Signer l'ajout au catalogue sur Metamask" 
+               onClick={handleSign} /> 
                 }
             </div>
             </section>
