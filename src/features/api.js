@@ -7,3 +7,5 @@ export const URL_VERIFY = 'https://dases-proto.herokuapp.com/verify'
 // export const URL_USER = 'http://localhost:5000/users'
 // export const URL_NONCE = 'http://localhost:5000/nonce'
 // export const URL_VERIFY = 'http://localhost:5000/verify'
+
+export const URL_VISIONS = ''

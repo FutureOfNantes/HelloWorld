@@ -1,10 +1,8 @@
-import logoDasesLab from '../style/img/logoDL.svg'
-
 const Footer = () => {
     return (
 		<footer className="container">
 			<div>
-			<a href='/'><img src={logoDasesLab} alt=""/></a>
+			<a href='/'><img src="favicon.svg" alt=""/></a>
 			<p>
 				Dases Lab est le portail de catalogage des services et données du data space éducation & compétences
 				</p>

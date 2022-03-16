@@ -15,6 +15,7 @@ const DashboardService = ({ setServiceSelected }) => {
 				<li><button onClick={serviceHandler}>Catalogue</button></li>
 				<li className="current"><button onClick={serviceHandler}>Inokufu Competency V2</button></li>
 			</ul>
+			</section>	
 
 			<main className="container sectionContent">
 
@@ -64,7 +65,6 @@ const DashboardService = ({ setServiceSelected }) => {
 
 			</main>
 			
-		</section>	
 	</body>
     )
 }
