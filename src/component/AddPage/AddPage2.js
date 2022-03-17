@@ -6,16 +6,16 @@ const AddPage2 = ({ setButtonContinuer }) => {
   const service = useSelector((state) => state.newService);
 
   const buttonDisplay = () => {
-    if (!service.type.length || !service.typeData.length || !service.levelData.length || !service.formatData.length || !service.originalData.length )
-    setButtonContinuer(false)
-   else setButtonContinuer(true)
-}
-  
+    if (!service.type.length || !service.typeData.length || !service.levelData.length || !service.formatData.length || !service.originalData.length)
+      setButtonContinuer(false)
+    else setButtonContinuer(true)
+  }
+
 
   const handleRessource = (event) => {
     const serviceType = event.target.value
-      dispatch(addType(serviceType))
-      buttonDisplay()
+    dispatch(addType(serviceType))
+    buttonDisplay()
   }
 
   const handleType = (event) => {
@@ -86,14 +86,13 @@ const AddPage2 = ({ setButtonContinuer }) => {
       {service.type === "data" && <div>
         <div className="formGroup select">
           <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
-          onChange={handleType}>
+            onChange={handleType}>
             <option value="">Type de données proposées</option>
             <option value="Données démographiques">Données démographiques</option>
             <option value="Données sociétales">Données sociétales</option>
             <option value="Données sur les traces d'apprentissage">Données sur les traces d'apprentissage</option>
             <option value="Données sur les diplômes">Données sur les diplômes</option>
             <option value="Données sur les formations">Données sur les formations</option>
-            <option value="Données issues de la recherche">Données issues de la recherche</option>
             <option value="Données périscolaires">Données périscolaires</option>
             <option value="Données parascolaires">Données parascolaires</option>
             <option value="Données extrascolaires">Données extrascolaires</option>
@@ -103,7 +102,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
 
         <div className="formGroup select">
           <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required
-          onChange={handleLevel}>
+            onChange={handleLevel}>
             <option value="">Niveau concerné par les données</option>
             <option value="Primaire">Primaire</option>
             <option value="Secondaire">Secondaire</option>
@@ -115,7 +114,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
 
         <div className="formGroup select">
           <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required
-          onChange={handleFormat}>
+            onChange={handleFormat}>
             <option value="">Format des données</option>
             <option value="Json">Json</option>
             <option value="XML">XML</option>
@@ -125,15 +124,11 @@ const AddPage2 = ({ setButtonContinuer }) => {
 
         <div className="formGroup select">
           <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required
-          onChange={handleStandard}>
+            onChange={handleStandard}>
             <option value="">Standard de description des données</option>
             <option value="JSON-LD">JSON-LD</option>
             <option value="Microdonnées">Microdonnées</option>
             <option value="RDFA">RDFA</option>
-            <option value="Traces d'apprentissage">Traces d'apprentissage</option>
-            <option value="Données sur les diplômes">Données sur les diplômes</option>
-            <option value="Données sur les formations">Données sur les formations</option>
-            <option value="Données issues de la recherche">Données issues de la recherche</option>
           </select>
           <label htmlFor="dataStandard" className="formLabel">Standard de description des données</label>
         </div>
@@ -145,37 +140,40 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <div className="flex row">
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="false" required 
-              onClick={handlePersonnal} />
+              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="false" required
+                onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataNo" className="button actAsButton radioLabel">Non</label>
             </div>
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="true" required 
-              onClick={handlePersonnal} />
+              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="true" required
+                onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataYes" className="button actAsButton radioLabel">Oui</label>
             </div>
 
           </div>
 
-          <p><br/>Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
-          <legend>La ressource que je partage satisfait le label</legend>
+          <p><br />Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
+          <legend>
+            Quel niveau de label Gaia-X votre ressource satisfait-elle ?
+            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" rel="noopener noreferrer" className="helpIcon"></a>
+          </legend>
           <div className="flex row">
             <div className="flex-1">
               <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType1' value="label1" required
-              onClick={handleLabel} />
+                onClick={handleLabel} />
               <label htmlFor="labelType1" className="button actAsButton radioLabel">GAIA-X 1</label>
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType2' value="label2" required 
-              onClick={handleLabel} />
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType2' value="label2" required
+                onClick={handleLabel} />
               <label htmlFor="labelType2" className="button actAsButton radioLabel">GAIA-X 2</label>
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="resourceType" id='labelType3' value="label3" required 
-              onClick={handleLabel} />
+              <input type="radio" className="formField" placeholder="Type de label" name="resourceType" id='labelType3' value="label3" required
+                onClick={handleLabel} />
               <label htmlFor="labelType3" className="button actAsButton radioLabel">GAIA-X 3</label>
             </div>
           </div>
@@ -183,10 +181,10 @@ const AddPage2 = ({ setButtonContinuer }) => {
       </div>}
       {service.type === "service" && <div>
         L'ajout de services sera possible dans quelques semaines
-        </div>}
-        {service.type === "code" && <div>
+      </div>}
+      {service.type === "code" && <div>
         L'ajout de code sera possible dans quelques semaines
-        </div>}
+      </div>}
     </div>
   )
 }

@@ -5,16 +5,19 @@ import { addAsyncUser } from '../features/reducers/userSlice';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 const VerifiableCredential = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const did = useSelector((state) => state.connection.did);
     const [legalRep, setlegalRep] = useState(true);
     const {register, handleSubmit } = useForm();
 
     const handleClose = () => {
         dispatch(connectReducer(false));
+        navigate('/');
     }
 
     const handleLegalRep = () => {
@@ -73,9 +76,10 @@ const VerifiableCredential = () => {
                     </div>}
                     <div className="formGroup">
                         <input type="checkbox" id="consentCGV" />
-                        <label htmlFor="consentCGV">Je consens à rejoindre Prometheus, et m’engage à respecter sa charte</label>
+                        <label htmlFor="consentCGV">Je consens à rejoindre DasesLab, et m’engage à respecter sa charte d'utilisation</label>
                     </div>
-                    <input type="submit" className="button blackButton" value="Continuer" />
+                    <input type="submit" className="button blackButton" value="Confirmer mon identité" />
+                    <p>Et me connecter au Dashboard</p>
                 </form>
             </section>
         </div>

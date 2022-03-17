@@ -112,6 +112,7 @@ h1, h2, h3, h4 {
 
 .w1240 { width: 1240px; }
 .w100p {width: 100%;}
+.w50p {width: 50%;}
 
 .floatLeft { float: left; }
 .floatRight { float: right; }
@@ -120,6 +121,16 @@ strong {font-weight: 700;}
 .textCenter { text-align: center; }
 .p01em { padding: 0 1em 1em 0; }
 .absolute {position: absolute;}
+
+.helpIcon {
+	display: block;
+	width: 1.5em;
+	height: 1.5em;
+	background: url(img/helpIcon.svg) center no-repeat;
+	right: 0;
+	top: 1em;
+	position: absolute;
+}
 
 
 /* ------------- HEADER --------------*/
@@ -571,7 +582,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 .breadcrumb {
 	padding: 1.5em 0;
 	width: 100%;
-	border-bottom: 1px solid var(--pink);
+	border-bottom: 1px solid var(--lightGreyTransparent);
 	margin-bottom: 1em;
 }
 
@@ -744,7 +755,6 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 .dashboard {
 	display: flex;
 	align-items: stretch;
-	background: var(--lightGrey);
 	height: 100%
 }
 
@@ -1038,8 +1048,10 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 
 input[type=submit].connectMetamask {
 	background-image: url(img/metamask.png);
-	background-position: 97% center;
+	background-position: 95% center;
 	background-repeat: no-repeat;
+	background-size: 2em;
+	padding-right: 4em;
 }
 
 .button.connectMetamask:before {
@@ -1222,6 +1234,11 @@ fieldset legend {
 	font-weight: 700;
 	color: var(--black);
 	padding: 1em 0 0.75em;
+	position: relative;
+	padding-right: 1.5em;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
 }
 
 
