@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from 'react';
-
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import Connection from '../component/Connection';
@@ -7,9 +6,11 @@ import inokufuLogo from '../assets/logos/inokufu.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAsyncService } from '../features/reducers/visionsSlice';
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
+import { useNavigate } from 'react-router-dom';
 
 const Service = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 	useEffect(() => {
 		dispatch(fetchAsyncServices());
 	}, [dispatch])
@@ -27,6 +28,7 @@ const Service = () => {
     }
     const buttonName = "Demander l'intégration";
     const handleBack = () => {
+        navigate(-1);
     }
 
     const handleIntegration = () => {
