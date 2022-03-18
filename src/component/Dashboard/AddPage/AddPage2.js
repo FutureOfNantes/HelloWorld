@@ -156,7 +156,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <p><br />Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
           <legend>
             Quel niveau de label Gaia-X votre ressource satisfait-elle ?
-            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" className="helpIcon"></a>
+            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" className="helpIcon"/>
           </legend>
           <div className="flex row">
             <div className="flex-1">
