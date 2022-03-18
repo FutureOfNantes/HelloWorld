@@ -1,6 +1,6 @@
 import Header from '../component/Header'
 import Footer from '../component/Footer'
-import { useNavigate } from 'react-router-dom'
+
 
 const Mentions = () => {
     return (

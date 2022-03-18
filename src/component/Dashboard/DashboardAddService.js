@@ -28,7 +28,7 @@ const AddService = () => {
         }
         dispatch(addInfo(infos));
 
-	}, [])
+	})
 
     const handleSign = () => {
 		dispatch(addAsyncService(service));
