@@ -3,19 +3,18 @@ import { addAsyncUser } from '../features/reducers/userSlice';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { URL_NONCE, URL_VERIFY } from '../features/api'
+import { URL_NONCE } from '../features/api'
 import { ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
-import { EthrDID } from 'ethr-did';
-import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
+import { connectReducer, walletReducer } from '../features/reducers/connectionSlice';
 
 
 const VerifiableCredential = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const did = useSelector((state) => state.connection.did);
-    const usersList = useSelector((state) => state.usersList.user);
     const [legalRep, setlegalRep] = useState(true);
+    const [vcDone, setVcDone] =useState(false);
     const { register, handleSubmit } = useForm();
 
     const handleClose = () => {
@@ -60,7 +59,7 @@ const VerifiableCredential = () => {
                 identifier = await signer.getAddress()
                 message = await createSiweMessage(
                     identifier,
-                    `Signer pour s'authentifier sur Dases Lab`
+                    `Signer pour créer votre laisser passer sur Dases Lab`
                 );
 
                 console.log(message);
@@ -68,43 +67,10 @@ const VerifiableCredential = () => {
                 console.log("signature: ", signature);
             }
 
-            const sendForVerification = async () => {
-                const res = await fetch(URL_VERIFY, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message, signature }),
-                });
-                console.log("outcome:", await res.text());
-            }
-
-            const verifyVC = async () => {
-                const ethrDid = new EthrDID({ identifier, provider, chainNameOrId: 'rinkeby' });
-                const providerConfig = {
-                    rpcUrl: 'https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e',
-                    registry: '0xdca7ef03e98e0dc2b855be647c39abe984fcf21b',
-                    name: 'rinkeby'
-                }
-                const currentUser = await usersList.filter(users => (users.did === ethrDid.did));
-                dispatch(didReducer(ethrDid.did));
-                if (currentUser[0] != null) {
-
-                    dispatch(accountReducer(currentUser[0]));
-                    dispatch(onboardedReducer(true));
-                    navigate("/dashboard")
-
-                } else {
-                    dispatch(accountReducer({}));
-                    dispatch(onboardedReducer(false));
-                    navigate("/vc");
-                }
-            }
-
             await signInWithEthereum();
             dispatch(addAsyncUser(data));
             dispatch(connectReducer(true));
-            await verifyVC();
+            setVcDone(true);
 
         }
         else {
@@ -121,11 +87,12 @@ const VerifiableCredential = () => {
 
     return (
         <div className="onboarding flex column">
+            {!vcDone &&
             <section className="main onboardingStep onboardingUserInfos">
                 <button className="closeButton fixed" onClick={handleClose}>Fermer</button>
                 <h1>
                     <img src="favicon.svg" alt="logoDasesLab" /> <br /><br />
-                    Obtenez votre laisser passer
+                    Obtenez votre laissez-passer
                 </h1>
                 <p>Prometheus met en relation des humains et des entreprises, pas des clés publiques. Nous avons besoin de savoir qui se cache derrière cette clé publique pour vous permettre de publier et utiliser des ressources sur le portail</p>
                 <input className="publicKey" {...register("did")} value={did} readOnly />
@@ -167,9 +134,29 @@ const VerifiableCredential = () => {
                         <label htmlFor="consentCGV">Je consens à rejoindre DasesLab, et m’engage à respecter sa charte d'utilisation</label>
                     </div>
                     <input type="submit" className="button blackButton" value="Confirmer mon identité" />
-                    <p>Et me connecter au Dashboard</p>
                 </form>
-            </section>
+            </section>}
+            {!!vcDone && <section className="main onboardingStep onboardingUserInfos">
+                <button className="closeButton fixed" onClick={handleClose}>Fermer</button>
+                <h1>
+                    <img src="favicon.svg" alt="logoDasesLab" /> <br /><br />
+                    Votre laissez-passer est créé
+                </h1>
+                <p>Vous pouvez maintenant vous connecter sur la page d'accueil</p>
+                    <button className="button blackButton" onClick={handleClose}>Retourner sur le Portail</button>
+            </section>}
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     )
 }

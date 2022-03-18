@@ -31,7 +31,6 @@ const AddService = () => {
 	}, [])
 
     const handleSign = () => {
-        console.log(service);
 		dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
     }
