@@ -24,7 +24,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Catalog />} />
-        {/* <Route path="/service/:id" element={<Service dashboard='false' />} />
+        <Route path="/service/:id" element={<Service dashboard='false' />} />
         <Route path="/metamask" element={<NoMetamask />} />
         <Route path="/vc" element={<VerifiableCredential />} />
         <Route path="/dashboard" element={<Dashboard />} >
@@ -36,7 +36,7 @@ const App = () => {
           <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' />} />
         </Route>
         <Route path="/mentions" element={<Mentions />} />
-        <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
   );
