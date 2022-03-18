@@ -1,4 +1,5 @@
 import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
+import Daseslogo from '../style/img/favicon.svg'
 import Connection from './Connection'
 
 const Header = () => {
@@ -12,7 +13,7 @@ const Header = () => {
             </div>
             <div className="header_navBar container clearfix">
                 <div className="floatLeft">
-                    <img src="favicon.svg" alt="daseslab_logo" />
+                    <img src={Daseslogo} alt="daseslab_logo" />
                 </div>
                 <div className="floatRight">
                     <ul className="mainNav">

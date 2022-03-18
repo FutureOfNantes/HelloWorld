@@ -16,6 +16,7 @@ import DashboardCatalog from './component/Dashboard/DashboardCatalog';
 import DashboardMyOffer from './component/Dashboard/DashboardMyOffer';
 import DashboardSurvey from './component/Dashboard/DashboardSurvey';
 import DashboardConfirm from './component/Dashboard/DashboardConfirm';
+import DashboardService from './component/Dashboard/DashboardService';
 
 const App = () => {
 
@@ -23,7 +24,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Catalog />} />
-        <Route path="/service" element={<Service />} />
+        <Route path="/service/:id" element={<Service dashboard='false' />} />
         <Route path="/metamask" element={<NoMetamask />} />
         <Route path="/vc" element={<VerifiableCredential />} />
         <Route path="/dashboard" element={<Dashboard />} >
@@ -31,7 +32,8 @@ const App = () => {
           <Route path="/dashboard/myoffer" element={<DashboardMyOffer />} />
           <Route path="/dashboard/catalog" element={<DashboardCatalog />} />
           <Route path="/dashboard/survey" element={<DashboardSurvey />} />
-          <Route path="/dashboard/confirm" element={<DashboardConfirm />} />        
+          <Route path="/dashboard/confirm" element={<DashboardConfirm />} />
+          <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' />} />
         </Route>
         <Route path="/mentions" element={<Mentions />} />
         <Route path="*" element={<PageNotFound />} />

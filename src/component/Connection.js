@@ -7,7 +7,7 @@ import { EthrDID } from 'ethr-did';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Connection = ({ buttonName, typeConnection }) => {
+const Connection = ({ buttonName, typeConnection, id }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
@@ -84,7 +84,7 @@ const Connection = ({ buttonName, typeConnection }) => {
                         break;
                         case 'add': navigate("/dashboard/add")
                         break;
-                        case 'use': navigate("/dashboard/catalog")
+                        case 'use': navigate(`/dashboard/service/${id}`)
                         break;
                         default: console.log("Problème d'usage du bouton Connexion")
                     }

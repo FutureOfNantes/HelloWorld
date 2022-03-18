@@ -7,6 +7,7 @@ import CatalogList from '../component/CatalogList'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 
+
 const Catalog = () => {
 	const dispatch = useDispatch();
 	const dashboard = false

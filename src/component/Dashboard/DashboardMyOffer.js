@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import serviceOfferingEmpty from '../../assets/img/serviceOfferingEmpty.svg'
@@ -16,14 +16,6 @@ const DashboardMyOffer = () => {
 	const did = useSelector((state) => state.connection.did);
 	// if (!servicesList.length) return <h3>Loading...</h3>;
 	if (!did.length) return <h3>Loading...</h3>;
-
-	const handleService = () => {
-		navigate("/service")
-	}
-
-	const handleAdd = () => {
-		navigate("/dashboard/add")
-	}
 
 	const handleRessource = () => {
 		navigate("/dashboard/add")
@@ -49,10 +41,10 @@ const DashboardMyOffer = () => {
 			{!!filteredServices.length && <div className="sectionContent flex row wrap container serviceOfferingList">
 				{filteredServices.map((item) => (
 					<div key={item.id} className="serviceOffer">
-						<div key={item.id} className="serviceTitle">
+						<div className="serviceTitle">
 							<h2>{item.title}</h2>
 						</div>
-						<div key={item.id} className="serviceContent">
+						<div className="serviceContent">
 							<p className="serviceDescription">{item.description}</p>
 							<ul className="actionButtons flex raw">
 								<li className="flex-1">

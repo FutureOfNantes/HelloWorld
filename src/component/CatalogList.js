@@ -17,8 +17,9 @@ const CatalogList = ({ dashboard }) => {
 	
 	if (!servicesList.length) return <h3>Loading...</h3>;
 	
-    const handleService = () => {
-		navigate("/service")
+    const handleService = (id) => {
+		if (!dashboard) navigate(`/service/${id}`)
+		else navigate(`/dashboard/service/${id}`)
 	}
 
 	const handleAdd = () => {
@@ -27,8 +28,8 @@ const CatalogList = ({ dashboard }) => {
 	
 	return (
         <section className="container flex wrap catalogueList">
-			{servicesList.map((item, index) => (
-		<div key={index} className="catalogueCell" onClick={handleService}>
+			{servicesList.map((item) => (
+		<div key={item.id} className="catalogueCell" onClick={() => handleService(item.id)}>
 			<div className="title flex center">
 				<img src={entityUnkown} alt=""/>
 				<div>
