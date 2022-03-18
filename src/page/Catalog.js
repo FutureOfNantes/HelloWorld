@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAsyncUsers } from '../features/reducers/userSlice';
 
@@ -8,8 +8,8 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 
 const Catalog = () => {
-	const[addService, setAddService] = useState(false); 
 	const dispatch = useDispatch();
+	const dashboard = false
 
 	useEffect(() => {
 		dispatch(fetchAsyncUsers());
@@ -17,14 +17,14 @@ const Catalog = () => {
 
 	return (
 		<div>
-			<Header addService={addService}/>
+			<Header />
 			<section className="container hero">
-				<h1>Catalogue des données et services du<br />Data Space Education & Competences</h1>
+				<h1>Catalogue des données et services du<br />Data Space Education & Compétences</h1>
 			</section>
 			<section className="searchEngine container flex wrap row">
 				<SearchBar />
 			</section>
-			<CatalogList />
+			<CatalogList dashboard={dashboard}/>
 			<Footer />
 		</div>
 	)

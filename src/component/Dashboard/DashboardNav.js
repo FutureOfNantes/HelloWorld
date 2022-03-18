@@ -1,36 +1,60 @@
 import entityUnkown from '../../assets/entityUnKnown.svg'
+import faviconDL from '../../style/img/favicon.svg'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
-const DashboardNav = ({ myOffer, setMyOffer }) => {
+const DashboardNav = () => {
+    const [classNav, setclassNav] = useState({
+        classMyOffer: "actAsButton serviceOffering current",
+        classCatalog: "actAsButton catalogue",
+        classSurvey: "actAsButton feedback",
+    })
     const account = useSelector((state) => state.connection.account);
     const did = useSelector((state) => state.connection.did);
     const navigate = useNavigate();
-    const shortDID = (did.substring(1,22)+ '...'+did.substring(54))
-    
+    const shortDID = (did.substring(1, 22) + '...' + did.substring(54))
+
     const handleDisconnect = async () => {
         navigate("/");
     }
-    
+
+
+
     const handleMyOffer = async () => {
-        setMyOffer(true)
+        navigate("/dashboard/myoffer")
+        setclassNav({
+            classMyOffer: "actAsButton serviceOffering current",
+            classCatalog: "actAsButton catalogue",
+            classSurvey: "actAsButton feedback",
+        })
     }
-    
+
     const handleCatalog = async () => {
-        setMyOffer(false)
+        navigate("/dashboard/catalog")
+        setclassNav({
+            classMyOffer: "actAsButton serviceOffering",
+            classCatalog: "actAsButton catalogue current",
+            classSurvey: "actAsButton feedback",
+        })
     }
 
     const handleSurvey = () => {
-        navigate("/survey")
+        navigate("/dashboard/survey")
+        setclassNav({
+            classMyOffer: "actAsButton serviceOffering",
+            classCatalog: "actAsButton catalogue",
+            classSurvey: "actAsButton feedback current",
+        })
     }
 
     return (
-            <aside className="mainNav">
+        <aside className="mainNav">
             <header>
                 <ul className="contextNav flex row wrap center">
                     <li>
                         <button className="mainLogo">
-                            <img src="favicon.svg" alt="" />
+                            <img src={faviconDL} alt="" />
                         </button>
                     </li>
                     <li>
@@ -49,10 +73,6 @@ const DashboardNav = ({ myOffer, setMyOffer }) => {
                     </li>
                     <li>
                         <button className="ellipsis"></button>
-                        <ul>
-                            <li>Mes informations</li>
-                            <li onClick={handleDisconnect}>Déconnexion</li>
-                        </ul>
                     </li>
                     <li>
                         <button className="notifications"></button>
@@ -61,13 +81,11 @@ const DashboardNav = ({ myOffer, setMyOffer }) => {
             </header>
             <nav className="appNav">
                 <ul className="flex column">
-                    {myOffer && <li className="actAsButton serviceOffering current"  onClick={handleMyOffer}>Mon offre</li>}
-                    {!myOffer && <li className="actAsButton serviceOffering" onClick={handleMyOffer}>Mon offre</li>}
-                    {myOffer && <li className="actAsButton catalogue" onClick={handleCatalog}>Catalogue</li>}
-                    {!myOffer && <li className="actAsButton catalogue current" onClick={handleCatalog}>Catalogue</li>}
-                    <li className="actAsButton feedback current" onClick={handleSurvey}>
-							Donnez-nous votre avis
-						</li>
+                    <li className={classNav.classMyOffer} onClick={handleMyOffer}>Mon offre</li>
+                    <li className={classNav.classCatalog} onClick={handleCatalog}>Catalogue</li>
+                    <li className={classNav.classSurvey} onClick={handleSurvey}>
+                        Donnez-nous votre avis
+                    </li>
                     <li className="actAsButton" onClick={handleDisconnect}>
                         Déconnexion
                     </li>

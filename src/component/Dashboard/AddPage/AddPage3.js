@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addAccessData, addAccessType, addUrl, addDocumentation } from '../../features/reducers/serviceSlice';
+import { addAccessData, addAccessType, addUrl, addDocumentation } from '../../../features/reducers/serviceSlice';
 
 
 const AddPage3 = ({ setButtonContinuer }) => {
@@ -7,7 +7,7 @@ const AddPage3 = ({ setButtonContinuer }) => {
 	const service = useSelector((state) => state.newService);
 
 	const buttonDisplay = () => {
-		if (!service.accessData.length || !service.accessType.length || !service.urlType.length)
+		if (!service.accessData.length || !service.accessType.length || !service.urlType.length || !service.documentation.length)
 		setButtonContinuer(false)
 	   else setButtonContinuer(true)
 	}
@@ -67,12 +67,12 @@ const AddPage3 = ({ setButtonContinuer }) => {
 				</div>
 			</fieldset>
 			<div className="formGroup field">
-				<input type="input" className="formField" placeholder="Où l’utilisateur peut-il en savoir plus sur les données ?" name="resourceName" id='webAddress' required 
+				<input type="url" className="formField" placeholder="Où l’utilisateur peut-il en savoir plus sur les données ?" name="resourceName" id='webAddress' required 
 				onChange={handleUrl}/>
 				<label htmlFor="webAddress" className="formLabel">Où l’utilisateur peut-il en savoir plus sur les données (URL) ?</label>
 			</div>
 			<div className="formGroup field">
-				<input type="input" className="formField" placeholder="Documentation" name="documentation" id='documentation' required 
+				<input type="url" className="formField" placeholder="Documentation" name="documentation" id='documentation' required 
 				onChange={handleDoc}/>
 				<label htmlFor="documentation" className="formLabel">Documentation (URL)</label>
 			</div>

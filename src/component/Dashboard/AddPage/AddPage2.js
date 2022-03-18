@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addType, addTypeData, addLevelData, addFormatData, addOriginalData, addPersonalData, addLabel } from '../../features/reducers/serviceSlice';
+import { addType, addTypeData, addLevelData, addFormatData, addOriginalData, addPersonalData, addLabel } from '../../../features/reducers/serviceSlice';
 
 const AddPage2 = ({ setButtonContinuer }) => {
   const dispatch = useDispatch();
   const service = useSelector((state) => state.newService);
 
   const buttonDisplay = () => {
-    if (!service.type.length || !service.typeData.length || !service.levelData.length || !service.formatData.length || !service.originalData.length)
+    if (!service.type.length || !service.typeData.length || !service.levelData.length || !service.formatData.length || !service.originalData.length )
       setButtonContinuer(false)
     else setButtonContinuer(true)
   }
@@ -87,7 +87,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
         <div className="formGroup select">
           <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
             onChange={handleType}>
-            <option value="">Type de données proposées</option>
+            <option value="" selected disabled>Type de données proposées</option>
             <option value="Données démographiques">Données démographiques</option>
             <option value="Données sociétales">Données sociétales</option>
             <option value="Données sur les traces d'apprentissage">Données sur les traces d'apprentissage</option>
@@ -103,7 +103,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
         <div className="formGroup select">
           <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required
             onChange={handleLevel}>
-            <option value="">Niveau concerné par les données</option>
+            <option value="" selected disabled>Niveau concerné par les données</option>
             <option value="Primaire">Primaire</option>
             <option value="Secondaire">Secondaire</option>
             <option value="Supérieur">Supérieur</option>
@@ -115,7 +115,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
         <div className="formGroup select">
           <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required
             onChange={handleFormat}>
-            <option value="">Format des données</option>
+            <option value="" selected disabled>Format des données</option>
             <option value="Json">Json</option>
             <option value="XML">XML</option>
           </select>
@@ -125,7 +125,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
         <div className="formGroup select">
           <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required
             onChange={handleStandard}>
-            <option value="">Standard de description des données</option>
+            <option value="" selected disabled>Standard de description des données</option>
             <option value="JSON-LD">JSON-LD</option>
             <option value="Microdonnées">Microdonnées</option>
             <option value="RDFA">RDFA</option>
@@ -140,13 +140,13 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <div className="flex row">
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="false" required
+              <input type="radio" className="formField" placeholder="Ma ressource ne donne pas accès à des données personnelles" name="isPersonalData" id='isPersonalDataNo' value="non" required
                 onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataNo" className="button actAsButton radioLabel">Non</label>
             </div>
 
             <div className="flex-1 p01em">
-              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="true" required
+              <input type="radio" className="formField" placeholder="Ma ressource donne accès à des données personnelles" name="isPersonalData" id='isPersonalDataYes' value="oui" required
                 onClick={handlePersonnal} />
               <label htmlFor="isPersonalDataYes" className="button actAsButton radioLabel">Oui</label>
             </div>
@@ -156,7 +156,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <p><br />Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
           <legend>
             Quel niveau de label Gaia-X votre ressource satisfait-elle ?
-            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" rel="noopener noreferrer" className="helpIcon"></a>
+            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" className="helpIcon"></a>
           </legend>
           <div className="flex row">
             <div className="flex-1">
@@ -172,11 +172,12 @@ const AddPage2 = ({ setButtonContinuer }) => {
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="resourceType" id='labelType3' value="label3" required
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType3' value="label3" required
                 onClick={handleLabel} />
               <label htmlFor="labelType3" className="button actAsButton radioLabel">GAIA-X 3</label>
             </div>
           </div>
+          <br/>
         </fieldset>
       </div>}
       {service.type === "service" && <div>

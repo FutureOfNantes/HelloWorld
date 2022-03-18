@@ -1,4 +1,4 @@
-const Survey = () => {
+const DashboardSurvey = () => {
     return (
         <section className="main flex column flex-1">
             <header>
@@ -27,4 +27,4 @@ const Survey = () => {
     )
 }
 
-export default Survey;
+export default DashboardSurvey;

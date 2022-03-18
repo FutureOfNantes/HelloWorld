@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
     return (
 		<footer className="container">
@@ -7,8 +9,8 @@ const Footer = () => {
 				Dases Lab est le portail de catalogage des services et données du data space éducation & compétences
 				</p>
 			<ul>
-				<li><a href="/">Mentions légales</a></li>
-				<li><a href="/">Contactez-nous</a></li>
+				<li><Link to="/mentions">Mentions légales</Link></li>
+				<li><a href="https://calendly.com/mathieu-strabach-menjs/test-usabilite?month=2022-03">Contactez-nous</a></li>
 			</ul>
 			</div>
 		</footer>

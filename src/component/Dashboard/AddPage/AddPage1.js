@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addTitle, addDescription } from '../../features/reducers/serviceSlice';
+import { addTitle, addDescription } from '../../../features/reducers/serviceSlice';
 
 const AddPage1 = ({ setButtonContinuer }) => {
     const dispatch = useDispatch();
     const service = useSelector((state) => state.newService);
 
     const buttonDisplay = () => {
-        if (service.title.length > 5 && service.description.length > 5) setButtonContinuer(true)
+        if (service.title.length > 3 && service.description.length > 5) setButtonContinuer(true)
         else setButtonContinuer(false)
     }
  

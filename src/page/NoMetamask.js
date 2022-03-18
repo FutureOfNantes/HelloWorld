@@ -19,7 +19,7 @@ const NoMetamask = () => {
 			</h1>
 			<p>Pour publier et utiliser des ressources sur le portail, vous devez utiliser un portefeuille d’identité décentralisée</p>
             <p>Pour le moment seul le portefeuille Metamask peut être utilisé</p>
-			<button className="button whiteButton connectMetamask"><a href="https://www.google.com/search?q=metamask">Installer Metamask</a></button> <br/><br/>
+			<button className="button whiteButton connectMetamask"><a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=fr">Installer Metamask</a></button> <br/><br/>
 		</section>
 	</div>
     )

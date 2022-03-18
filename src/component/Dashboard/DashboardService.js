@@ -1,6 +1,5 @@
 import inokufuLogo from '../../assets/logos/inokufu.png'
 
-
 const DashboardService = ({ setServiceSelected }) => {
     const serviceHandler = () => {
 		setServiceSelected(false)
@@ -62,9 +61,7 @@ const DashboardService = ({ setServiceSelected }) => {
 						</pre>		 */}
 					</div>	
 				</section>
-
 			</main>
-			
 	</body>
     )
 }

@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 const SearchBar = () => {
     return (
         <section className="searchEngine container flex wrap row">

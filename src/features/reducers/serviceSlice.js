@@ -13,8 +13,9 @@ export const fetchAsyncServices = createAsyncThunk(
 export const addAsyncService = createAsyncThunk(
     "servicesList/addAsyncService",
     async (data) => {
-        const response = await axios.post(URL_SD, data)
-        return response.data
+        try{const response = await axios.post(URL_SD, data)
+        return response.data}
+        catch(err){console.log(err)}
     }
 );
 
@@ -29,13 +30,14 @@ export const newServiceSlice = createSlice({
         levelData: '',
         formatData: '',
         originalData: '',
-        personalData: false,
+        personalData: '',
         labelData: '',
         accessData: '',
         accessType: '',
         urlType: '',
         documentation: '',
         conditions: '',
+        licence: '',
         entity: '',
         authorDid: ''
     },
@@ -81,6 +83,9 @@ export const newServiceSlice = createSlice({
         },
         addConditions: (state, { payload }) => {
             state.conditions = payload;
+        },
+        addLicence: (state, { payload }) => {
+            state.licence = payload;
         },
         addInfo: (state, { payload }) => {
             state.entity = payload.entity;
@@ -130,4 +135,4 @@ export const serviceSlice = createSlice({
 export const { getServices, addService } = serviceSlice.actions;
 export const { addTitle, addDescription, addType, addTypeData, addLevelData, 
     addFormatData, addOriginalData, addPersonalData, addLabel, addAccessData,
-    addAccessType, addUrl, addDocumentation, addConditions, addInfo } = newServiceSlice.actions;
+    addAccessType, addUrl, addDocumentation, addConditions, addLicence, addInfo } = newServiceSlice.actions;

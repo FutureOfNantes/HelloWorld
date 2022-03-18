@@ -5,9 +5,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const addAsyncVisions = createAsyncThunk(
     "visions/addAsyncVisions",
     async (data) => {
-        const response = await axios.post(URL_VISIONS, data, { headers: {'Content-Type': 'application/json'}})
-        console.log(response.data)
-        return response.data
+        try {const response = await axios.post(URL_VISIONS, data, { headers: {'Content-Type': 'application/json'}})
+        return response.data}
+        catch(err){console.log(err)}
 
     }
 );
@@ -28,8 +28,8 @@ export const visionsSlice = createSlice({
         },
         [addAsyncVisions.fulfilled]: (state, {payload}) => {
             console.log("Visions Fetched Successfully");
-            state.redirectUrl = payload;
-        },
+            state.redirectUrl = payload.redirectUrl;
+            window.location.href = state.redirectUrl},
         [addAsyncVisions.rejected]: () => {
             console.log("Visions Rejected");
         },

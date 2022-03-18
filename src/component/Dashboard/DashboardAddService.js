@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
-import AddPage0 from "../component/AddPage/AddPage0";
-import AddPage1 from "../component/AddPage/AddPage1";
-import AddPage2 from "../component/AddPage/AddPage2";
-import AddPage3 from "../component/AddPage/AddPage3";
-import AddPage4 from "../component/AddPage/AddPage4";
-import AddPage5 from "../component/AddPage/AddPage5";
-import { addInfo, addAsyncService } from '../features/reducers/serviceSlice';
-import separator from '../style/img/separator.svg';
+import AddPage0 from "./AddPage/AddPage0";
+import AddPage1 from "./AddPage/AddPage1";
+import AddPage2 from "./AddPage/AddPage2";
+import AddPage3 from "./AddPage/AddPage3";
+import AddPage4 from "./AddPage/AddPage4";
+import AddPage5 from "./AddPage/AddPage5";
+import { addInfo, addAsyncService } from '../../features/reducers/serviceSlice';
+import separator from '../../style/img/separator.svg';
 
-const AddService = ({ newService, setNewService }) => {
+const AddService = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 	const service = useSelector((state) => state.newService);
     const account = useSelector((state) => state.connection.account);
+    const [newService, setNewService] = useState(0);
 
-
-    useEffect(() => {
+    useEffect(() => {        
         const unique_id = uuid()
         const infos = {
             id: unique_id,
@@ -31,8 +31,13 @@ const AddService = ({ newService, setNewService }) => {
 	}, [])
 
     const handleSign = () => {
+        console.log(service);
 		dispatch(addAsyncService(service));
-        navigate("/dashboard")
+        navigate("/dashboard/confirm")
+    }
+
+    const handleBack = () => {
+        navigate("/dashboard/myoffer")
     }
 
 
@@ -122,9 +127,9 @@ const AddService = ({ newService, setNewService }) => {
         <div className="dashboard addServices">
             <section className="main flex column centerJustify flex-1">
                 <ul className="breadcrumb flex">
-                    <li><button className="back">annuler</button></li>
-                    <li><button>mon offre</button></li>
-                    <li><button className="current">ajout de ressource</button></li>
+                    <li><button className="back" onClick={handleBack}>annuler</button></li>
+                    <li><button onClick={handleBack}>mon offre</button></li>
+                    <li><button className="current" onClick={handleBack}>ajout de ressource</button></li>
                 </ul>
             <div className="sectionContent empty flex column center">
             {newService>0 &&
@@ -153,8 +158,10 @@ const AddService = ({ newService, setNewService }) => {
                <input type="submit" className="button blackButton connectMetamask" value="Signer l'ajout au catalogue sur Metamask" 
                onClick={handleSign} /> 
                 }
+                <p> </p>
             </div>
             </section>
+            <Outlet />
         </div>
     )
 }

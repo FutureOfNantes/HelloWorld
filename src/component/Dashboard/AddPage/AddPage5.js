@@ -1,5 +1,5 @@
 
-import readyForCatalog from '../../assets/img/readyForCatalog.svg';
+import readyForCatalog from '../../../assets/img/readyForCatalog.svg';
 
 const AddPage5 = () => {
 

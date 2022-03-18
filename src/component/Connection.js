@@ -7,7 +7,7 @@ import { EthrDID } from 'ethr-did';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Connection = ({ buttonName, addService }) => {
+const Connection = ({ buttonName, typeConnection }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
@@ -77,12 +77,17 @@ const Connection = ({ buttonName, addService }) => {
                 const currentUser = await usersList.filter(users => (users.did === ethrDid.did));
                 dispatch(didReducer(ethrDid.did));
                 if (currentUser[0] != null) {
-
                     dispatch(accountReducer(currentUser[0]));
                     dispatch(onboardedReducer(true));
-                    if (!addService) navigate("/dashboard")
-                    else navigate("/dashboard/")
-
+                    switch(typeConnection) {
+                        case 'header': navigate("/dashboard/myoffer");
+                        break;
+                        case 'add': navigate("/dashboard/add")
+                        break;
+                        case 'use': navigate("/dashboard/catalog")
+                        break;
+                        default: console.log("Problème d'usage du bouton Connexion")
+                    }
                 } else {
                     dispatch(accountReducer({}));
                     dispatch(onboardedReducer(false));

@@ -1,31 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
-import inokufuLogo from '../assets/logos/inokufu.png';
+import entityUnkown from '../assets/entityUnKnown.svg'
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 import Connection from './Connection';
 
-const CatalogList = () => {
+const CatalogList = ({ dashboard }) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchAsyncServices());
-	}, [])
+	}, [dispatch])
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
 	const buttonName="Participer à l'offre de catalogue en ajoutant mon offre de services"
+	const typeConnection="add"
 	
 	if (!servicesList.length) return <h3>Loading...</h3>;
 	
-    const serviceHandler = () => {
+    const handleService = () => {
 		navigate("/service")
+	}
+
+	const handleAdd = () => {
+		navigate("/dashboard/add")
 	}
 	
 	return (
         <section className="container flex wrap catalogueList">
 			{servicesList.map((item, index) => (
-		<div key={index} className="catalogueCell" onClick={serviceHandler}>
+		<div key={index} className="catalogueCell" onClick={handleService}>
 			<div className="title flex center">
-				<img src={inokufuLogo} alt=""/>
+				<img src={entityUnkown} alt=""/>
 				<div>
 					<h2>{item.title}</h2>
 					<ul className="flex">
@@ -39,7 +44,8 @@ const CatalogList = () => {
 			</p>
 		</div>))}
 		<div className="catalogueCell addService">
-			<Connection buttonName={buttonName}/>
+			{!dashboard && <Connection buttonName={buttonName} typeConnection={typeConnection}/>}
+			{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{buttonName}</button>}
 		</div>
 	</section>
     )
