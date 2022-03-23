@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchAsyncUsers } from '../features/reducers/userSlice';
 
@@ -11,6 +11,8 @@ import Footer from '../component/Footer'
 const Catalog = () => {
 	const dispatch = useDispatch();
 	const dashboard = false
+	const [query, setQuery] = useState("");
+	const [licence, setLicence] = useState("");
 
 	useEffect(() => {
 		dispatch(fetchAsyncUsers());
@@ -23,9 +25,9 @@ const Catalog = () => {
 				<h1>Catalogue des données et services du<br />Data Space Education & Compétences</h1>
 			</section>
 			<section className="searchEngine container flex wrap row">
-				<SearchBar />
+				<SearchBar setQuery={setQuery} setLicence={setLicence} />
 			</section>
-			<CatalogList dashboard={dashboard}/>
+			<CatalogList dashboard={dashboard} query={query} licence={licence} />
 			<Footer />
 		</div>
 	)

@@ -94,7 +94,7 @@ const VerifiableCredential = () => {
                     <img src="favicon.svg" alt="logoDasesLab" /> <br /><br />
                     Obtenez votre laissez-passer
                 </h1>
-                <p>Prometheus met en relation des humains et des entreprises, pas des clés publiques. Nous avons besoin de savoir qui se cache derrière cette clé publique pour vous permettre de publier et utiliser des ressources sur le portail</p>
+                <p>DasesLab met en relation des humains et des entreprises, pas des clés publiques. Nous avons besoin de savoir qui se cache derrière cette clé publique pour vous permettre de publier et utiliser des ressources sur le portail</p>
                 <input className="publicKey" {...register("did")} value={did} readOnly />
                 <form className="form" onSubmit={handleSubmit(onSubmit)}>
                     <div className="formGroup field">

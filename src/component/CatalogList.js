@@ -5,18 +5,21 @@ import entityUnkown from '../assets/entityUnKnown.svg'
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 import Connection from './Connection';
 
-const CatalogList = ({ dashboard }) => {
+const CatalogList = ({ dashboard, query, licence }) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchAsyncServices());
+		
 	}, [dispatch])
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
 	const buttonName="Participer à l'offre de catalogue en ajoutant mon offre de services"
 	const typeConnection="add"
 	
-	if (!servicesList.length) return <h3>Loading...</h3>;
-	
+	if (!servicesList.length) {
+	return <h3>Loading...</h3>;
+	}
+
     const handleService = (id) => {
 		if (!dashboard) navigate(`/service/${id}`)
 		else navigate(`/dashboard/service/${id}`)
@@ -25,10 +28,14 @@ const CatalogList = ({ dashboard }) => {
 	const handleAdd = () => {
 		navigate("/dashboard/add")
 	}
-	
+
+	console.log(licence)
 	return (
         <section className="container flex wrap catalogueList">
-			{servicesList.map((item) => (
+			{servicesList.filter(item => (item.title.toLowerCase().includes(query) || 
+			                            item.description.toLowerCase().includes(query)) &&
+										item.licence.includes(licence)
+										).map((item) => (
 		<div key={item.id} className="catalogueCell" onClick={() => handleService(item.id)}>
 			<div className="title flex center">
 				<img src={entityUnkown} alt=""/>
@@ -37,6 +44,7 @@ const CatalogList = ({ dashboard }) => {
 					<ul className="flex">
 						<li key="api"><span className="tag">API</span></li>
 						<li key="lo"><span className="tag">Learning Objects</span></li>
+						{/* <li key="li">{licencesList[0]}</li> */}
 					</ul>
 				</div>
 			</div>

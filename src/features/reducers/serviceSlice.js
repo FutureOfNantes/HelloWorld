@@ -102,10 +102,10 @@ export const serviceSlice = createSlice({
     },
     reducers: {
         getServices: (state, { payload }) => {
-            state.service = payload;
+            state = payload;
         },
         addService: (state, { payload }) => {
-            state.service = payload;
+            state = payload;
         }
     },
     extraReducers: {

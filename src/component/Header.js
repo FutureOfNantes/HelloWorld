@@ -20,7 +20,7 @@ const Header = () => {
                         <li>
                             <button className="current">Catalogue</button>
                         </li>
-                        <li><button>Communauté</button></li>
+                        <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>Communauté</button></li>
                         <li>
                             <Connection buttonName={buttonName} typeConnection={typeConnection} />
                         </li>

@@ -35,6 +35,7 @@ const App = () => {
           <Route path="/dashboard/confirm" element={<DashboardConfirm />} />
           <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' />} />
         </Route>
+        <Route path="/community" element={() => {window.location.href="https://prometheus-x.org"}} />       
         <Route path="/mentions" element={<Mentions />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
