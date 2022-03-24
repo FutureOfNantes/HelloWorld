@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addType, addTypeData, addLevelData, addFormatData, addOriginalData, addPersonalData, addLabel } from '../../../features/reducers/serviceSlice';
-import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
 
 
@@ -57,6 +56,12 @@ const AddPage2 = ({ setButtonContinuer }) => {
     buttonDisplay()
   }
 
+  const tagOptions = [
+    { value: 'Tag1', label: 'Tag1', color: '#00B8D9' },
+    { value: 'Tag2', label: 'Tag2', color: '#0052CC' },
+    { value: 'Tag3', label: 'Tag3', color: '#5243AA' },
+  ]
+
   return (
     <div>
       <fieldset className="formGroup radio">
@@ -85,9 +90,11 @@ const AddPage2 = ({ setButtonContinuer }) => {
         </div>
       </fieldset >
       {service.type === "data" && <div>
-      <div className="formGroup select">
-      <CreatableSelect isMulti placeholder="Etiquette de la ressource (ajouter ou en créer une)" options={[{ value: 'API', label: 'API' }, { value: 'students', label: 'students' },]} />
-      </div>
+        <div className="formGroup select">
+          <CreatableSelect isMulti
+            options={tagOptions}
+            placeholder="Etiquette de la ressource (ajouter ou en créer une)" />
+        </div>
         <div className="formGroup select">
           <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
             onChange={handleType}>

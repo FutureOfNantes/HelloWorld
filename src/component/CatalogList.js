@@ -29,7 +29,6 @@ const CatalogList = ({ dashboard, query, licence }) => {
 		navigate("/dashboard/add")
 	}
 
-	console.log(licence)
 	return (
         <section className="container flex wrap catalogueList">
 			{servicesList.filter(item => (item.title.toLowerCase().includes(query) || 

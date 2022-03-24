@@ -21,7 +21,6 @@ const DashboardMyOffer = () => {
 		navigate("/dashboard/add")
 	}
 	const filteredServices = servicesList.filter(service => service.authorDid === did)
-	console.log(filteredServices)
 
 	return (
 		<section className="main flex column flex-1">
