@@ -11,7 +11,7 @@ const Dashboard = () => {
     useEffect(() => {
         if (!auth.connected)
             navigate("/");
-    }, [])
+    }, [auth.connected, navigate])
 
 
     return (

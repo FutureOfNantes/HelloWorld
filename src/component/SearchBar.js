@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-
 const SearchBar = ({ setQuery, setLicence }) => {
 
     return (

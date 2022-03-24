@@ -17,7 +17,7 @@ const Service = ({ dashboard }) => {
     const servicesList = useSelector((state) => state.servicesList.service);
     const service = servicesList.filter(service => service.id === id)
 
-    const redirectUrl = useSelector((state) => state.visions.redirectUrl);
+    // const redirectUrl = useSelector((state) => state.visions.redirectUrl);
 
     const data = {
         "providerJwt": "eyJhbGciOiJFUzI1NkstUiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRGFzZXNJZGVudGl0eSJdLCJjcmVkZW50aWFsU3ViamVjdCI6eyJzdGF0ZW1lbnQiOnsidHlwZSI6IkNlcnRpZmljYXQgUGFydGljaXBhbnQgREFTRVMiLCJkaWRPd25lciI6ImRpZDpldGhyOjB4NDoweEM4NDM5YjRhMmE2Y2EwMTg1M2E4ZTA1OTcxNzdiNTk5QUYyZkYzQmYiLCJnaXZlbk5hbWUiOiJQZXJyaW4iLCJmYW1pbHlOYW1lIjoiR1JBTkRORSIsImVtYWlsT3duZXIiOiJwZXJyaW4uZ3JhbmRuZUBnbWFpbC5jb20iLCJjb21wYW55TmFtZSI6Ik1FTkpTIiwiY29tcGFueUFkcmVzcyI6IjIxIHJ1ZSBkZXMgQXJjaGl2ZXMgNzUwMDMgUGFyaXMiLCJsZWdhbFJlcHJlc2VudGF0aXZlIjoiUGVycmluIEdSQU5ETkUiLCJlbWFpbExlZ2FsUmVwcmVzZW50YXRpdmUiOiJwZXJyaW4uZ3JhbmRuZUBnbWFpbC5jb20ifX19LCJzdWIiOiJkaWQ6ZXRocjoweDQ6MHhDODQzOWI0YTJhNmNhMDE4NTNhOGUwNTk3MTc3YjU5OUFGMmZGM0JmIiwibmJmIjoxNjQ2NDI1MTI5LCJpc3MiOiJkaWQ6ZXRocjpyaW5rZWJ5OjB4YzVBNzViYTg3ODc2YjIzNzI2NWIwNUY4NDgxNjBmNTRkMzZDYTA2NSJ9.TY47-R5_jLsYdtxdZ634NBKKCbJdA5WPldSat6zqR8KFx19lX2_nNHrxvaetkSf6lStLAtoMkYvtNWmX3b6S_wE",

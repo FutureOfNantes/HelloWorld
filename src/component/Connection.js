@@ -69,11 +69,11 @@ const Connection = ({ buttonName, typeConnection, id }) => {
 
             const verifyVC = async () => {
                 const ethrDid = new EthrDID({ identifier, provider, chainNameOrId: 'rinkeby' });
-                const providerConfig = {
-                    rpcUrl: 'https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e',
-                    registry: '0xdca7ef03e98e0dc2b855be647c39abe984fcf21b',
-                    name: 'rinkeby'
-                }
+                // const providerConfig = {
+                //     rpcUrl: 'https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e',
+                //     registry: '0xdca7ef03e98e0dc2b855be647c39abe984fcf21b',
+                //     name: 'rinkeby'
+                // }
                 const currentUser = await usersList.filter(users => (users.did === ethrDid.did));
                 dispatch(didReducer(ethrDid.did));
                 if (currentUser[0] != null) {

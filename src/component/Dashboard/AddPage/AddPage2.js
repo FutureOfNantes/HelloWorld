@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addType, addTypeData, addLevelData, addFormatData, addOriginalData, addPersonalData, addLabel } from '../../../features/reducers/serviceSlice';
+import Select from 'react-select';
+import CreatableSelect from 'react-select/creatable';
+
 
 const AddPage2 = ({ setButtonContinuer }) => {
   const dispatch = useDispatch();
@@ -79,11 +82,12 @@ const AddPage2 = ({ setButtonContinuer }) => {
               onClick={handleRessource} />
             <label htmlFor="resourceTypeCode" className="button actAsButton radioLabel forresourceTypeCode">Code</label>
           </div>
-
         </div>
-
       </fieldset >
       {service.type === "data" && <div>
+      <div className="formGroup select">
+      <CreatableSelect isMulti placeholder="Etiquette de la ressource (ajouter ou en créer une)" options={[{ value: 'API', label: 'API' }, { value: 'students', label: 'students' },]} />
+      </div>
         <div className="formGroup select">
           <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
             onChange={handleType}>
@@ -156,11 +160,11 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <p><br />Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc. </p>
           <legend>
             Quel niveau de label Gaia-X votre ressource satisfait-elle ?
-            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" className="helpIcon" />
+            <a href="https://gaia-x.eu/sites/default/files/2022-02/Labelling_Criteria_Whitepaper_v07.pdf" target="_blank" rel="noopener noreferrer" className="helpIcon"> </a>
           </legend>
           <div className="flex row">
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType1' value="nolabel" required
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType0' value="nolabel" required
                 onClick={handleLabel} />
               <label htmlFor="labelType1" className="button actAsButton radioLabel">Pas de label</label>
             </div>

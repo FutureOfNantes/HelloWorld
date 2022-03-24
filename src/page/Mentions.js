@@ -36,9 +36,9 @@ const Mentions = () => {
                 <hr />
                 <h2>Hébergement</h2>
                 <ul>
-                    <li><strong>Interface (Front end)</strong> hébergé par <a href="https://fleek.co/" target="_blank">Fleek</a>, réseau distribué IPFS</li>
-                    <li><strong>Serveur (Back end)</strong>  Ce serveur a été déployé pour permettre la vérification des identités et la création de ces références vérifiables ainsi que des descriptions des services devant être ajoutés. Ce serveur est hébergé par Heroku et accessbile à cette adresse : <a href="https://dases-proto.herokuapp.com" target="_blank">https://dases-proto.herokuapp.com</a></li>
-                    <li><strong>Base de données</strong> hébergée sur <a href="https://www.mongodb.com/cloud/atlas/lp/" target="_blank">MongoDB</a> en Belgique. A terme, cette base de données est amenée à disparaitre pour permettre un fonctionnement décentralisé du Dases Lab.</li>
+                    <li><strong>Interface (Front end)</strong> hébergé par <a href="https://fleek.co/" target="_blank" rel="noopener noreferrer">Fleek</a>, réseau distribué IPFS</li>
+                    <li><strong>Serveur (Back end)</strong>  Ce serveur a été déployé pour permettre la vérification des identités et la création de ces références vérifiables ainsi que des descriptions des services devant être ajoutés. Ce serveur est hébergé par Heroku et accessbile à cette adresse : <a href="https://dases-proto.herokuapp.com" target="_blank" rel="noopener noreferrer">https://dases-proto.herokuapp.com</a></li>
+                    <li><strong>Base de données</strong> hébergée sur <a href="https://www.mongodb.com/cloud/atlas/lp/" target="_blank" rel="noopener noreferrer">MongoDB</a> en Belgique. A terme, cette base de données est amenée à disparaitre pour permettre un fonctionnement décentralisé du Dases Lab.</li>
                 </ul>
                 <hr/>
                 <h2>Responsabilité</h2>
@@ -46,17 +46,17 @@ const Mentions = () => {
                 <p>Ces sites étant indépendants de la plateforme, la responsabilité du Dases Lab, non plus que celle du directeur de publication/rédaction, n’est engagée par les contenus de ces sites. </p>
                 <hr/>
                 <h2>Autorisation de reproduction des contenus</h2>
-                <p>Les éventuels documents proposés en téléchargement, sauf indication contraire, sont mis à disposition selon les termes de la <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/fr/" target="_blank">Licence Creative Commons Paternité - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0 non transcrit.</a></p>
+                <p>Les éventuels documents proposés en téléchargement, sauf indication contraire, sont mis à disposition selon les termes de la <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/fr/" target="_blank" rel="noopener noreferrer">Licence Creative Commons Paternité - Pas d'Utilisation Commerciale - Partage à l'Identique 3.0 non transcrit.</a></p>
                 Pour tout autre contenu éditorial ou à but d’illustration (logos, pictogrammes, vignettes, photographies) du Dases Lab, toute copie partielle ou intégrale dit, sauf mentions particulières, faire l’objet d’une demande. Cette demande doit préciser le contenu visé ainsi que la publication ou le site sur lequel cet élément pourrait figurer. Après autorisation, la reproduction du contenu devra obéir aux principes suivants:
 
                 <ul>
                     <li>gratuité de diffusion</li>
                     <li>respect de l’intégrité des contenus reproduits</li>
                 </ul>
-                <p>Le Dases Lab est une plateforme développée à partir de technologies open source; Vous pouvez trouver son code source sur <a href="https://github.com/pgrandne/daseslab" target="_blank">https://github.com/pgrandne/daseslab</a>. Sa réutilisation est soumise au respect de la licence <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT</a>.</p>
+                <p>Le Dases Lab est une plateforme développée à partir de technologies open source; Vous pouvez trouver son code source sur <a href="https://github.com/pgrandne/daseslab" target="_blank" rel="noopener noreferrer">https://github.com/pgrandne/daseslab</a>. Sa réutilisation est soumise au respect de la licence <a href="https://choosealicense.com/licenses/mit/" target="_blank" rel="noopener noreferrer">MIT</a>.</p>
                 <hr />
                 <h2>Crédits</h2>
-                <p>Illustrations by <a href="https://icons8.com/illustrations/author/259416" target="_blank">Marina Green | Icons8 Illustrations</a> </p>
+                <p>Illustrations by <a href="https://icons8.com/illustrations/author/259416" target="_blank" rel="noopener noreferrer">Marina Green | Icons8 Illustrations</a> </p>
                 <hr />
                 <h2>Création de liens hypertexte</h2>
                 <p>Tout site internet est autorisé à mettre en place un lien hypertexte pointant vers les contenus du DasesLab. La mention excplicite du site Dases Lab dans l’intitulé du lien est souhaitée mais pas obligatoire. </p>
