@@ -195,6 +195,7 @@ C’est ce qu’on appelle aussi, l’identité décentralisée.</p>
                <ul>
                    <li>Des données “ouvertes” dont l’accès et l’usage sont laissés libres et diffusées de manière structurée par le biais d’une licence ouverte garantissant leur libre accès et réutilisation par tous, sans restriction technique, juridique ou financière. </li>
                    <li>Des données “non ouvertes” dont l’accès et l’usage est strictement encadré et limité par leur propriétaire. Il peut s’agir: </li>
+               </ul>
                <ol>
                        <li>&gt;de données à caractère personnel, nécessitant la mise en place d’un DPA (cf: Définition - DPA).</li>
                        <li>&gt;des données soumises à d’autres droits de propriété (propriété intellectuelle...)</li>
