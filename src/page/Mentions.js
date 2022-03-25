@@ -184,7 +184,7 @@ C’est ce qu’on appelle aussi, l’identité décentralisée.</p>
                <p>Désigne indistinctement les Services et les Données misent à disposition par les Utilisateurs sur le Dases Lab ou partagés à partir du Dases Lab. </p>
                <hr/>
                <h3>Utilisateur</h3>
-               <p>Désigne l’Utilisateur du Dases Lab, agissant en qualité de professionnel, personne morale de droit privé ou de droit public ou personne physique agissant à titre professionnel, à l’exclusion des personnes agissant en qualité de consommateurs. </p<
+               <p>Désigne l’Utilisateur du Dases Lab, agissant en qualité de professionnel, personne morale de droit privé ou de droit public ou personne physique agissant à titre professionnel, à l’exclusion des personnes agissant en qualité de consommateurs. </p>
                <p>L’Utilisateur personne morale sera représenté par une personne physique, dûment habilitée à l’effet des présentes.</p>
                <p><b>L’Utilisateur “Fournisseur”</b> s’entend de l’Utilisateur mettant en ligne une Ressource.</p>
                <p><b>L'Utilisateur "Acquéreur"</b> s’entend de l’Utilisateur souhaitant utiliser une Ressource.</p>
