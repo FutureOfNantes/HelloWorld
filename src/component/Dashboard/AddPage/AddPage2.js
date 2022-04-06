@@ -57,9 +57,11 @@ const AddPage2 = ({ setButtonContinuer }) => {
   }
 
   const tagOptions = [
-    { value: 'Tag1', label: 'Tag1', color: '#00B8D9' },
-    { value: 'Tag2', label: 'Tag2', color: '#0052CC' },
-    { value: 'Tag3', label: 'Tag3', color: '#5243AA' },
+    { value: 'établissement', label: 'établissement', color: '#0052CC' },
+    { value: 'formation', label: 'formation', color: '#5243AA' },
+    { value: 'orientation', label: 'orientation', color: '#5243AA' },
+    { value: 'éducation', label: 'éducation', color: '#5243AA' },
+    { value: 'diplôme', label: 'diplôme', color: '#5243AA' }
   ]
 
   return (
@@ -107,6 +109,7 @@ const AddPage2 = ({ setButtonContinuer }) => {
             <option value="Données périscolaires">Données périscolaires</option>
             <option value="Données parascolaires">Données parascolaires</option>
             <option value="Données extrascolaires">Données extrascolaires</option>
+            <option value="Données Education Nationale">Données Education Nationale</option>
           </select>
           <label htmlFor="dataType" className="formLabel">Type de données proposées</label>
         </div>
@@ -171,28 +174,28 @@ const AddPage2 = ({ setButtonContinuer }) => {
           </legend>
           <div className="flex row">
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType0' value="nolabel" required
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType1' value="nolabel" required
                 onClick={handleLabel} />
               <label htmlFor="labelType1" className="button actAsButton radioLabel">Pas de label</label>
             </div>
           </div>
+          <br/>
           <div className="flex row">
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType1' value="label1" required
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType2' value="label1" required
                 onClick={handleLabel} />
-              <label htmlFor="labelType1" className="button actAsButton radioLabel">GAIA-X 1</label>
+              <label htmlFor="labelType2" className="button actAsButton radioLabel">GAIA-X 1</label>
+            </div>
+            <div className="flex-1">
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType3' value="label2" required
+                onClick={handleLabel} />
+              <label htmlFor="labelType3" className="button actAsButton radioLabel">GAIA-X 2</label>
             </div>
 
             <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType2' value="label2" required
+              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType4' value="label3" required
                 onClick={handleLabel} />
-              <label htmlFor="labelType2" className="button actAsButton radioLabel">GAIA-X 2</label>
-            </div>
-
-            <div className="flex-1">
-              <input type="radio" className="formField" placeholder="Type de label" name="labelType" id='labelType3' value="label3" required
-                onClick={handleLabel} />
-              <label htmlFor="labelType3" className="button actAsButton radioLabel">GAIA-X 3</label>
+              <label htmlFor="labelType4" className="button actAsButton radioLabel">GAIA-X 3</label>
             </div>
           </div>
           <br />

@@ -3,6 +3,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import Connection from '../component/Connection';
 import entityUnkown from '../assets/entityUnKnown.svg'
+import menjs from '../assets/logo_menj.jpg'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAsyncVisions } from '../features/reducers/visionsSlice';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -11,8 +12,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 const Service = ({ dashboard }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const buttonName="Demander l'intégration"
-	const typeConnection="use"
+    const buttonName = "Demander l'intégration"
+    const typeConnection = "use"
     const { id } = useParams();
     const servicesList = useSelector((state) => state.servicesList.service);
     const service = servicesList.filter(service => service.id === id)
@@ -29,6 +30,7 @@ const Service = ({ dashboard }) => {
     }
 
     const handleIntegration = async () => {
+        window.alert("Vous allez être redirigé vers le service Visions pour signer le contrat d'échange de données");
         console.log(data)
         dispatch(addAsyncVisions(data));
     }
@@ -44,14 +46,18 @@ const Service = ({ dashboard }) => {
                 </ul>
                 <main className="container sectionContent">
                     <section className="container servicePageTitle flex row">
-                        <img src={entityUnkown} alt="" />
+                        {(service[0].entity === 'MENJS') &&
+                            <img src={menjs} alt="" />}
+                        {(service[0].entity !== 'MENJS') &&
+                            <img src={entityUnkown} alt="" />}
                         <div>
                             <h1>{service[0].title}</h1>
-                            <a href={service[0].documentation}>Documentation</a>
+                            <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a>
                         </div>
+                        {service[0].personalData === "oui" &&
                         <ul className="ctas">
-                            <li><Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id}/></li>
-                        </ul>
+                            <li><Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /></li>
+                        </ul>}
                     </section>
 
                     <section className="container servicePageContent flex wrap column">
@@ -95,7 +101,7 @@ const Service = ({ dashboard }) => {
                                     </tr>
                                     <tr>
                                         <td>Conditions d’utilisation</td>
-                                        <td><a href={service[0].conditions} className="button whiteButton external block">{service[0].conditions}</a></td>
+                                        <td><a href={service[0].conditions} target="_blank" rel="noopener noreferrer" className="button whiteButton external block">{service[0].conditions}</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -122,9 +128,10 @@ const Service = ({ dashboard }) => {
                             <h1>{service[0].title}</h1>
                             <a href={service[0].documentation}>Documentation</a>
                         </div>
+                        {service[0].personalData === "non" &&
                         <ul className="ctas">
                             <li><button className="useService button blackButton" onClick={handleIntegration}>Demander l'intégration (avec Visions)</button></li>
-                        </ul>
+                        </ul>}
                     </section>
 
                     <section className="container servicePageContent flex wrap column">

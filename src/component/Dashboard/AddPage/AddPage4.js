@@ -39,6 +39,7 @@ const AddPage4 = ({ setButtonContinuer }) => {
 								<option value="Apache 2.0">Apache 2.0</option>
 								<option value="GPL 2.0">GPL 2.0</option>
 								<option value="GPL 3.0">GPL 3.0</option>
+								<option value="Licence Ouverte v2.0 (Etatlab)">Licence Ouverte v2.0 (Etatlab)</option>							
 							</select>
 							<label htmlFor="dataStandard" className="formLabel">Licence d'utilisation de votre ressource</label>
 						</div> 

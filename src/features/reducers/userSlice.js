@@ -24,8 +24,8 @@ export const userSlice = createSlice({
         user: {},
     },
     reducers: {
-        getUsers: (state, { payload }) => {
-            state.user = payload;
+        getUsers: (state) => {
+            return state.user;
         },
         addUser: (state, { payload }) => {
             state.user = payload;

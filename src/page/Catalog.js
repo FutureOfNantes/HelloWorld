@@ -13,6 +13,7 @@ const Catalog = () => {
 	const dashboard = false
 	const [query, setQuery] = useState("");
 	const [licence, setLicence] = useState("");
+	const [openData, setOpenData] = useState("");
 
 	useEffect(() => {
 		dispatch(fetchAsyncUsers());
@@ -25,9 +26,9 @@ const Catalog = () => {
 				<h1>Catalogue des données et services du<br />Data Space Education & Compétences</h1>
 			</section>
 			<section className="searchEngine container flex wrap row">
-				<SearchBar setQuery={setQuery} setLicence={setLicence} />
+				<SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} />
 			</section>
-			<CatalogList dashboard={dashboard} query={query} licence={licence} />
+			<CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData}/>
 			<Footer />
 		</div>
 	)
