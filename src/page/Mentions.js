@@ -7,7 +7,7 @@ const Mentions = () => {
        <div>
  
             <Header />
-            <main class="container768 sectionContent textBlock">
+            <main className="container768 sectionContent textBlock">
             <h1>Informations légales</h1>
             <h2>A propos du Dases Lab</h2>
             <p>Dases Lab propose un exemple de plateforme d’échanges de données de l’Education et la formation tout au long de la vie. Il s’agit d’un site à visée expérimentale. </p>

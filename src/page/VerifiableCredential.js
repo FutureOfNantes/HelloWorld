@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addAsyncUser } from '../features/reducers/userSlice';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { URL_NONCE } from '../features/api'
 import { ethers } from 'ethers';
 import { SiweMessage } from 'siwe';
@@ -152,7 +152,7 @@ const VerifiableCredential = () => {
                         </div>}
                         <div className="formGroup">
                             <input type="checkbox" id="consentCGV" />
-                            <label htmlFor="consentCGV">Je consens à rejoindre DasesLab, et m’engage à respecter sa charte d'utilisation</label>
+                            <label htmlFor="consentCGV">Je consens à rejoindre DasesLab, et m’engage à respecter sa <Link to="/mentions">charte d'utilisation</Link></label>
                         </div>
                         <input type="submit" className="button blackButton" value="Confirmer mon identité" />
                     </form>

@@ -10,6 +10,9 @@ import AddPage4 from "./AddPage/AddPage4";
 import AddPage5 from "./AddPage/AddPage5";
 import { addInfo, addAsyncService } from '../../features/reducers/serviceSlice';
 import separator from '../../style/img/separator.svg';
+import { ethers } from "ethers";
+import { URL_NONCE } from '../../features/api'
+import { SiweMessage } from 'siwe';
 
 const AddService = () => {
     const dispatch = useDispatch();
@@ -30,17 +33,54 @@ const AddService = () => {
 
 	}, [])
 
-    const handleSign = () => {
+    const handleSign = async () => {
+            const domain = window.location.host;
+            const origin = window.location.origin;
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+
+            const createSiweMessage = async (address, statement) => {
+                const res = await fetch(URL_NONCE, {
+                    credentials: 'include',
+                });
+                const message = new SiweMessage({
+                    domain,
+                    address,
+                    statement,
+                    uri: origin,
+                    version: '1',
+                    chainId: '4',
+                    nonce: await res.text()
+                });
+                return message.prepareMessage();
+            }
+
+            let message = null;
+            let signature = null;
+            let identifier = null;
+
+            const signInWithEthereum = async () => {
+                identifier = await signer.getAddress()
+                message = await createSiweMessage(
+                    identifier,
+                    `Signer pour ajouter votre service au catalogue`
+                );
+
+                console.log(message);
+                signature = await signer.signMessage(message);
+                console.log("signature: ", signature);
+            }
+
+            await signInWithEthereum();
 		dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
+
+
     }
 
     const handleBack = () => {
         navigate("/dashboard/myoffer")
     }
-
-
-
 
     const stylegreenButton = "current button actAsButton greenButton"
     const styleblackButton = "current button actAsButton blackButton"
