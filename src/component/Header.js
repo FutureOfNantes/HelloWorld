@@ -2,9 +2,8 @@ import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Daseslogo from '../style/img/favicon.svg'
 import Connection from './Connection'
 
-const Header = () => {
-    const buttonName = "CONNECTER"
-    const typeConnection= 'header'
+const Header = ({ t, i18n }) => {
+    const typeConnection = 'header'
 
     return (
         <header>
@@ -18,11 +17,17 @@ const Header = () => {
                 <div className="floatRight">
                     <ul className="mainNav">
                         <li>
-                            <button className="current">Catalogue</button>
+                            <button className="current">{t('Catalogue')}</button>
                         </li>
-                        <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>Communauté</button></li>
+                        <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>
                         <li>
-                            <Connection buttonName={buttonName} typeConnection={typeConnection} />
+                            <Connection buttonName={t('Connecter')} typeConnection={typeConnection} />
+                        </li>
+                        <li>
+                            <select onChange={(e) => {i18n.changeLanguage(e.target.value)}}>
+                                <option value="fr">français</option>
+                                <option value="en">english</option>
+                            </select>
                         </li>
                     </ul>
                 </div>

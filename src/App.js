@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import './App.css';
 import './style/main.css';
@@ -19,11 +20,12 @@ import DashboardConfirm from './component/Dashboard/DashboardConfirm';
 import DashboardService from './component/Dashboard/DashboardService';
 
 const App = () => {
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Catalog />} />
+        <Route path="/" element={<Catalog t={t} i18n={i18n} />} />
         <Route path="/service/:id" element={<Service dashboard='false' />} />
         <Route path="/metamask" element={<NoMetamask />} />
         <Route path="/vc" element={<VerifiableCredential />} />

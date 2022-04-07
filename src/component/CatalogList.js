@@ -6,7 +6,7 @@ import menjs from '../assets/logo_menj.jpg'
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 import Connection from './Connection';
 
-const CatalogList = ({ dashboard, query, licence, openData }) => {
+const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchAsyncServices());
@@ -14,7 +14,6 @@ const CatalogList = ({ dashboard, query, licence, openData }) => {
 	}, [dispatch])
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
-	const buttonName = "Participer à l'offre de catalogue en ajoutant mon offre de services"
 	const typeConnection = "add"
 
 	if (!servicesList.length) {
@@ -57,8 +56,8 @@ const CatalogList = ({ dashboard, query, licence, openData }) => {
 					</p>
 				</div>))}
 			<div className="catalogueCell addService">
-				{!dashboard && <Connection buttonName={buttonName} typeConnection={typeConnection} />}
-				{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{buttonName}</button>}
+				{!dashboard && <Connection buttonName={t("Participer à l'offre")} typeConnection={typeConnection} />}
+				{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button>}
 			</div>
 		</section>
 	)

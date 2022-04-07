@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './features/i18n';
 import { store } from './features/store'
 import { Provider } from 'react-redux';
 
