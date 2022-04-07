@@ -80,7 +80,7 @@ const VerifiableCredential = () => {
             dispatch(didReducer(did));
             setTimeout(() => {
                 dispatch(fetchAsyncUsers())
-            }, 1000);
+            }, 3000);
         }
 
         else {
@@ -170,18 +170,6 @@ const VerifiableCredential = () => {
                 <button className="button blackButton" onClick={handleVc}>Télécharger votre laissez-passer</button>
 
             </section>}
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     )
 }

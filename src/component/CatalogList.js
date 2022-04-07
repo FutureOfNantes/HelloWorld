@@ -47,7 +47,7 @@ const CatalogList = ({ dashboard, query, licence, openData }) => {
 							<h2>{item.title}</h2>
 							<ul className="flex">
 								<li key="api"><span className="tag">API</span></li>
-								<li key="lo"><span className="tag">Learning Objects</span></li>
+								<li key="lo"><span className="tag">Education</span></li>
 								{/* <li key="li">{licencesList[0]}</li> */}
 							</ul>
 						</div>

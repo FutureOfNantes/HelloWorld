@@ -128,7 +128,7 @@ const Service = ({ dashboard }) => {
                             <h1>{service[0].title}</h1>
                             <a href={service[0].documentation}>Documentation</a>
                         </div>
-                        {service[0].personalData === "non" &&
+                        {service[0].personalData === "oui" &&
                         <ul className="ctas">
                             <li><button className="useService button blackButton" onClick={handleIntegration}>Demander l'intégration (avec Visions)</button></li>
                         </ul>}
