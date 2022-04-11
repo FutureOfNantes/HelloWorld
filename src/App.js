@@ -26,7 +26,7 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<Catalog t={t} i18n={i18n} />} />
-        <Route path="/service/:id" element={<Service dashboard='false' />} />
+        <Route path="/service/:id" element={<Service dashboard='false' t={t} i18n={i18n} />} />
         <Route path="/metamask" element={<NoMetamask />} />
         <Route path="/vc" element={<VerifiableCredential />} />
         <Route path="/dashboard" element={<Dashboard />} >

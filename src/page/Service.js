@@ -9,7 +9,7 @@ import { addAsyncVisions } from '../features/reducers/visionsSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 
 
-const Service = ({ dashboard }) => {
+const Service = ({ dashboard, t, i18n }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const buttonName = "Demander l'intégration"
@@ -38,7 +38,7 @@ const Service = ({ dashboard }) => {
     return (
         <Fragment>
             {!!dashboard && <Fragment>
-                <Header />
+                <Header t={t} i18n={i18n} />
                 <ul className="container breadcrumb flex row">
                     <li className="back"><button onClick={handleBack}>retour</button></li>
                     <li><button onClick={handleBack}>catalogue</button></li>
@@ -113,7 +113,7 @@ const Service = ({ dashboard }) => {
                     </section>
 
                 </main>
-                <Footer />
+                <Footer t={t} />
             </Fragment>}
             {!dashboard && <section class="main flex column flex-1">
                 <ul className="container breadcrumb flex row">

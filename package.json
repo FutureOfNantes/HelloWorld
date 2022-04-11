@@ -23,7 +23,8 @@
     "react-select": "^5.2.2",
     "siwe": "^1.1.2",
     "uuidv4": "^6.2.13",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "web3modal": "^1.9.6"
   },
   "scripts": {
     "start": "react-scripts start",
