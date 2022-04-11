@@ -24,10 +24,12 @@ const Header = ({ t, i18n }) => {
                             <Connection buttonName={t('Connecter')} typeConnection={typeConnection} />
                         </li>
                         <li>
+                        <section className="searchEngine container flex wrap row">
                             <select onChange={(e) => {i18n.changeLanguage(e.target.value)}}>
                                 <option value="fr">français</option>
                                 <option value="en">english</option>
                             </select>
+                            </section>
                         </li>
                     </ul>
                 </div>

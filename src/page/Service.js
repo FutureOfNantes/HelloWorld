@@ -40,8 +40,8 @@ const Service = ({ dashboard, t, i18n }) => {
             {!!dashboard && <Fragment>
                 <Header t={t} i18n={i18n} />
                 <ul className="container breadcrumb flex row">
-                    <li className="back"><button onClick={handleBack}>retour</button></li>
-                    <li><button onClick={handleBack}>catalogue</button></li>
+                    <li className="back"><button onClick={handleBack}>{t('retour')}</button></li>
+                    <li><button onClick={handleBack}>{t('catalogue')}</button></li>
                     <li className="current"><button onClick={handleBack}>{service[0].title}</button></li>
                 </ul>
                 <main className="container sectionContent">
@@ -66,7 +66,7 @@ const Service = ({ dashboard, t, i18n }) => {
                                 <thead>
                                     <tr>
                                         <td colSpan="2">
-                                            <h2>Détails</h2>
+                                            <h2>{t('Détails')}</h2>
                                         </td>
                                     </tr>
                                 </thead>
@@ -76,31 +76,31 @@ const Service = ({ dashboard, t, i18n }) => {
                                         <td>{service[0].typeData}</td>
                                     </tr>
                                     <tr>
-                                        <td>Niveau</td>
+                                        <td>{t('Niveau')}</td>
                                         <td>{service[0].levelData}</td>
                                     </tr>
                                     <tr>
-                                        <td>FORMAT</td>
+                                        <td>Format</td>
                                         <td>{service[0].formatData}</td>
                                     </tr>
                                     <tr>
-                                        <td>STANDARD</td>
+                                        <td>Standard</td>
                                         <td>{service[0].originalData}</td>
                                     </tr>
                                     <tr>
-                                        <td>LICENCE</td>
+                                        <td>Licence</td>
                                         <td>{service[0].licence}</td>
                                     </tr>
                                     <tr>
-                                        <td>Données personnelles</td>
+                                        <td>{t('Données personnelles')}</td>
                                         <td>{service[0].personalData}</td>
                                     </tr>
                                     <tr>
-                                        <td>Label Gaia-X</td>
+                                        <td>{t('Label Gaia-X')}</td>
                                         <td>{service[0].labelData}</td>
                                     </tr>
                                     <tr>
-                                        <td>Conditions d’utilisation</td>
+                                        <td>{t('Conditions d’utilisation')}</td>
                                         <td><a href={service[0].conditions} target="_blank" rel="noopener noreferrer" className="button whiteButton external block">{service[0].conditions}</a></td>
                                     </tr>
                                 </tbody>
@@ -117,8 +117,8 @@ const Service = ({ dashboard, t, i18n }) => {
             </Fragment>}
             {!dashboard && <section class="main flex column flex-1">
                 <ul className="container breadcrumb flex row">
-                    <li className="back"><button onClick={handleBack}>retour</button></li>
-                    <li><button onClick={handleBack}>catalogue</button></li>
+                    <li className="back"><button onClick={handleBack}>{t('retour')}</button></li>
+                    <li><button onClick={handleBack}>{t('catalogue')}</button></li>
                     <li className="current"><button onClick={handleBack}>{service[0].title}</button></li>
                 </ul>
                 <main className="container sectionContent">

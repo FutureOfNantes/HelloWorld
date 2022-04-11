@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-const DashboardNav = () => {
+const DashboardNav = ({ t, i18n }) => {
     const [classNav, setclassNav] = useState({
         classMyOffer: "actAsButton serviceOffering current",
         classCatalog: "actAsButton catalogue",
@@ -81,13 +81,13 @@ const DashboardNav = () => {
             </header>
             <nav className="appNav">
                 <ul className="flex column">
-                    <li className={classNav.classMyOffer} onClick={handleMyOffer}>Mon offre</li>
-                    <li className={classNav.classCatalog} onClick={handleCatalog}>Catalogue</li>
+                    <li className={classNav.classMyOffer} onClick={handleMyOffer}>{t('Mon offre')}</li>
+                    <li className={classNav.classCatalog} onClick={handleCatalog}>{t('Catalogue')}</li>
                     <li className={classNav.classSurvey} onClick={handleSurvey}>
-                        Donnez-nous votre avis
+                        {t('Donnez-nous votre avis')}
                     </li>
                     <li className="actAsButton" onClick={handleDisconnect}>
-                        Déconnexion
+                        {t('Déconnexion')}
                     </li>
                 </ul>
             </nav>

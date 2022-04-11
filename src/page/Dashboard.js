@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
-const Dashboard = () => {
+const Dashboard = ({ t, i18n }) => {
     const navigate = useNavigate();
     const auth = useSelector((state) => state.connection);
 
@@ -16,7 +16,7 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard serviceOffering">
-            <DashboardNav />
+            <DashboardNav t={t} i18n={i18n} />
         <Outlet />
         </div>
     )

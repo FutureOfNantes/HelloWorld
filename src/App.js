@@ -28,17 +28,17 @@ const App = () => {
         <Route path="/" element={<Catalog t={t} i18n={i18n} />} />
         <Route path="/service/:id" element={<Service dashboard='false' t={t} i18n={i18n} />} />
         <Route path="/metamask" element={<NoMetamask />} />
-        <Route path="/vc" element={<VerifiableCredential />} />
-        <Route path="/dashboard" element={<Dashboard />} >
+        <Route path="/vc" element={<VerifiableCredential t={t} />} />
+        <Route path="/dashboard" element={<Dashboard t={t} i18n={i18n} />} >
           <Route path="/dashboard/add" element={<AddService />} />
-          <Route path="/dashboard/myoffer" element={<DashboardMyOffer />} />
-          <Route path="/dashboard/catalog" element={<DashboardCatalog />} />
-          <Route path="/dashboard/survey" element={<DashboardSurvey />} />
+          <Route path="/dashboard/myoffer" element={<DashboardMyOffer t={t} />} />
+          <Route path="/dashboard/catalog" element={<DashboardCatalog t={t} />} />
+          <Route path="/dashboard/survey" element={<DashboardSurvey t={t} />} />
           <Route path="/dashboard/confirm" element={<DashboardConfirm />} />
-          <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' />} />
+          <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' t={t} i18n={i18n} />} />
         </Route>
         <Route path="/community" element={() => {window.location.href="https://prometheus-x.org"}} />       
-        <Route path="/mentions" element={<Mentions />} />
+        <Route path="/mentions" element={<Mentions t={t} i18n={i18n} />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>

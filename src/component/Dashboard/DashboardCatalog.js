@@ -4,7 +4,7 @@ import searchIcon from '../../style/img/searchIcon.svg'
 import CatalogList from '../CatalogList';
 import SearchBar from '../SearchBar';
 
-const DashboardCatalog = () => {
+const DashboardCatalog = ({ t }) => {
     const dashboard = true
     const [query, setQuery] = useState("");
 	const [licence, setLicence] = useState("");
@@ -17,8 +17,8 @@ const DashboardCatalog = () => {
             <header>
                 <h1><img src={searchIcon} alt="" />Catalogue</h1>
             </header>
-            <SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData}/>
-            <CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData}/>
+            <SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} t={t} />
+            <CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData} t={t} />
         </section>
     )
 }

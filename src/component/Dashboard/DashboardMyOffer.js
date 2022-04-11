@@ -6,7 +6,7 @@ import serviceOffering from '../../style/img/serviceOffering.svg'
 import { fetchAsyncServices } from '../../features/reducers/serviceSlice';
 
 
-const DashboardMyOffer = () => {
+const DashboardMyOffer = ({ t }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -25,14 +25,16 @@ const DashboardMyOffer = () => {
 	return (
 		<section className="main flex column flex-1">
 			<header>
-				<h1><img src={serviceOffering} alt="" />Mon offre</h1>
+				<h1><img src={serviceOffering} alt="" />{t('Mon offre')}</h1>
 			</header>
 			{!filteredServices.length && <div className="sectionContent empty flex column center">
 				<p>
 					<img src={serviceOfferingEmpty} alt="" /> <br /><br />
-					Vous n'avez encore rien partagé à la communauté
+					{t("Vous n'avez encore rien partagé à la communauté")}
 				</p>
-				<button className="button pinkButton" onClick={handleRessource}>Partager une ressource sur le portail</button>
+				<button className="button pinkButton" onClick={handleRessource}>
+					{t('Partager une ressource sur le portail')}
+				</button>
 				<p> </p>
 			</div>}
 
@@ -69,8 +71,8 @@ const DashboardMyOffer = () => {
 						<div key={item.id} className="serviceOfferID">
 							<button>sd: {item.id}</button>
 						</div>
-					</div> ))} 
-		</div> }
+					</div>))}
+			</div>}
 		</section>
 	)
 }

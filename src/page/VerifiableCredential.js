@@ -12,7 +12,7 @@ import { Resolver } from 'did-resolver';
 import { getResolver } from 'ethr-did-resolver';
 import { fetchAsyncUsers } from '../features/reducers/userSlice';
 
-const VerifiableCredential = () => {
+const VerifiableCredential = ({ t }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const did = useSelector((state) => state.connection.did);
@@ -90,7 +90,7 @@ const VerifiableCredential = () => {
         }
     }
 
-    const handleVc = async ()=> {
+    const handleVc = async () => {
         const currentUser = await usersList.filter(users => (users.did === did));
         const rpcUrl = "https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e";
         const resolver = new Resolver(getResolver({ rpcUrl, name: "rinkeby" }));
@@ -98,7 +98,7 @@ const VerifiableCredential = () => {
         const element = document.createElement("a");
         var jsonVc = JSON.stringify(verifiedVC.verifiableCredential, null, 2);
         const file = new Blob([jsonVc], {
-          type: "json/plain"
+            type: "json/plain"
         });
         element.href = URL.createObjectURL(file);
         element.download = `${currentUser[0].givenName}_${currentUser[0].familyName}_ParticipantVC.json`;
@@ -110,65 +110,93 @@ const VerifiableCredential = () => {
         <div className="onboarding flex column">
             {!vcDone &&
                 <section className="main onboardingStep onboardingUserInfos">
-                    <button className="closeButton fixed" onClick={handleClose}>Fermer</button>
+                    <button className="closeButton fixed" onClick={handleClose}>
+                        {t('Fermer')}
+                    </button>
                     <h1>
                         <img src="favicon.svg" alt="logoDasesLab" /> <br /><br />
-                        Obtenez votre laissez-passer
+                        {t('Obtenez votre laissez-passer')}
                     </h1>
-                    <p>DasesLab met en relation des humains et des entreprises, pas des clés publiques. Nous avons besoin de savoir qui se cache derrière cette clé publique pour vous permettre de publier et utiliser des ressources sur le portail</p>
+                    <p>{t('DasesLab met en relation')}</p>
                     <input className="publicKey" {...register("did")} value={did} readOnly />
                     <form className="form" onSubmit={handleSubmit(onSubmit)}>
                         <div className="formGroup field">
                             <input className="formField" {...register("familyName")} />
-                            <label htmlFor="name" className="formLabel">Votre nom</label>
+                            <label htmlFor="name" className="formLabel">
+                                {t('Votre nom')}
+                            </label>
                         </div>
                         <div className="formGroup field">
                             <input className="formField" {...register("givenName")} />
-                            <label htmlFor="forname" className="formLabel">Votre prénom</label>
+                            <label htmlFor="forname" className="formLabel">
+                                {t('Votre prénom')}
+                            </label>
                         </div>
                         <div className="formGroup field">
                             <input type="email" className="formField" {...register("emailOwner")} />
-                            <label htmlFor="proEmail" className="formLabel">Votre courriel professionnel</label>
+                            <label htmlFor="proEmail" className="formLabel">
+                                {t('Votre courriel professionnel')}
+                            </label>
                         </div>
                         <div className="formGroup field">
                             <input className="formField" {...register("companyName")} />
-                            <label htmlFor="entityName" className="formLabel">Nom de votre organisation</label>
+                            <label htmlFor="entityName" className="formLabel">
+                                {t('Nom de votre organisation')}
+                            </label>
                         </div>
                         <div className="formGroup field">
                             <input className="formField" {...register("companyAddress")} />
-                            <label htmlFor="proAddress" className="formLabel">Adresse de votre organisation</label>
+                            <label htmlFor="proAddress" className="formLabel">
+                                {t('Adresse de votre organisation')}
+                            </label>
                         </div>
                         <div className="formGroup">
                             <input type="checkbox" id="consentCGV" onChange={handleLegalRep} />
-                            <label htmlFor="consentCGV">Je ne suis pas le représentant légal de l'organisation</label>
+                            <label htmlFor="consentCGV">
+                                {t("Je ne suis pas le représentant légal de l'organisation")}
+                            </label>
                         </div>
                         {!legalRep && <div className="formGroup field">
                             <input className="formField" {...register("legalRepresentative")} />
-                            <label htmlFor="name" className="formLabel">Nom du représentant légal</label>
+                            <label htmlFor="name" className="formLabel">
+                                {t('Nom du représentant légal')}
+                            </label>
                         </div>}
                         {!legalRep && <div className="formGroup field">
                             <input type="email" className="formField" {...register("emailLegalRepresentative")} />
-                            <label htmlFor="proEmail" className="formLabel">Courriel du représentant légal</label>
+                            <label htmlFor="proEmail" className="formLabel">
+                                {t('Courriel du représentant légal')}
+                            </label>
                         </div>}
                         <div className="formGroup">
-                            <input type="checkbox" id="consentCGV" />
-                            <label htmlFor="consentCGV">Je consens à rejoindre DasesLab, et m’engage à respecter sa <Link to="/mentions">charte d'utilisation</Link></label>
+                            <input type="checkbox" id="consentCGV" required />
+                            <label htmlFor="consentCGV">
+                                {t("Je consens à rejoindre DasesLab, et m’engage à respecter sa")}
+                                <Link to="/mentions">
+                                    {t("charte d'utilisation")}
+                                </Link>
+                            </label>
                         </div>
                         <input type="submit" className="button blackButton" value="Confirmer mon identité" />
                     </form>
                 </section>}
             {!!vcDone && <section className="main onboardingStep onboardingUserInfos">
-                <button className="closeButton fixed" onClick={handleClose}>Fermer</button>
+                <button className="closeButton fixed" onClick={handleClose}>
+                    {t('Fermer')}
+                </button>
                 <h1>
                     <img src="favicon.svg" alt="logoDasesLab" /> <br /><br />
-                    Votre laissez-passer est créé
+                    {t('Votre laissez-passer est créé')}
                 </h1>
-                <p>Vous pouvez maintenant vous connecter sur la page d'accueil</p>
-                <button className="button blackButton" onClick={handleClose}>Retourner sur le Portail</button>
-                <p/><p/>
-                <p>Vous pouvez télécharger votre laissez-passer pour le conserver en local</p>
-                <button className="button blackButton" onClick={handleVc}>Télécharger votre laissez-passer</button>
-
+                <p>{t("Vous pouvez maintenant vous connecter sur la page d'accueil")}</p>
+                <button className="button blackButton" onClick={handleClose}>
+                    {t('Retourner sur le Portail')}
+                </button>
+                <p /><p />
+                <p>{t('Vous pouvez télécharger votre laissez-passer pour le conserver en local')}</p>
+                <button className="button blackButton" onClick={handleVc}>
+                    {t('Télécharger votre laissez-passer')}
+                </button>
             </section>}
         </div>
     )
