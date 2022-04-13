@@ -1,14 +1,11 @@
-import Header from '../component/Header';
-import Footer from '../component/Footer';
 import hero from '../assets/img/hero.png';
 import fedcat from '../assets/img/fedcat.png';
 import sdicon from '../assets/img/sdicon.png';
 import gaiaxlogo from '../assets/img/gaiaxlogo.png';
 
-const Home = ({ t, i18n }) => {
+const Home = () => {
     return (
         <div className="homePage">
-            <Header t={t} i18n={i18n} />
             <section className="hero">
                 <div className="container">
                     <h1>Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences</h1>
@@ -79,7 +76,6 @@ const Home = ({ t, i18n }) => {
                     </section>
                 </section>
             </section>
-            <Footer t={t} i18n={i18n} />
         </div>
     )
 }

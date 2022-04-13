@@ -1,6 +1,4 @@
 import { Fragment } from 'react';
-import Header from '../component/Header'
-import Footer from '../component/Footer'
 import Connection from '../component/Connection';
 import entityUnkown from '../assets/entityUnKnown.svg'
 import menjs from '../assets/logos/menjs.jpg'
@@ -39,7 +37,6 @@ const Service = ({ dashboard, t, i18n }) => {
     return (
         <Fragment>
             {!!dashboard && <Fragment>
-                <Header t={t} i18n={i18n} />
                 <ul className="container breadcrumb flex row">
                     <li className="back"><button onClick={handleBack}>{t('retour')}</button></li>
                     <li><button onClick={handleBack}>{t('catalogue')}</button></li>
@@ -131,7 +128,6 @@ const Service = ({ dashboard, t, i18n }) => {
                         </div>
                     </section>
                 </main>
-                <Footer t={t} />
             </Fragment>}
 
 

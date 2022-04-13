@@ -74,7 +74,9 @@ const Connection = ({ buttonName, typeConnection, id }) => {
                 //     registry: '0xdca7ef03e98e0dc2b855be647c39abe984fcf21b',
                 //     name: 'rinkeby'
                 // }
+                console.log(ethrDid.did)
                 const currentUser = await usersList.filter(users => (users.did === ethrDid.did));
+                console.log("Ok")
                 dispatch(didReducer(ethrDid.did));
                 if (currentUser[0] != null) {
                     dispatch(accountReducer(currentUser[0]));

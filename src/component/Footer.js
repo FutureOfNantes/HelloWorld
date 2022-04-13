@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Footer = ({ t }) => {
 	return (
-		<footer className="container">
-			<div>
+		<footer>
+			<div className="container">
 				<a href='/'><img src="favicon.svg" alt="" /></a>
 				<p>
 					{t('Footer')}

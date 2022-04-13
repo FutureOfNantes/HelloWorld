@@ -2,10 +2,13 @@ import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Daseslogo from '../style/img/favicon.svg'
 import Connection from './Connection'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchAsyncUsers } from '../features/reducers/userSlice'
 
 const Header = ({ t, i18n }) => {
     const typeConnection = 'header'
-
+ 
     return (
         <header>
             <div className="header_topBar">

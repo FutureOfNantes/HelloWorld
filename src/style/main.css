@@ -646,18 +646,19 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 		0px 22px 81px -11px rgba(2, 32, 57, 0.16),
 		0px 2px 2px 0 rgba(2, 32, 57, 0.07);
 	background: #fff;
+	max-width: 960px;
 }
 
 .servicePageTitle {
 	align-items: center;
 	border-bottom: 2px solid var(--lightGrey);
 	padding-bottom: 1em;
-	padding: 2em;
+	padding: 1em;
 }
 
 .servicePageTitle > img {
 	background: #fff;
-	width: 6em;
+	width: 4em;
 	margin-right: 2em;
 	background: #fff;
 	padding: 1em;
@@ -668,7 +669,7 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 }
 
 .servicePageTitle > div h1 {
-	font-size: 2.5em;
+	font-size: 1.75em;
 	font-weight: 700;
 }
 
@@ -759,13 +760,26 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 	font-size: 	0.875em;
 }
 
+.servicePageContent .serviceDetails .button {
+	width: 100%;
+	text-align: left;
+	box-sizing: border-box;
+	white-space: nowrap;
+}
+
+.servicePageContent .serviceDetails table .button {
+	overflow: hidden;
+	text-overflow: ellipsis;
+    max-width: 250px;
+}
+
 .servicePageContent .serviceDetails > * {
-	padding: 1.5em;
+	padding: 0.75em;
 	border-bottom: 1px solid var(--lightGreyTransparent);
 }
 
 .servicePageContent .serviceDetails table {
-	margin: 1.5em;
+	margin: 1em;
 	border-bottom: none;
 }
 
@@ -783,6 +797,7 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 .servicePageContent .serviceDetails tr td {
 	padding: 1em 0;
 	vertical-align: top;
+	font-size: 0.875em;
 }
 
 .servicePageContent .serviceDetails tr td:first-child {
@@ -794,7 +809,7 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 
 .servicePageContent h2 {
 	font-size: 1.5em !important;
-	margin: 0 0 1em;
+	margin: 0 0 0.5em;
 	font-weight: 700;
 	color: var(--black);
 	text-transform: initial;
@@ -1016,7 +1031,7 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 .button {
 	line-height: 1.75;
 	border-radius: 0.5em;
-	padding: 1em 2em;
+	padding: 0.5em 1em;
 	cursor: pointer;
 	font-family: 'Inter', sans-serif;
 	border: 3px solid #0a102a03;
@@ -1029,14 +1044,14 @@ footer .container div ul li a{ text-decoration: none; color: var(--blue); displa
 }
 
 .button.external {
-	padding: 1em 4em 1em 2em;
+	padding: 0.5em 4em 0.5em 1em;
 	background-image: url(img/link.svg);
 	background-position: 92% center;
 	background-repeat: no-repeat;
 }
 
 .button.export {
-	padding: 1em 4em 1em 2em;
+	padding: 0.5em 4em 0.5em 1em;
 	background-image: url(img/export.svg);
 	background-position: 92% center;
 	background-repeat: no-repeat;
@@ -1177,7 +1192,7 @@ input[type=submit].connectMetamask {
 	padding-right: 4em;
 }
 
-.addresourceNav {
+.addResourceNav {
 	margin-right: 8em;
 }
 

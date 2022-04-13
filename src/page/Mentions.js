@@ -1,12 +1,6 @@
-import Header from '../component/Header'
-import Footer from '../component/Footer'
-
-
-const Mentions = ({ t, i18n }) => {
+const Mentions = ({ t }) => {
     return (
        <div>
- 
-            <Header t={t} i18n={i18n} />
             <main className="container768 sectionContent textBlock">
             <h1>Informations légales</h1>
             <h2>A propos du Dases Lab</h2>
@@ -216,7 +210,6 @@ C’est ce qu’on appelle aussi, l’identité décentralisée.</p>
                  
               
             </main>
-            <Footer t={t} i18n={i18n} />
         </div>
     )
 }
