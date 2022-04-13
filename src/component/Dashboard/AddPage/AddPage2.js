@@ -75,25 +75,25 @@ const AddPage2 = ({ setButtonContinuer }) => {
           <div className="flex-1">
             <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="data" required
               onClick={handleRessource} />
-            <label htmlFor="resourceTypeDataSet" className="button actAsButton radioLabel forresourceTypeDataSet">Données</label>
+            <label htmlFor="resourceTypeDataSet" className="button actAsButton radioLabel forresourceTypeDataSet textCenter">Données</label>
           </div>
 
           <div className="flex-1">
             <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="service" required
               onClick={handleRessource} />
-            <label htmlFor="resourceTypeService" className="button actAsButton radioLabel forresourceTypeService">Service</label>
+            <label htmlFor="resourceTypeService" className="button actAsButton radioLabel forresourceTypeService textCenter">Service</label>
           </div>
 
           <div className="flex-1">
             <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeCode' value="code" required
               onClick={handleRessource} />
-            <label htmlFor="resourceTypeCode" className="button actAsButton radioLabel forresourceTypeCode">Code</label>
+            <label htmlFor="resourceTypeCode" className="button actAsButton radioLabel forresourceTypeCode textCenter">Code</label>
           </div>
         </div>
       </fieldset >
       {service.type === "data" && <div>
         <div className="formGroup select">
-          <CreatableSelect isMulti
+          <CreatableSelect className="formGroup select" isMulti
             options={tagOptions}
             placeholder="Etiquette de la ressource (ajouter ou en créer une)" />
         </div>

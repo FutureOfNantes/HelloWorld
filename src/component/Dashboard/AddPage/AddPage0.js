@@ -21,7 +21,7 @@ const AddPage0 = ({ setButtonContinuer }) => {
                 </div>
                 <p>Un fichier de Self Description est un fichier .json décrivant votre offre de services sur lequel le moteur de génération du catalogue et le moteur de recherche associé vont se baser pour fonctionner.</p>
             </fieldset>
-            {buttonGithub && <a className="button blackButton external" href="https://github.com/Prometheus-X-association">Continuer vers le dépôt Githhub des self-descriptions</a>}
+            {buttonGithub && <a className="button blackButton external" href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">Continuer vers le dépôt Githhub des self-descriptions</a>}
         </div>
 
     )

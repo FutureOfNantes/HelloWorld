@@ -9,7 +9,7 @@ const Footer = ({ t }) => {
 					{t('Footer')}
 				</p>
 				<ul>
-					<li><Link to="/mentions">{t('Mentions légales')}</Link></li>
+					<li><a href="/mentions">{t('Mentions légales')}</a></li>
 					<li><a href="https://calendly.com/mathieu-strabach-menjs/test-usabilite?month=2022-03">{t('Contactez-nous')}</a></li>
 				</ul>
 			</div>

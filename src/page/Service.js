@@ -42,6 +42,7 @@ const Service = ({ dashboard, t, i18n }) => {
                     <li><button onClick={handleBack}>{t('catalogue')}</button></li>
                     <li className="current"><button onClick={handleBack}>{service[0].title}</button></li>
                 </ul>
+                <div className="servicePage">
                 <main className="container sectionContent">
                     <section className="container servicePageTitle flex row">
                         {(service[0].entity === 'MENJS') &&
@@ -128,6 +129,7 @@ const Service = ({ dashboard, t, i18n }) => {
                         </div>
                     </section>
                 </main>
+                </div>
             </Fragment>}
 
 

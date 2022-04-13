@@ -580,7 +580,7 @@ footer .container div {
 }
 
 footer .container div img { margin-bottom: 3em}
-footer .container div ul li a{ text-decoration: none; color: var(--blue); display: block; padding: 0.5em 0 0; }
+footer a { text-decoration: none; color: var(--blue); display: block; padding: 0.5em 0 0; }
 
 /** ------------------- BREADCRUMB ----------------------**/
 
@@ -1190,6 +1190,7 @@ input[type=submit].connectMetamask {
 
 .addResourceForm {
 	padding-right: 4em;
+	width: 480px;
 }
 
 .addResourceNav {
@@ -1198,6 +1199,9 @@ input[type=submit].connectMetamask {
 
 .formProgression {
 	padding: 3em 0;
+	position: sticky;
+	top: 2em;
+	width: 280px;
 }
 
 .formProgression li {

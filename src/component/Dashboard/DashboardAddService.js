@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
@@ -18,7 +18,7 @@ const AddService = () => {
     const navigate = useNavigate();
     const service = useSelector((state) => state.newService);
     const account = useSelector((state) => state.connection.account);
-    const [newService, setNewService] = useState(0);
+    const [newService, setNewService] = useState(1);
 
     useEffect(() => {
         const unique_id = uuid()
@@ -73,8 +73,6 @@ const AddService = () => {
         await signInWithEthereum();
         dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
-
-
     }
 
     const handleBack = () => {
@@ -163,9 +161,8 @@ const AddService = () => {
     }
 
     return (
-        <div className="dashboard addServices">
+        <Fragment>
             <section class="main flex column centerJustify flex-1">
-
                 <header className="flex row wrap">
                     <button className="back" onClick={handleBack}>Annuler</button>
                     <div className="flex-1 alignCenter">
@@ -184,6 +181,10 @@ const AddService = () => {
                             <li className={acces} onClick={handleAcces}>3. Accès</li>
                             <li className={cond} onClick={handleCond}>4. Conditions d'utilisation</li>
                             <li className={publ} onClick={handlePubl}>5. Publication</li>
+                            <li>
+								Gagnez du temps si vous possédez déjà une self-description <br/>
+								➡ <a href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">Déposer votre self-description sur le github</a>
+							</li>
                         </ul>
 
                     </section>}
@@ -210,7 +211,7 @@ const AddService = () => {
                 </div>
             </section>
             <Outlet />
-        </div>
+        </Fragment>
     )
 }
 
