@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import './App.css';
 import './style/main.css';
-import './style/dashboard.css';
 
 import NoMetamask from './page/NoMetamask'
 import Catalog from './page/Catalog';
@@ -13,6 +12,7 @@ import Dashboard from './page/Dashboard';
 import AddService from './component/Dashboard/DashboardAddService';
 import Service from './page/Service';
 import Mentions from './page/Mentions';
+import Home from './page/Home';
 import DashboardCatalog from './component/Dashboard/DashboardCatalog';
 import DashboardMyOffer from './component/Dashboard/DashboardMyOffer';
 import DashboardSurvey from './component/Dashboard/DashboardSurvey';
@@ -25,7 +25,8 @@ const App = () => {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Catalog t={t} i18n={i18n} />} />
+        <Route path="/" element={<Home t={t} i18n={i18n} />} />
+        <Route path="/catalogue" element={<Catalog t={t} i18n={i18n} />} />       
         <Route path="/service/:id" element={<Service dashboard='false' t={t} i18n={i18n} />} />
         <Route path="/metamask" element={<NoMetamask />} />
         <Route path="/vc" element={<VerifiableCredential t={t} />} />

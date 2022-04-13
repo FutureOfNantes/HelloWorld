@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import entityUnkown from '../assets/entityUnKnown.svg'
-import menjs from '../assets/logo_menj.jpg'
+import menjs from '../assets/logos/menjs.jpg'
 import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 import Connection from './Connection';
 

@@ -63,14 +63,15 @@ table {
 /* Colors */
 
 :root {
-	--bgColor: #FFF;
+	--bgColor: #F3F4F6;
     --pink: #8A90AD;
  	--blue : #000094;
- 	--black: #0A102A;
- 	--lightGrey : #F2F6F6;
+ 	--black: #022039;
+ 	--lightGrey : #F3F4F6;
  	--turquoise: #8A90AD;
- 	--green: #005550;
+ 	--green: #2F9898;
  	--lightGreyTransparent: #0a102a1c;
+ 	--lightYellow : #FFF6EF
 }
 
 
@@ -87,7 +88,7 @@ table {
 
 body {
 	font-family: 'Inter', sans-serif;
-	font-weight: 400;
+	font-weight: 500;
 	background: var(--bgColor);
 	line-height: 1.5;
 	color: var(--black);
@@ -122,6 +123,14 @@ strong {font-weight: 700;}
 .p01em { padding: 0 1em 1em 0; }
 .absolute {position: absolute;}
 
+.alignLeft {
+	text-align: left;
+}
+
+.alignCenter {
+	text-align: center;
+}
+
 .helpIcon {
 	display: block;
 	width: 1.5em;
@@ -132,11 +141,27 @@ strong {font-weight: 700;}
 	position: absolute;
 }
 
+.questionLink {
+	color: var(--black);
+}
+
+.questionLink:after {
+	content: ' 🤔';
+}
+
+.fixed {
+	position: fixed;
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%);
+}
+
 
 /* ------------- HEADER --------------*/
 
 header {
 	border-bottom: 2px solid var(--lightGrey);
+	background: #fff;
 }
 
 .header_topBar {
@@ -175,6 +200,12 @@ header {
 .mainNav, .secondaryNav {
 	float: right;
 	clear: both;
+}
+
+.mainNav .metaLinks {
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
 }
 
 
@@ -219,9 +250,10 @@ header {
 .mainNav li button.connectWallet {
 	background-image: url(img/wallet.svg);
 	background-size: 1em;
-	background-position: 85% center;
+	background-position: 92% center;
 	background-repeat: no-repeat;
 	padding: 0.5em 3em 0.5em 1em;
+	text-transform: initial;
 }
 
 .mainNav li button.roundblue {
@@ -235,23 +267,6 @@ header {
 
 .mainNav li button:active, .mainNav li button:focus  {
 	border-color: var(--lightGrey);
-}
-
-body.homePage .mainNav li button:after {
-	content: '';
-	display: block;
-	width: 0;
-	border: 0.75em solid transparent;
-	border-bottom-color: #fff ;
-	display: none;
-	position: absolute;
-	left: 50%;
-	margin-left: -0.75em;
-	bottom: -1.5em;
-}
-
-body.homePage .mainNav li button:focus:after {
-	display: block;
 }
 
 
@@ -361,7 +376,7 @@ body.homePage .mainNav li button:focus:after {
 }
 
 section.hero {
-	padding: 3em 0;
+	padding: 6em 0;
 }
 
 .hero h1 {
@@ -375,39 +390,6 @@ section.hero {
 	color: var(--orange);
 }
 
-.whyPeople, .whyTech{
-	box-sizing: border-box;
-	padding: 5em 5em 17em 5em;
-	margin: 5em 0 15em;
-	width: 48%;
-	margin: 1%;
-	background: #fff
-}
-
-.why h1 i {
-	font-family: 'Inter';
-	font-weight: 700;
-	font-style: italic;
-}
-
-.why h2 {
-	font-size: 4em;
-	color: #111;
-	line-height: 1;
-	margin-bottom: 1em;
-}
-
-.why img {
-	width: 100%;
-	margin-top: -14em;
-}
-
-.why p {
-	font-size: 1.75em;
-	color: #111;
-	max-width: 675px;
-	margin: 0 auto;
-}
 
 /* ------------ CATALOGUE ------------- */
 
@@ -417,6 +399,14 @@ section.hero {
 .flex {
 	display: flex;
 	flex-flow: row ;
+}
+
+.flex.flexStart {
+	align-items: flex-start;
+}
+
+.flex.flexEnd {
+	align-items: flex-end;
 }
 
 .flex.column {
@@ -438,7 +428,7 @@ section.hero {
 /* ---- Moteur de recherche ----- */
 
 .searchEngine {
-	width: 100%
+	width: 100%;
 }
 
 .searchEngine > div {
@@ -451,18 +441,31 @@ section.hero {
 	position: relative;
 }
 
+.searchEngine > div > div:first-child {
+	padding-left: 1em;
+}
+
 .searchEngine input[type=text], .searchEngine select {
 	border: none;
-	outline: 3px solid rgba(0,0,0,.1);
-	background: var(--lightGrey);
+	outline: 1px solid #0a102a1c;
 	font-family: 'Inter', sans-serif;
 	position: relative;
 	display: block;
 	padding: 1em;
-	border-radius: 2em;
+	border-radius: 0.5em;
 	margin: 1em;
 	width: 100%;
 	box-sizing: border-box;
+	box-shadow: 
+		0px 22px 81px -11px rgba(2, 32, 57, 0.16),
+		0px 2px 2px 0 rgba(2, 32, 57, 0.07);
+	background: #fff;
+	font-weight: 700;
+}
+
+.searchEngine select {
+	width: auto;
+	cursor: pointer;
 }
 
 .searchEngine input[type=text]:hover, .searchEngine select:hover {
@@ -487,10 +490,10 @@ section.hero {
 	position: absolute;
 	background: url(img/searchIcon.svg);
 	width: 1em;
-   height: 1em;
-   left: 2em;
-   top: 1.75em;
-   z-index: 2;
+	height: 1em;
+	left: 2em;
+	top: 1.75em;
+	z-index: 2;
 }
 
 /* ---- Contenu du catalogue ----- */
@@ -564,18 +567,20 @@ section.hero {
 }
 
 footer {
+	margin-top: 6em;
 	padding: 3em 0;
+	background: #fff;
 }
 
-footer div {
+footer .container div {
 	width: 25%;
 	font-weight: 700;
 	font-size: 1em;
 	padding: 3em 0;
 }
 
-footer div img { margin-bottom: 3em}
-footer div ul li a{ text-decoration: none; color: var(--blue); display: block; padding: 0.5em 0 0; }
+footer .container div img { margin-bottom: 3em}
+footer .container div ul li a{ text-decoration: none; color: var(--blue); display: block; padding: 0.5em 0 0; }
 
 /** ------------------- BREADCRUMB ----------------------**/
 
@@ -650,7 +655,7 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	padding: 2em;
 }
 
-.servicePageTitle img {
+.servicePageTitle > img {
 	background: #fff;
 	width: 6em;
 	margin-right: 2em;
@@ -673,6 +678,39 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	position: relative;
 }
 
+.servicePageTitle > div .resourceTags li {
+	margin-right: 0.5em
+}
+
+.servicePageTitle > div .resourceTags li .tagList {
+	border-left: 2px solid var(--lightGrey);
+	padding-left: 1em;
+}
+
+.servicePageTitle > div .resourceTags li .tagList li {
+	padding: 0.25em 1em;
+	border-radius: 2em;
+	background: var(--lightGrey);
+	font-size: 0.875em;
+	font-weight: 700;
+}
+
+.servicePageTitle > div .resourceTags .resourceType {
+	background: url(img/datasetIconWhite.svg) var(--black) center no-repeat;
+	background-size: 1em;
+	width: 2em;
+	height: 2em;
+	border-radius: 2em;
+}
+
+.servicePageTitle > div .resourceTags .isResourceOpen.locked {
+	background: url(img/locked.svg) var(--pink) center no-repeat;
+	background-size: 0.75em;
+	width: 2em;
+	height: 2em;
+	border-radius: 2em;
+} 
+
 .servicePageTitle > div a:after {
 	content: '';
 	width: 1.5em;
@@ -686,6 +724,15 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 .servicePageTitle .ctas a {
 	text-decoration: none;
 	padding: 1em 2em;
+	display: block;
+}
+
+.servicePageTitle .ctas img {
+	width: 4em;
+}
+
+.servicePageTitle .ctas span {
+	font-size: 0.75em;
 }
 
 .servicePageTitle .ctas a.useService {
@@ -696,39 +743,61 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	font-family: Inter, sans-serif;
 }
 
-.servicePageContent > div {
+.servicePageContent .serviceDescription .warning {
+	padding: 1.5em;
+	background: var(--lightYellow);
+	border-radius: 0.5em;
+	margin-bottom: 1.5em;
+}
+
+.servicePageContent .serviceDescription {
+	border-right: 1px solid var(--lightGreyTransparent);
 	padding: 3em;
 }
 
 .servicePageContent .serviceDetails {
-	border-right: 1px solid var(--lightGreyTransparent);
+	font-size: 	0.875em;
+}
+
+.servicePageContent .serviceDetails > * {
+	padding: 1.5em;
+	border-bottom: 1px solid var(--lightGreyTransparent);
+}
+
+.servicePageContent .serviceDetails table {
+	margin: 1.5em;
+	border-bottom: none;
 }
 
 .servicePageContent .serviceDetails tr {
 	border-bottom: 1px solid var(--lightGreyTransparent);
 }
 
-.servicePageContent .serviceDetails tbody tr td {
-	padding: 1.5em 0;
+
+.servicePageContent .serviceDetails thead tr td {
+	padding: 0;
 	font-size: 0.875em;
 	vertical-align: top;
 }
 
-.servicePageContent .serviceDetails tbody tr td:first-child {
+.servicePageContent .serviceDetails tr td {
+	padding: 1em 0;
+	vertical-align: top;
+}
+
+.servicePageContent .serviceDetails tr td:first-child {
 	text-transform: uppercase;
 	font-weight: 700;
 	color: var(--pink);
 	width: 33%;
 }
 
-.servicePageContent .serviceDetails tbody tr td:last-child {
-	padding-left: 2em;
-}
-
 .servicePageContent h2 {
-	font-size: 1.5em;
+	font-size: 1.5em !important;
 	margin: 0 0 1em;
 	font-weight: 700;
+	color: var(--black);
+	text-transform: initial;
 }
 
 /**** -------------- DASHBOARD ------------ ****/ 
@@ -750,6 +819,18 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 	font-weight: 700;
 	font-size: 1.25em;
 	font-family: Inter, sans-serif;
+}
+
+.dashboard header {
+	background: none;
+	border-bottom: 1px solid #0a102a1c;
+}
+
+.dashboard header .back {
+	border: none;
+	background: none;
+	font-weight: 700;
+
 }
 
 .dashboard {
@@ -897,15 +978,25 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
     margin-left: 320px;
 }
 
+.sectionContent {
+	padding-bottom: 6em;
+	margin-bottom: 6em;
+	border-bottom: 1px solid #0a102a1c;
+}
+
 .dashboard .main header {
 	padding-bottom: 2em;
 	position: relative;
 }
 
 .dashboard .main header h1 {
-	font-size: 2em;
+	font-size: 1.5em;
 	font-weight: 700;
-	padding: 1em;
+}
+
+.dashboard .main header h2 {
+	color: var(--pink);
+	font-size: 0.875em;
 }
 
 .dashboard .main h1 img {
@@ -940,7 +1031,14 @@ footer div ul li a{ text-decoration: none; color: var(--blue); display: block; p
 .button.external {
 	padding: 1em 4em 1em 2em;
 	background-image: url(img/link.svg);
-	background-position: 97% center;
+	background-position: 92% center;
+	background-repeat: no-repeat;
+}
+
+.button.export {
+	padding: 1em 4em 1em 2em;
+	background-image: url(img/export.svg);
+	background-position: 92% center;
 	background-repeat: no-repeat;
 }
 
@@ -1075,6 +1173,14 @@ input[type=submit].connectMetamask {
 	border-radius: 0.5em;
 }
 
+.addResourceForm {
+	padding-right: 4em;
+}
+
+.addresourceNav {
+	margin-right: 8em;
+}
+
 .formProgression {
 	padding: 3em 0;
 }
@@ -1083,20 +1189,37 @@ input[type=submit].connectMetamask {
 	font-size: 0.875em;
 	position: relative;
 	text-overflow: ellipsis;
+	width: 100%;
+	margin-bottom: 1em;
+	position: relative;
+}
+
+.formProgression .button.done {
+	color: var(--green);
+	outline-color: var(--green);
+	background: #fff;
+	outline-width: 2px;
+}
+
+.formProgression .button.disabled {
+	opacity: 0.4;
+}
+
+.formProgression .button.done:after {
+	position: absolute;
+	right: 1em;
+	top: 1.1em;
+	background: url(img/littleTick.svg) center no-repeat;
+	background-size: 1em;
+	content: '';
+	display: block;
+	width: 1em;
+	height: 1em;
 }
 
 .formProgression .button {
 	border-radius: 0.5em;
 	padding: 0.75em 1em;
-}
-
-.formProgression .sep {
-	padding: 0 1em;
-    position: relative;
-    width: 1em;
-    overflow: hidden;
-    height: 6px;
-    margin: 0 0.5em;
 }
 
 .formProgression .sep img {
@@ -1106,9 +1229,6 @@ input[type=submit].connectMetamask {
 
 .form {
 	padding-top: 3em;
-	width: 60%;
-	min-width: 540px;
-	max-width: 768px;
 }
 
 .form .formGroup {
@@ -1152,7 +1272,7 @@ input[type=submit].connectMetamask {
 	left: 1em;
 	top: 1.25em;
 	cursor: text;
-	font-size: 1em;
+	font-size: 0.875em;
 	color: rgba(0, 0, 0, .6);
 	font-weight: 700
 }
@@ -1189,7 +1309,7 @@ input[type=submit].connectMetamask {
 
 .form .formGroup.radio .selectServiceType .radioLabel {
 	background-color: #fff;
-	padding: 4em 3em 1.5em 3em;
+	padding: 4em 1em 1.5em;
 	display: block;
 	border-radius: 0.5em;
 	
@@ -1206,6 +1326,12 @@ input[type=submit].connectMetamask {
 .form .formGroup.radio input[type=radio]:checked + .radioLabel {
 	background-color: var(--turquoise);
 	color: #fff;
+}
+
+.form h1 {
+	font-size: 1.5em;
+	font-weight: 700;
+	margin-bottom: 1em;
 }
 
 label.forresourceTypeDataSet {
@@ -1387,14 +1513,32 @@ fieldset legend {
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.11), 0px 1px 74px -20px rgba(0, 0, 0, 0.1);
 }
 
+.textBlock h1 {
+	font-size: 2em;
+	font-weight: 700
+}
+
 .textBlock a {
 	text-decoration: none;
+}
+
+.textBlock ul {
+	margin: 1em 0 1.5em
+}
+
+.textBlock ul li {
+	margin-left: 1em;
+	list-style: disc;
 }
 
 .textBlock h2 {
 	font-size: 1.5em;
 	font-weight: 700;
 	margin: 1em 0 0.5em;
+}
+
+.textBlock h3 {
+	font-weight: 700;
 }
 
 .textBlock p {
@@ -1404,4 +1548,102 @@ fieldset legend {
 .textBlock hr {
 	margin: 3em 0 1em;
 	border: 1px solid var(--lightGreyTransparent);
+}
+
+/* ---------------- PAGE D'ACCUEIL --------------- */
+
+.homePage {
+	background: var(--bgColor);
+}
+
+.homePage .mainNav li button:after {
+	content: '';
+	display: block;
+	width: 0;
+	border: 0.75em solid transparent;
+	border-bottom-color: #fff ;
+	display: none;
+	position: absolute;
+	left: 50%;
+	margin-left: -0.75em;
+	bottom: -1.5em;
+}
+
+.homePage .mainNav li button:focus:after {
+	display: block;
+}
+
+.homePage .hero,.cataloguePublic .hero {
+	background: #fff;
+}
+
+.cataloguePublic .hero {
+	padding-bottom: 20em;
+	margin-bottom: -15em;
+}
+
+.cataloguePublic .hero .container h1 {
+	background: url(../assets/img/fedcat.png) left center no-repeat;
+	background-size: 4em;
+	padding-left: 6em;
+} 
+
+.homePage .hero {
+	text-align: center;
+}
+
+.homePage .hero .container h1, .homePage .hero .container h2 {
+	width: 66%;
+	margin: 0 auto;
+	line-height: 1.25;
+}
+
+.homePage .hero .container h2 {
+	margin-top: 2em;
+}
+
+.homePage .hero .container img {
+	width: 25%;
+	margin: 4em	
+}
+
+.homePage .hero .container p {
+	font-weight: 700;
+	margin-top: 2em
+}
+
+.indexBlocs {
+	padding: 0 6em 4em 0;
+	margin-right: 2em;
+	border-bottom: 2px solid var(--lightGreyTransparent);
+}
+
+.homeContent section {
+	border-bottom: 2px solid #fff;
+}
+
+.homeContent section > section {
+	padding: 6em 0;
+}
+
+.homeContent section > section h1 {
+	font-size: 2em;
+	font-weight: 700;
+
+}
+
+.homeContent section .flex-1:first-child * {
+	margin: 1em 0
+}
+
+.homeContent section .flex-1:last-child {
+	text-align: center;
+}
+
+.homeContent section img {
+	width: 33%;
+}
+
+.homeContent section .button.whiteButton {
+	background: #fff;
 }

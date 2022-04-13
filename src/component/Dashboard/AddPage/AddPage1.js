@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTitle, addDescription } from '../../../features/reducers/serviceSlice';
 
@@ -22,7 +23,7 @@ const AddPage1 = ({ setButtonContinuer }) => {
 
 
     return (
-        <div>
+        <Fragment>
             <div className="formGroup field">
                 <input type="input" className="formField" placeholder="Titre de votre ressource" name="resourceName" id='resourceName' required
                 onChange={handleTitle}/>
@@ -33,7 +34,7 @@ const AddPage1 = ({ setButtonContinuer }) => {
                 onChange={handleDescription}></textarea>
                 <label htmlFor="resourceDesc" className="formLabel">Description de votre ressource (5 caractères minimum)</label>
             </div>
-        </div>
+        </Fragment>
 
     )
 }

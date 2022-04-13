@@ -3,7 +3,8 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import Connection from '../component/Connection';
 import entityUnkown from '../assets/entityUnKnown.svg'
-import menjs from '../assets/logo_menj.jpg'
+import menjs from '../assets/logos/menjs.jpg'
+import visions from '../assets/logos/visions.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAsyncVisions } from '../features/reducers/visionsSlice';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -52,15 +53,37 @@ const Service = ({ dashboard, t, i18n }) => {
                             <img src={entityUnkown} alt="" />}
                         <div>
                             <h1>{service[0].title}</h1>
-                            <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a>
+                            <ul class="resourceTags flex row center wrap">
+						<li class="resourceType dataSet"></li>
+						<li class="isResourceOpen locked"></li>
+						<li>
+							<ul class="tagList flex row">
+								<li>API</li>
+								<li>Students</li>
+								<li>Skills</li>
+							</ul>
+						</li>
+					</ul>
+                     {/* <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a> */}
                         </div>
                         {service[0].personalData === "oui" &&
                         <ul className="ctas">
-                            <li><Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /></li>
+                            <li>
+                                <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /><br/>
+                            <span>powered by <img src={visions} alt=""/></span>
+                            </li>
                         </ul>}
                     </section>
-
                     <section className="container servicePageContent flex wrap column">
+                    <div className="serviceDescription flex-1">
+                    {service[0].personalData === "oui" &&
+					<p class="warning">
+						⚠ Cette ressource donne accès à des données personnelles <br/>
+						<a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
+					</p>}
+					<h2>Description</h2>
+                    <p>{service[0].description}</p>
+				</div>
                         <div className="serviceDetails flex-1">
                             <table>
                                 <thead>
@@ -106,15 +129,24 @@ const Service = ({ dashboard, t, i18n }) => {
                                 </tbody>
                             </table>
                         </div>
-                        <div className="serviceDescription flex-1">
-                            <h2>Description</h2>
-                            <p>{service[0].description}</p>
-                        </div>
                     </section>
-
                 </main>
                 <Footer t={t} />
             </Fragment>}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             {!dashboard && <section class="main flex column flex-1">
                 <ul className="container breadcrumb flex row">
                     <li className="back"><button onClick={handleBack}>{t('retour')}</button></li>
