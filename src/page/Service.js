@@ -43,92 +43,101 @@ const Service = ({ dashboard, t, i18n }) => {
                     <li className="current"><button onClick={handleBack}>{service[0].title}</button></li>
                 </ul>
                 <div className="servicePage">
-                <main className="container sectionContent">
-                    <section className="container servicePageTitle flex row">
-                        {(service[0].entity === 'MENJS') &&
-                            <img src={menjs} alt="" />}
-                        {(service[0].entity !== 'MENJS') &&
-                            <img src={entityUnkown} alt="" />}
-                        <div>
-                            <h1>{service[0].title}</h1>
-                            <ul class="resourceTags flex row center wrap">
-						<li class="resourceType dataSet"></li>
-						<li class="isResourceOpen locked"></li>
-						<li>
-							<ul class="tagList flex row">
-								<li>API</li>
-								<li>Students</li>
-								<li>Skills</li>
-							</ul>
-						</li>
-					</ul>
-                     {/* <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a> */}
-                        </div>
-                        {service[0].personalData === "oui" &&
-                        <ul className="ctas">
-                            <li>
-                                <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /><br/>
-                            <span>powered by <img src={visions} alt=""/></span>
-                            </li>
-                        </ul>}
-                    </section>
-                    <section className="container servicePageContent flex wrap column">
-                    <div className="serviceDescription flex-1">
-                    {service[0].personalData === "oui" &&
-					<p class="warning">
-						⚠ Cette ressource donne accès à des données personnelles <br/>
-						<a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
-					</p>}
-					<h2>Description</h2>
-                    <p>{service[0].description}</p>
-				</div>
-                        <div className="serviceDetails flex-1">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td colSpan="2">
-                                            <h2>{t('Détails')}</h2>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Type</td>
-                                        <td>{service[0].typeData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{t('Niveau')}</td>
-                                        <td>{service[0].levelData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Format</td>
-                                        <td>{service[0].formatData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Standard</td>
-                                        <td>{service[0].originalData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Licence</td>
-                                        <td>{service[0].licence}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{t('Données personnelles')}</td>
-                                        <td>{service[0].personalData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{t('Label Gaia-X')}</td>
-                                        <td>{service[0].labelData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>{t('Conditions d’utilisation')}</td>
-                                        <td><a href={service[0].conditions} target="_blank" rel="noopener noreferrer" className="button whiteButton external block">{service[0].conditions}</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </main>
+                    <main className="container sectionContent">
+                        <section className="container servicePageTitle flex row">
+                            {(service[0].entity === 'MENJS') &&
+                                <img src={menjs} alt="" />}
+                            {(service[0].entity !== 'MENJS') &&
+                                <img src={entityUnkown} alt="" />}
+                            <div>
+                                <h1>{service[0].title}</h1>
+                                <ul class="resourceTags flex row center wrap">
+                                    <li class="resourceType dataSet"></li>
+                                    <li class="isResourceOpen locked"></li>
+                                    <li>
+                                        <ul class="tagList flex row">
+                                            <li>API</li>
+                                            <li>Students</li>
+                                            <li>Skills</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            {service[0].personalData === "oui" &&
+                                <ul className="ctas">
+                                    <li>
+                                        <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /><br />
+                                        <span>powered by <img src={visions} alt="" /></span>
+                                    </li>
+                                </ul>}
+                        </section>
+                        <section className="container servicePageContent flex wrap column">
+                            <div className="serviceDescription flex-1">
+                                {service[0].personalData === "oui" &&
+                                    <p class="warning">
+                                        ⚠ Cette ressource donne accès à des données personnelles <br />
+                                        <a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
+                                    </p>}
+                                <h2>Description</h2>
+                                <p>{service[0].description}</p>
+                            </div>
+                            <div className="serviceDetails">
+                                <div class="serviceEditor">
+                                    <h2>Editeur</h2>
+                                    <button class="button whiteButton">{service[0].entity}</button>
+                                </div>
+                                <div class="serviceEditor">
+                                    <h2>Documentation</h2>
+                                    <button class="button whiteButton external">
+                                        <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Voir la documentation</a>
+                                        </button>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td colSpan="2">
+                                                <h2>{t('Détails')}</h2>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Type</td>
+                                            <td>{service[0].typeData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Niveau')}</td>
+                                            <td>{service[0].levelData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Format</td>
+                                            <td>{service[0].formatData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Standard</td>
+                                            <td>{service[0].originalData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Licence</td>
+                                            <td>{service[0].licence}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Données personnelles')}</td>
+                                            <td>{service[0].personalData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Label Gaia-X')}</td>
+                                            <td>{service[0].labelData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Conditions d’utilisation')}</td>
+                                            <td><a href={service[0].conditions} target="_blank" rel="noopener noreferrer" className="button whiteButton external block">{service[0].conditions}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </main>
                 </div>
             </Fragment>}
 
@@ -152,70 +161,99 @@ const Service = ({ dashboard, t, i18n }) => {
                     <li className="current"><button onClick={handleBack}>{service[0].title}</button></li>
                 </ul>
                 <main className="container sectionContent">
-                    <section className="container servicePageTitle flex row">
-                        <img src={entityUnkown} alt="" />
-                        <div>
-                            <h1>{service[0].title}</h1>
-                            <a href={service[0].documentation}>Documentation</a>
-                        </div>
-                        {service[0].personalData === "oui" &&
-                        <ul className="ctas">
-                            <li><button className="useService button blackButton" onClick={handleIntegration}>Demander l'intégration (avec Visions)</button></li>
-                        </ul>}
-                    </section>
-
-                    <section className="container servicePageContent flex wrap column">
-                        <div className="serviceDetails flex-1">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td colSpan="2">
-                                            <h2>Détails</h2>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Type</td>
-                                        <td>{service[0].typeData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Niveau</td>
-                                        <td>{service[0].levelData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>FORMAT</td>
-                                        <td>{service[0].formatData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>STANDARD</td>
-                                        <td>{service[0].originalData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>LICENCE</td>
-                                        <td>{service[0].licence}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Données personnelles</td>
-                                        <td>{service[0].personalData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Label Gaia-X</td>
-                                        <td>{service[0].labelData}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Conditions d’utilisation</td>
-                                        <td><a href={service[0].conditions} className="button whiteButton external block">{service[0].conditions}</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="serviceDescription flex-1">
-                            <h2>Description</h2>
-                            <p>{service[0].description}</p>
-                        </div>
-                    </section>
-                </main>
+                        <section className="container servicePageTitle flex row">
+                            {(service[0].entity === 'MENJS') &&
+                                <img src={menjs} alt="" />}
+                            {(service[0].entity !== 'MENJS') &&
+                                <img src={entityUnkown} alt="" />}
+                            <div>
+                                <h1>{service[0].title}</h1>
+                                <ul class="resourceTags flex row center wrap">
+                                    <li class="resourceType dataSet"></li>
+                                    <li class="isResourceOpen locked"></li>
+                                    <li>
+                                        <ul class="tagList flex row">
+                                            <li>API</li>
+                                            <li>Students</li>
+                                            <li>Skills</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            {service[0].personalData === "oui" &&
+                                <ul className="ctas">
+                                    <li>
+                                    <li><button className="useService button blackButton export" onClick={handleIntegration}>Demander l'intégration</button></li>
+                                        <span>powered by <img src={visions} alt="" /></span>
+                                    </li>
+                                </ul>}
+                        </section>
+                        <section className="container servicePageContent flex wrap column">
+                            <div className="serviceDescription flex-1">
+                                {service[0].personalData === "oui" &&
+                                    <p class="warning">
+                                        ⚠ Cette ressource donne accès à des données personnelles <br />
+                                        <a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
+                                    </p>}
+                                <h2>Description</h2>
+                                <p>{service[0].description}</p>
+                            </div>
+                            <div className="serviceDetails">
+                                <div class="serviceEditor">
+                                    <h2>Editeur</h2>
+                                    <button class="button whiteButton">{service[0].entity}</button>
+                                </div>
+                                <div class="serviceEditor">
+                                    <h2>Documentation</h2>
+                                    <button class="button whiteButton external"><a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Voir la documentation</a></button>
+                                                         {/* <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a> */}
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td colSpan="2">
+                                                <h2>{t('Détails')}</h2>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Type</td>
+                                            <td>{service[0].typeData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Niveau')}</td>
+                                            <td>{service[0].levelData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Format</td>
+                                            <td>{service[0].formatData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Standard</td>
+                                            <td>{service[0].originalData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Licence</td>
+                                            <td>{service[0].licence}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Données personnelles')}</td>
+                                            <td>{service[0].personalData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Label Gaia-X')}</td>
+                                            <td>{service[0].labelData}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{t('Conditions d’utilisation')}</td>
+                                            <td><a href={service[0].conditions} target="_blank" rel="noopener noreferrer" className="button whiteButton external block">{service[0].conditions}</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </main>
             </section>}
 
         </Fragment>

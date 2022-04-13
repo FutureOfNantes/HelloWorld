@@ -11,6 +11,7 @@ const Footer = ({ t }) => {
 				<ul>
 					<li><a href="/mentions">{t('Mentions légales')}</a></li>
 					<li><a href="https://calendly.com/mathieu-strabach-menjs/test-usabilite?month=2022-03">{t('Contactez-nous')}</a></li>
+					<li><a href="https://github.com/pgrandne/daseslab">GitHub</a></li>
 				</ul>
 			</div>
 		</footer>

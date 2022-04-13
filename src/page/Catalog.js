@@ -14,7 +14,14 @@ const Catalog = ({ t, i18n }) => {
 	return (
 		<div>
 			<section className="container hero">
-				<h1>{t('Catalogue des données et services du')}<br />{t('Data Space Education & Compétences')}</h1>
+				<section class="container flex row wrap">
+					<h1 class="flex-1">{t('Innovez avec les données et services du Data Space Education & Compétences')}</h1>
+					<div class="flex-1">
+						{t("Développeurs, chercheurs et innovateurs")} <br /><br />
+						<a href="/" class="questionLink">{t('Comment est-il alimenté ? Par qui ?')}</a>
+					</div>
+					{/* <h1>{t('Catalogue des données et services du')}<br />{t('Data Space Education & Compétences')}</h1> */}
+				</section>
 			</section>
 			<section className="searchEngine container flex wrap row">
 				<SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} t={t} />

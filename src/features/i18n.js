@@ -7,6 +7,9 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      "Innovez avec les données et services du Data Space Education & Compétences": "Innovate with Data Space Education & Skills data and services",
+      "Développeurs, chercheurs et innovateurs": "Developers, researchers and innovators, you will find resources from and to players in the education and skills ecosystem",
+      "Comment est-il alimenté ? Par qui ?": "How is it supplied? By who ?",
       "Catalogue des données et services du": "Data and Services Catalog of",
       "Data Space Education & Compétences": "Data Space for Education & Skills",
       "Catalogue": "Catalog",
@@ -16,6 +19,9 @@ const resources = {
       "Mentions légales": "Terms and Conditions",
       "Contactez-nous" : "Contact us",
       "Recherchez un produit" : "Search for a product by keyword, for example: learning traces",
+      "Filtrer :": "Filter : ",
+      "Type de ressource" : "Type of ressource",
+      "Données": "Data",
       "Données ouvertes": "Open Data",
       "Oui": "Yes",
       "Non": "No",
@@ -67,6 +73,9 @@ const resources = {
   },
   fr: {
     translation: {
+      "Innovez avec les données et services du Data Space Education & Compétences": "Innovez avec les données et services du Data Space Éducation & Compétences",
+      "Développeurs, chercheurs et innovateurs": "Développeurs, chercheurs et innovateurs, vous trouverez des ressources en provenance et à destination des acteurs de l’écosystème de l’éducation et des compétences",
+      "Comment est-il alimenté ? Par qui ?": "Comment est-il alimenté ? Par qui ?",
       "Catalogue des données et services du": "Catalogue des données et services du",
       "Data Space Education & Compétences": "Data Space Éducation & Compétences",
       "Catalogue": "Catalogue",
@@ -76,6 +85,9 @@ const resources = {
       "Mentions légales": "Mentions légales",
       "Contactez-nous": "Contactez-nous",
       "Recherchez un produit" : "Recherchez un produit par mot-cle, par exemple : traces d'apprentissage",
+      "Filtrer :": "Filtrer : ",
+      "Type de ressource" : "Type de ressource",
+      "Données": "Données",
       "Données ouvertes": "Données ouvertes",
       "Oui": "Oui",
       "Non": "Non",
