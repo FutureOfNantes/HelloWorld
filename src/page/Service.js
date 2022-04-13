@@ -51,11 +51,11 @@ const Service = ({ dashboard, t, i18n }) => {
                                 <img src={entityUnkown} alt="" />}
                             <div>
                                 <h1>{service[0].title}</h1>
-                                <ul class="resourceTags flex row center wrap">
-                                    <li class="resourceType dataSet"></li>
-                                    <li class="isResourceOpen locked"></li>
+                                <ul className="resourceTags flex row center wrap">
+                                    <li className="resourceType dataSet"></li>
+                                    <li className="isResourceOpen locked"></li>
                                     <li>
-                                        <ul class="tagList flex row">
+                                        <ul className="tagList flex row">
                                             <li>API</li>
                                             <li>Students</li>
                                             <li>Skills</li>
@@ -74,7 +74,7 @@ const Service = ({ dashboard, t, i18n }) => {
                         <section className="container servicePageContent flex wrap column">
                             <div className="serviceDescription flex-1">
                                 {service[0].personalData === "oui" &&
-                                    <p class="warning">
+                                    <p className="warning">
                                         ⚠ Cette ressource donne accès à des données personnelles <br />
                                         <a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
                                     </p>}
@@ -82,13 +82,13 @@ const Service = ({ dashboard, t, i18n }) => {
                                 <p>{service[0].description}</p>
                             </div>
                             <div className="serviceDetails">
-                                <div class="serviceEditor">
+                                <div className="serviceEditor">
                                     <h2>Editeur</h2>
-                                    <button class="button whiteButton">{service[0].entity}</button>
+                                    <button className="button whiteButton">{service[0].entity}</button>
                                 </div>
-                                <div class="serviceEditor">
+                                <div className="serviceEditor">
                                     <h2>Documentation</h2>
-                                    <button class="button whiteButton external">
+                                    <button className="button whiteButton external">
                                         <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Voir la documentation</a>
                                         </button>
                                 </div>
@@ -154,7 +154,7 @@ const Service = ({ dashboard, t, i18n }) => {
 
 
 
-            {!dashboard && <section class="main flex column flex-1">
+            {!dashboard && <section className="main flex column flex-1">
                 <ul className="container breadcrumb flex row">
                     <li className="back"><button onClick={handleBack}>{t('retour')}</button></li>
                     <li><button onClick={handleBack}>{t('catalogue')}</button></li>
@@ -168,11 +168,11 @@ const Service = ({ dashboard, t, i18n }) => {
                                 <img src={entityUnkown} alt="" />}
                             <div>
                                 <h1>{service[0].title}</h1>
-                                <ul class="resourceTags flex row center wrap">
-                                    <li class="resourceType dataSet"></li>
-                                    <li class="isResourceOpen locked"></li>
+                                <ul className="resourceTags flex row center wrap">
+                                    <li className="resourceType dataSet"></li>
+                                    <li className="isResourceOpen locked"></li>
                                     <li>
-                                        <ul class="tagList flex row">
+                                        <ul className="tagList flex row">
                                             <li>API</li>
                                             <li>Students</li>
                                             <li>Skills</li>
@@ -191,7 +191,7 @@ const Service = ({ dashboard, t, i18n }) => {
                         <section className="container servicePageContent flex wrap column">
                             <div className="serviceDescription flex-1">
                                 {service[0].personalData === "oui" &&
-                                    <p class="warning">
+                                    <p className="warning">
                                         ⚠ Cette ressource donne accès à des données personnelles <br />
                                         <a href="https://daseslab.on.fleek.co/" className="questionLink">En apprendre plus sur les contraintes liées à cet usage</a>
                                     </p>}
@@ -199,13 +199,13 @@ const Service = ({ dashboard, t, i18n }) => {
                                 <p>{service[0].description}</p>
                             </div>
                             <div className="serviceDetails">
-                                <div class="serviceEditor">
+                                <div className="serviceEditor">
                                     <h2>Editeur</h2>
-                                    <button class="button whiteButton">{service[0].entity}</button>
+                                    <button className="button whiteButton">{service[0].entity}</button>
                                 </div>
-                                <div class="serviceEditor">
+                                <div className="serviceEditor">
                                     <h2>Documentation</h2>
-                                    <button class="button whiteButton external"><a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Voir la documentation</a></button>
+                                    <button className="button whiteButton external"><a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Voir la documentation</a></button>
                                                          {/* <a href={service[0].documentation} target="_blank" rel="noopener noreferrer">Documentation</a> */}
                                 </div>
                                 <table>

@@ -14,11 +14,11 @@ const Catalog = ({ t, i18n }) => {
 	return (
 		<div>
 			<section className="container hero">
-				<section class="container flex row wrap">
-					<h1 class="flex-1">{t('Innovez avec les données et services du Data Space Education & Compétences')}</h1>
-					<div class="flex-1">
+				<section className="container flex row wrap">
+					<h1 className="flex-1">{t('Innovez avec les données et services du Data Space Education & Compétences')}</h1>
+					<div className="flex-1">
 						{t("Développeurs, chercheurs et innovateurs")} <br /><br />
-						<a href="/" class="questionLink">{t('Comment est-il alimenté ? Par qui ?')}</a>
+						<a href="/" className="questionLink">{t('Comment est-il alimenté ? Par qui ?')}</a>
 					</div>
 					{/* <h1>{t('Catalogue des données et services du')}<br />{t('Data Space Education & Compétences')}</h1> */}
 				</section>

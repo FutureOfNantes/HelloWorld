@@ -2,7 +2,6 @@
 import readyForCatalog from '../../../assets/img/readyForCatalog.svg';
 
 const AddPage5 = () => {
-
 	return (
 		<div>
 			<p className="textCenter">

@@ -33,44 +33,44 @@ const AddService = () => {
     }, [])
 
     const handleSign = async () => {
-        const domain = window.location.host;
-        const origin = window.location.origin;
-        const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const signer = provider.getSigner();
+        // const domain = window.location.host;
+        // const origin = window.location.origin;
+        // const provider = new ethers.providers.Web3Provider(window.ethereum);
+        // const signer = provider.getSigner();
 
-        const createSiweMessage = async (address, statement) => {
-            const res = await fetch(URL_NONCE, {
-                credentials: 'include',
-            });
-            const message = new SiweMessage({
-                domain,
-                address,
-                statement,
-                uri: origin,
-                version: '1',
-                chainId: '4',
-                nonce: await res.text()
-            });
-            return message.prepareMessage();
-        }
+        // const createSiweMessage = async (address, statement) => {
+        //     const res = await fetch(URL_NONCE, {
+        //         credentials: 'include',
+        //     });
+        //     const message = new SiweMessage({
+        //         domain,
+        //         address,
+        //         statement,
+        //         uri: origin,
+        //         version: '1',
+        //         chainId: '4',
+        //         nonce: await res.text()
+        //     });
+        //     return message.prepareMessage();
+        // }
 
-        let message = null;
-        let signature = null;
-        let identifier = null;
+        // let message = null;
+        // let signature = null;
+        // let identifier = null;
 
-        const signInWithEthereum = async () => {
-            identifier = await signer.getAddress()
-            message = await createSiweMessage(
-                identifier,
-                `Signer pour ajouter votre service au catalogue`
-            );
+        // const signInWithEthereum = async () => {
+        //     identifier = await signer.getAddress()
+        //     message = await createSiweMessage(
+        //         identifier,
+        //         `Signer pour ajouter votre service au catalogue`
+        //     );
 
-            console.log(message);
-            signature = await signer.signMessage(message);
-            console.log("signature: ", signature);
-        }
+        //     console.log(message);
+        //     signature = await signer.signMessage(message);
+        //     console.log("signature: ", signature);
+        // }
 
-        await signInWithEthereum();
+        // await signInWithEthereum();
         dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
     }
@@ -162,7 +162,7 @@ const AddService = () => {
 
     return (
         <Fragment>
-            <section class="main flex column centerJustify flex-1">
+            <section className="main flex column centerJustify flex-1">
                 <header className="flex row wrap">
                     <button className="back" onClick={handleBack}>Annuler</button>
                     <div className="flex-1 alignCenter">
@@ -189,9 +189,9 @@ const AddService = () => {
 
                     </section>}
                     <form className="addResourceForm flex-1" action="">
-                        <section class="sectionContent flex column flexStart">
+                        <section className="sectionContent flex column flexStart">
 
-                            <div class="form flex column w100p" action="">
+                            <div className="form flex column w100p" action="">
                                 {newService === 0 && <AddPage0 setButtonContinuer={setButtonContinuer} />}
                                 {newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} />}
                                 {newService === 2 && <AddPage2 setButtonContinuer={setButtonContinuer} />}
