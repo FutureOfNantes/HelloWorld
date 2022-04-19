@@ -18,13 +18,13 @@ const Connection = ({ buttonName, typeConnection, id }) => {
                     dispatch(connectReducer(true));
                     dispatch(accountReducer(currentUser[0]));
                     dispatch(onboardedReducer(true));
-                    switch(typeConnection) {
+                    switch (typeConnection) {
                         case 'header': navigate("/dashboard/myoffer");
-                        break;
+                            break;
                         case 'add': navigate("/dashboard/add");
-                        break;
+                            break;
                         case 'use': navigate(`/dashboard/service/${id}`);
-                        break;
+                            break;
                         default: console.log("Problème d'usage du bouton Connexion");
                     }
                 } else {
@@ -33,11 +33,9 @@ const Connection = ({ buttonName, typeConnection, id }) => {
                     navigate("/vc");
                 }
             }
-            
             const texte = `Signer pour s'authentifier sur Dases Lab`;
             const ethrDid = await sign(texte);
             await verifyVC();
-
         }
         else {
             console.log('Pas de Metamask');
@@ -45,7 +43,6 @@ const Connection = ({ buttonName, typeConnection, id }) => {
             navigate("/metamask");
         }
     }
-
     return (
         <button className="button blackButton connectWallet" onClick={handleConnect} >{buttonName}</button>
     )

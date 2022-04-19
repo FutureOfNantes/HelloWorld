@@ -18,7 +18,6 @@ import DashboardCatalog from './component/Dashboard/DashboardCatalog';
 import DashboardMyOffer from './component/Dashboard/DashboardMyOffer';
 import DashboardSurvey from './component/Dashboard/DashboardSurvey';
 import DashboardConfirm from './component/Dashboard/DashboardConfirm';
-import DashboardService from './component/Dashboard/DashboardService';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -31,7 +30,7 @@ const App = () => {
           <Route path="/mentions" element={<Mentions t={t} />} />
           <Route path="/" element={<Home t={t} />} />
           <Route path="/catalogue" element={<Catalog t={t} />} />
-          <Route path="/service/:id" element={<Service dashboard='false' t={t} />} />
+          <Route path="/service/:id" element={<Service dashboard="false" t={t} />} />
           <Route path="/metamask" element={<NoMetamask />} />
           <Route path="/vc" element={<VerifiableCredential t={t} />} />
         </Route>
@@ -41,7 +40,7 @@ const App = () => {
           <Route path="/dashboard/catalog" element={<DashboardCatalog t={t} />} />
           <Route path="/dashboard/survey" element={<DashboardSurvey t={t} />} />
           <Route path="/dashboard/confirm" element={<DashboardConfirm />} />
-          <Route path="/dashboard/service/:id" element={<DashboardService dashboard='true' t={t} i18n={i18n} />} />
+          <Route path="/dashboard/service/:id" element={<Service dashboard="true" t={t} />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

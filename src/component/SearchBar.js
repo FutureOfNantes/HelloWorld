@@ -8,7 +8,7 @@ const SearchBar = ({ setQuery, setLicence, setOpenData, t }) => {
             </div>
             <div className="flex row center">
                 <div>
-                    {t('Filtrer :')}
+                    {t('Filtrer')}
                 </div>
                 <select name="type" id="type">
                     <option value="">{t('Type de ressource')}</option>
