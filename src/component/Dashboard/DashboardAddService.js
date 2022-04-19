@@ -16,18 +16,18 @@ const AddService = () => {
     const service = useSelector((state) => state.newService);
     const account = useSelector((state) => state.connection.account);
     const [newService, setNewService] = useState(1);
-    const unique_id = uuid()
-    const infos = {
-        id: unique_id,
-        authorDid: account.did,
-        entity: account.companyName
-
-    }
 
     useEffect(() => {
+        const unique_id = uuid()
+        const infos = {
+            id: unique_id,
+            authorDid: account.did,
+            entity: account.companyName
+    
+        }
         dispatch(addInfo(infos));
         window.scrollTo(0, 0);
-    }, [])
+    },[dispatch, account.did, account.companyName])
 
     const handleBack = () => {
         navigate(-1)
