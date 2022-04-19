@@ -1,4 +1,10 @@
+import { useEffect } from "react"
+
 const Mentions = ({ t }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     return (
        <div>
             <main className="container768 sectionContent textBlock">

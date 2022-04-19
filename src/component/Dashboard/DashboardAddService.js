@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
@@ -10,10 +10,7 @@ import AddPage5 from "./AddPage/AddPage5";
 import { addInfo, addAsyncService } from '../../features/reducers/serviceSlice';
 import sign from "../../features/sign";
 
-import Connection from "../Connection"
-
 const AddService = () => {
-    const typeConnection = 'new'
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const service = useSelector((state) => state.newService);
@@ -29,7 +26,8 @@ const AddService = () => {
 
     useEffect(() => {
         dispatch(addInfo(infos));
-    }, [dispatch])
+        window.scrollTo(0, 0);
+    }, [])
 
     const handleBack = () => {
         navigate(-1)
@@ -86,8 +84,8 @@ const AddService = () => {
     }
 
     const handleSign = async () => {
-        const texte = `Signer pour l'ajout du service : ${service.title}`
-        const ethrDid = await sign(texte);
+        const texte = `Signer pour l'ajout du service : ${service.title}`;
+        await sign(texte);
         dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
     }
