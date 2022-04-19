@@ -1,82 +1,38 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useNavigate } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
-import AddPage0 from "./AddPage/AddPage0";
 import AddPage1 from "./AddPage/AddPage1";
 import AddPage2 from "./AddPage/AddPage2";
 import AddPage3 from "./AddPage/AddPage3";
 import AddPage4 from "./AddPage/AddPage4";
 import AddPage5 from "./AddPage/AddPage5";
 import { addInfo, addAsyncService } from '../../features/reducers/serviceSlice';
-import { ethers } from "ethers";
-import { URL_NONCE } from '../../features/api'
-import { SiweMessage } from 'siwe';
+import sign from "../../features/sign";
+
+import Connection from "../Connection"
 
 const AddService = () => {
+    const typeConnection = 'new'
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const service = useSelector((state) => state.newService);
     const account = useSelector((state) => state.connection.account);
     const [newService, setNewService] = useState(1);
+    const unique_id = uuid()
+    const infos = {
+        id: unique_id,
+        authorDid: account.did,
+        entity: account.companyName
 
-    useEffect(() => {
-        const unique_id = uuid()
-        const infos = {
-            id: unique_id,
-            authorDid: account.did,
-            entity: account.companyName
-
-        }
-        dispatch(addInfo(infos));
-
-    }, [])
-
-    const handleSign = async () => {
-        // const domain = window.location.host;
-        // const origin = window.location.origin;
-        // const provider = new ethers.providers.Web3Provider(window.ethereum);
-        // const signer = provider.getSigner();
-
-        // const createSiweMessage = async (address, statement) => {
-        //     const res = await fetch(URL_NONCE, {
-        //         credentials: 'include',
-        //     });
-        //     const message = new SiweMessage({
-        //         domain,
-        //         address,
-        //         statement,
-        //         uri: origin,
-        //         version: '1',
-        //         chainId: '4',
-        //         nonce: await res.text()
-        //     });
-        //     return message.prepareMessage();
-        // }
-
-        // let message = null;
-        // let signature = null;
-        // let identifier = null;
-
-        // const signInWithEthereum = async () => {
-        //     identifier = await signer.getAddress()
-        //     message = await createSiweMessage(
-        //         identifier,
-        //         `Signer pour ajouter votre service au catalogue`
-        //     );
-
-        //     console.log(message);
-        //     signature = await signer.signMessage(message);
-        //     console.log("signature: ", signature);
-        // }
-
-        // await signInWithEthereum();
-        dispatch(addAsyncService(service));
-        navigate("/dashboard/confirm")
     }
 
+    useEffect(() => {
+        dispatch(addInfo(infos));
+    }, [dispatch])
+
     const handleBack = () => {
-        navigate("/dashboard/myoffer")
+        navigate(-1)
     }
 
     const styleDone = "done button actAsButton"
@@ -88,7 +44,6 @@ const AddService = () => {
     let acces = ""
     let cond = ""
     let publ = ""
-    const [buttonContinuer, setButtonContinuer] = useState(false);
 
     if (newService === 0) {
         info = styleNotCurrent
@@ -130,8 +85,14 @@ const AddService = () => {
         publ = styleCurrent
     }
 
+    const handleSign = async () => {
+        const texte = `Signer pour l'ajout du service : ${service.title}`
+        const ethrDid = await sign(texte);
+        dispatch(addAsyncService(service));
+        navigate("/dashboard/confirm")
+    }
+
     const handleSubmit = () => {
-        setButtonContinuer(false)
         setNewService(newService + 1)
     }
 
@@ -160,11 +121,21 @@ const AddService = () => {
             setNewService(5)
     }
 
+    const Button = () => {
+        return (
+            <button className="button blackButton" onClick={handleSubmit}>
+                Continuer
+            </button>
+        )
+    }
+
     return (
         <Fragment>
             <section className="main flex column centerJustify flex-1">
                 <header className="flex row wrap">
-                    <button className="back" onClick={handleBack}>Annuler</button>
+                <ul className="container breadcrumb flex row">
+                    <li className="back"><button onClick={handleBack}>retour</button></li>
+                </ul>
                     <div className="flex-1 alignCenter">
                         <h1>Partager une ressource</h1>
                         <h2>Formulaire d’ajout de ressource au catalogue décentralisé</h2>
@@ -173,7 +144,7 @@ const AddService = () => {
 
                 <div className="flex row wrap centerJustify container">
 
-                    {newService > 0 && <section className="addResourceNav">
+                    <section className="addResourceNav">
 
                         <ul className="formProgression flex column center">
                             <li className={info} onClick={handleInfo}>1. Informations sur la ressource</li>
@@ -182,32 +153,31 @@ const AddService = () => {
                             <li className={cond} onClick={handleCond}>4. Conditions d'utilisation</li>
                             <li className={publ} onClick={handlePubl}>5. Publication</li>
                             <li>
-								Gagnez du temps si vous possédez déjà une self-description <br/>
-								➡ <a href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">Déposer votre self-description sur le github</a>
-							</li>
+                                Gagnez du temps si vous possédez déjà une self-description <br />
+                                ➡ <a href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">Déposer votre self-description sur le github</a>
+                            </li>
                         </ul>
 
-                    </section>}
+                    </section>
                     <form className="addResourceForm flex-1" action="">
                         <section className="sectionContent flex column flexStart">
-
                             <div className="form flex column w100p" action="">
-                                {newService === 0 && <AddPage0 setButtonContinuer={setButtonContinuer} />}
-                                {newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} />}
-                                {newService === 2 && <AddPage2 setButtonContinuer={setButtonContinuer} />}
-                                {newService === 3 && <AddPage3 setButtonContinuer={setButtonContinuer} />}
-                                {newService === 4 && <AddPage4 setButtonContinuer={setButtonContinuer} />}
-                                {newService === 5 && <AddPage5 setButtonContinuer={setButtonContinuer} />}
+                                <AddPage1 myRef="form1" />
+                                <Button />
+                                <AddPage2 myRef="form2" />
+                                <Button />
+                                <AddPage3 myRef="form3" />
+                                <Button />
+                                <AddPage4 />
+                                <Button />
+                                <AddPage5 />
+                                <button className="button blackButton connectMetamask" onClick={handleSign}>
+                                    Signer l'ajout au catalogue sur Metamask
+                                </button>
                             </div>
-                            {newService < 5 && buttonContinuer &&
-                        <button className="button blackButton" onClick={handleSubmit}>Continuer</button>}
-                    {newService === 5 &&
-                        <input type="submit" className="button blackButton connectMetamask" value="Signer l'ajout au catalogue sur Metamask"
-                            onClick={handleSign} />
-                    }
-                    <p> </p>
                         </section>
                     </form>
+                    {/* <AddServiceForm /> */}
                 </div>
             </section>
             <Outlet />

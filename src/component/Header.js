@@ -1,11 +1,12 @@
 import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Daseslogo from '../style/img/favicon.svg'
 import Connection from './Connection'
-import { Link } from 'react-router-dom'
+import { useMatch, Link } from 'react-router-dom'
 
 
 const Header = ({ t, i18n }) => {
     const typeConnection = 'header'
+    const match = useMatch('/catalogue')
  
     return (
         <header>
@@ -22,7 +23,7 @@ const Header = ({ t, i18n }) => {
                     <ul className="mainNav">
                         <li>
                             <Link to="/catalogue">
-                            <button className="current">{t('Catalogue')}</button>
+                            <button className={match ?"current": ""}>{t('Catalogue')}</button>
                             </Link>
                         </li>
                         <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>

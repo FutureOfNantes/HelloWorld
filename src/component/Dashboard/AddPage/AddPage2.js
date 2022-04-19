@@ -98,9 +98,9 @@ const AddPage2 = ({ setButtonContinuer }) => {
             placeholder="Etiquette de la ressource (ajouter ou en créer une)" />
         </div>
         <div className="formGroup select">
-          <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required
+          <select className="formField select" placeholder="Type de données proposées" name="dataType" id='dataType' required defaultValue={'Default'}
             onChange={handleType}>
-            <option value="" selected disabled>Type de données proposées</option>
+            <option value="Default" disabled>Type de données proposées</option>
             <option value="Données démographiques">Données démographiques</option>
             <option value="Données sociétales">Données sociétales</option>
             <option value="Données sur les traces d'apprentissage">Données sur les traces d'apprentissage</option>
@@ -115,9 +115,9 @@ const AddPage2 = ({ setButtonContinuer }) => {
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required
+          <select className="formField select" placeholder="Niveau concerné par les données" name="dataLevel" id='dataLevel' required defaultValue={'Default'}
             onChange={handleLevel}>
-            <option value="" selected disabled>Niveau concerné par les données</option>
+            <option value="Default" disabled>Niveau concerné par les données</option>
             <option value="Primaire">Primaire</option>
             <option value="Secondaire">Secondaire</option>
             <option value="Supérieur">Supérieur</option>
@@ -127,9 +127,9 @@ const AddPage2 = ({ setButtonContinuer }) => {
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required
+          <select className="formField select" placeholder="Titre de votre ressource" name="dataFormat" id='dataFormat' required defaultValue={'Default'}
             onChange={handleFormat}>
-            <option value="" selected disabled>Format des données</option>
+            <option value="Default" disabled>Format des données</option>
             <option value="Json">Json</option>
             <option value="XML">XML</option>
           </select>
@@ -137,9 +137,9 @@ const AddPage2 = ({ setButtonContinuer }) => {
         </div>
 
         <div className="formGroup select">
-          <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required
+          <select className="formField select" placeholder="Titre de votre ressource" name="dataStandard" id='dataStandard' required defaultValue={'Default'}
             onChange={handleStandard}>
-            <option value="" selected disabled>Standard de description des données</option>
+            <option value="Default" disabled>Standard de description des données</option>
             <option value="JSON-LD">JSON-LD</option>
             <option value="Microdonnées">Microdonnées</option>
             <option value="RDFA">RDFA</option>

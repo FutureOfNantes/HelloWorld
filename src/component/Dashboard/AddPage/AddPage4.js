@@ -32,9 +32,9 @@ const AddPage4 = ({ setButtonContinuer }) => {
 				<label htmlFor="resourceConditions" className="formLabel">URL de vos conditions d'utilisation</label>
 			</div>
 			<div className="formGroup select">
-							<select className="formField select" placeholder="" name="licence" id='licence' required
+							<select className="formField select" placeholder="" name="licence" id='licence' required defaultValue={'Default'}
 							onChange = {handleLicence}>
-								<option value="" selected disabled>Licence d'utilisation de votre ressource</option>
+								<option value="Default" disabled>Licence d'utilisation de votre ressource</option>
 								<option value="MIT">MIT</option>
 								<option value="Apache 2.0">Apache 2.0</option>
 								<option value="GPL 2.0">GPL 2.0</option>

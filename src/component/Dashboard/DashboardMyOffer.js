@@ -39,14 +39,15 @@ const DashboardMyOffer = ({ t }) => {
 			</div>}
 
 
-			{!!filteredServices.length && <div className="sectionContent flex row wrap container serviceOfferingList">
+			{!!filteredServices.length && <section className="container flex wrap catalogueList">
 				{filteredServices.map((item) => (
-					<div key={item.id} className="serviceOffer">
-						<div className="serviceTitle">
+					<div key={item.id} className="catalogueCell">
+						<div className="title flex center">
 							<h2>{item.title}</h2>
 						</div>
 						<div className="serviceContent">
-							<p className="serviceDescription">{item.description}</p>
+							<p className="description">{item.description}</p>
+							<br/>
 							<ul className="actionButtons flex raw">
 								<li className="flex-1">
 									<button className="button whiteButton edit">
@@ -54,25 +55,21 @@ const DashboardMyOffer = ({ t }) => {
 									</button>
 								</li>
 								<li className="flex-1">
-									<button className="button whiteButton publishState flex-1">
+									<button className="done button actAsButton">
 										Publié
 									</button>
-									<ul className="changeState">
-										<li>
-											<button className="button blackButton w100p">Publié</button>
-										</li>
-										<li>
-											<button className="button whiteButton w100p">Dépublier</button>
-										</li>
-									</ul>
 								</li>
 							</ul>
+							<br/>
 						</div>
 						<div key={item.id} className="serviceOfferID">
 							<button>sd: {item.id}</button>
 						</div>
 					</div>))}
-			</div>}
+				<div className="catalogueCell addService">
+					<button className="button blackButton connectWallet" onClick={handleRessource}>{t("Participer à l'offre")}</button>
+				</div>
+			</section>}
 		</section>
 	)
 }
