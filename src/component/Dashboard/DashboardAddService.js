@@ -16,6 +16,7 @@ const AddService = () => {
     const service = useSelector((state) => state.newService);
     const account = useSelector((state) => state.connection.account);
     const [newService, setNewService] = useState(1);
+    const [buttonContinuer, setButtonContinuer] = useState(false);
 
     useEffect(() => {
         const unique_id = uuid()
@@ -23,7 +24,6 @@ const AddService = () => {
             id: unique_id,
             authorDid: account.did,
             entity: account.companyName
-    
         }
         dispatch(addInfo(infos));
         window.scrollTo(0, 0);
@@ -91,6 +91,7 @@ const AddService = () => {
     }
 
     const handleSubmit = () => {
+        setButtonContinuer(false)
         setNewService(newService + 1)
     }
 
@@ -160,18 +161,15 @@ const AddService = () => {
                     <form className="addResourceForm flex-1" action="">
                         <section className="sectionContent flex column flexStart">
                             <div className="form flex column w100p" action="">
-                                <AddPage1 myRef="form1" />
-                                <Button />
-                                <AddPage2 myRef="form2" />
-                                <Button />
-                                <AddPage3 myRef="form3" />
-                                <Button />
-                                <AddPage4 />
-                                <Button />
-                                <AddPage5 />
+                                { newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} />}
+                                { newService === 2 && <AddPage2 setButtonContinuer={setButtonContinuer} />}
+                                { newService === 3 && <AddPage3 setButtonContinuer={setButtonContinuer} />}
+                                { newService === 4 && <AddPage4 setButtonContinuer={setButtonContinuer} />}
+                                { newService < 5 && buttonContinuer && <Button />}
+                                { newService === 5 && <Fragment><AddPage5 />
                                 <button className="button blackButton connectMetamask" onClick={handleSign}>
                                     Signer l'ajout au catalogue sur Metamask
-                                </button>
+                                </button></Fragment>}
                             </div>
                         </section>
                     </form>
