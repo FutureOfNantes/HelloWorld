@@ -3,9 +3,7 @@ import { addAsyncUser } from '../features/reducers/userSlice';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
-import { URL_NONCE } from '../features/api'
-import { ethers } from 'ethers';
-import { SiweMessage } from 'siwe';
+import sign from '../features/sign';
 import { connectReducer, walletReducer, didReducer } from '../features/reducers/connectionSlice';
 import { verifyCredential } from 'did-jwt-vc';
 import { Resolver } from 'did-resolver';
@@ -22,13 +20,10 @@ const VerifiableCredential = ({ t }) => {
     const [vcDone, setVcDone] = useState(false);
     const { register, handleSubmit } = useForm();
 
-
     const handleClose = () => {
         dispatch(connectReducer(false));
-        navigate('/');
+        navigate(-1);
     }
-
-
 
     const handleLegalRep = () => {
         setlegalRep(!legalRep);
@@ -36,51 +31,15 @@ const VerifiableCredential = ({ t }) => {
 
     const onSubmit = async (data) => {
         if (window.ethereum) {
-            const domain = window.location.host;
-            const origin = window.location.origin;
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-
-            const createSiweMessage = async (address, statement) => {
-                const res = await fetch(URL_NONCE, {
-                    credentials: 'include',
-                });
-                const message = new SiweMessage({
-                    domain,
-                    address,
-                    statement,
-                    uri: origin,
-                    version: '1',
-                    chainId: '4',
-                    nonce: await res.text()
-                });
-                return message.prepareMessage();
-            }
-
-            let message = null;
-            let signature = null;
-            let identifier = null;
-
-            const signInWithEthereum = async () => {
-                identifier = await signer.getAddress()
-                message = await createSiweMessage(
-                    identifier,
-                    `Signer pour créer votre laisser passer sur Dases Lab`
-                );
-
-                console.log(message);
-                signature = await signer.signMessage(message);
-                console.log("signature: ", signature);
-            }
-
-            await signInWithEthereum();
+            const texte = `${t("Signer pour l'obtention de son laissez-passer")}`;
+            await sign(texte);
             dispatch(addAsyncUser(data));
             dispatch(connectReducer(true));
             setVcDone(true);
             dispatch(didReducer(did));
             setTimeout(() => {
-                dispatch(fetchAsyncUsers())
-            }, 3000);
+                 dispatch(fetchAsyncUsers())
+             }, 3000);
         }
 
         else {
@@ -157,7 +116,7 @@ const VerifiableCredential = ({ t }) => {
                             </label>
                         </div>
                         {!legalRep && <div className="formGroup field">
-                            <input className="formField" {...register("legalRepresentative")} />
+                            <input className="formField" required {...register("legalRepresentative")} />
                             <label htmlFor="name" className="formLabel">
                                 {t('Nom du représentant légal')}
                             </label>

@@ -28,7 +28,7 @@ const Header = ({ t, i18n }) => {
                         </li>
                         <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>
                         <li>
-                            <Connection buttonName={t('Connecter')} typeConnection={typeConnection} />
+                            <Connection buttonName={t('Connecter')} typeConnection={typeConnection} t={t} />
                         </li>
                         <li>
                             <section className="searchEngine container flex wrap row">

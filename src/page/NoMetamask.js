@@ -6,7 +6,7 @@ const NoMetamask = () => {
 	const navigate = useNavigate();
 	
     const handleClose = () => {
-		navigate("/");
+		navigate(-1);
     }
 
     return (

@@ -28,7 +28,7 @@ const SearchBar = ({ setQuery, setLicence, setOpenData, t }) => {
                     <option value="non">{t('Oui')}</option>
                     <option value="oui">{t('Non')}</option>
                 </select>
-                <select name="open" id="open">
+                <select name="personnal" id="personnal">
                     <option value="">{t('Données personnelles')}</option>
                     <option value="non">{t('Oui')}</option>
                     <option value="oui">{t('Non')}</option>

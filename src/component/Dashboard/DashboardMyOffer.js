@@ -3,23 +3,42 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import serviceOfferingEmpty from '../../assets/img/serviceOfferingEmpty.svg'
 import serviceOffering from '../../style/img/serviceOffering.svg'
-import { fetchAsyncServices } from '../../features/reducers/serviceSlice';
-
+import { fetchAsyncServices } from '../../features/reducers/serviceSlice'
+import { getResolver } from 'ethr-did-resolver'
+import { verifyCredential } from 'did-jwt-vc'
+import { Resolver } from 'did-resolver'
 
 const DashboardMyOffer = ({ t }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		dispatch(fetchAsyncServices());
 	}, [dispatch])
+
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const did = useSelector((state) => state.connection.did);
-	// if (!servicesList.length) return <h3>Loading...</h3>;
 	if (!did.length) return <h3>Loading...</h3>;
 
 	const handleRessource = () => {
 		navigate("/dashboard/add")
 	}
+
+	const handleDownload = async (title, jwt) => {
+		const rpcUrl = "https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e";
+		const resolver = new Resolver(getResolver({ rpcUrl, name: "rinkeby" }));
+		const verifiedVC = await verifyCredential(jwt, resolver)
+		const element = document.createElement("a");
+		var jsonVc = JSON.stringify(verifiedVC.verifiableCredential, null, 2);
+		const file = new Blob([jsonVc], {
+			type: "json/plain"
+		});
+		element.href = URL.createObjectURL(file);
+		element.download = `${title}_SD.json`;
+		document.body.appendChild(element);
+		element.click();
+	}
+
 	const filteredServices = servicesList.filter(service => service.authorDid === did)
 
 	return (
@@ -47,20 +66,20 @@ const DashboardMyOffer = ({ t }) => {
 						</div>
 						<div className="serviceContent">
 							<p className="description">{item.description}</p>
-							<br/>
+							<br />
 							<ul className="actionButtons flex raw">
 								<li className="flex-1">
-									<button className="button whiteButton edit">
-										Editer
+									<button className="button whiteButton edit" onClick={() => { handleDownload(item.title, item.sdJwt) }}>
+										{t('Télécharger le self-description')}
 									</button>
 								</li>
-								<li className="flex-1">
+								{/* <li className="flex-1">
 									<button className="done button actAsButton">
 										Publié
 									</button>
-								</li>
+								</li> */}
 							</ul>
-							<br/>
+							<br />
 						</div>
 						<div key={item.id} className="serviceOfferID">
 							<button>sd: {item.id}</button>

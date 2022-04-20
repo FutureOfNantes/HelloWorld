@@ -48,6 +48,7 @@ const sign =  async (texte) => {
     }
 
     const sendForVerification = async () => {
+        console.log(JSON.stringify({ message, signature }))
         const res = await fetch(URL_VERIFY, {
             method: "POST",
             headers: {

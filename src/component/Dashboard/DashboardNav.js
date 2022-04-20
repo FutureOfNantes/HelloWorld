@@ -19,7 +19,14 @@ const DashboardNav = ({ t, i18n }) => {
         navigate("/");
     }
 
-
+    const handleProfile = () => {
+        setclassNav({
+            classMyOffer: "actAsButton serviceOffering",
+            classCatalog: "actAsButton catalogue",
+            classSurvey: "actAsButton feedback",
+        })
+        navigate("/dashboard/profile");
+    }
 
     const handleMyOffer = async () => {
         navigate("/dashboard/myoffer")
@@ -72,7 +79,7 @@ const DashboardNav = ({ t, i18n }) => {
                         <span className="didNumber">{shortDID}</span>
                     </li>
                     <li>
-                        <button className="ellipsis"></button>
+                        <button className="ellipsis" onClick={handleProfile}></button>
                     </li>
                     <li>
                         <button className="notifications"></button>

@@ -66,9 +66,18 @@ const resources = {
       "Vous pouvez maintenant vous connecter sur la page d'accueil": "You can now log in on the homepage",
       "Retourner sur le Portail": "Return to the Portal",
       "Vous pouvez télécharger votre laissez-passer pour le conserver en local": "You can download your verifiable credential to keep it locally",
-      "Télécharger votre laissez-passer": "Download your verifiable credential"
-
-
+      "Télécharger votre laissez-passer": "Download your verifiable credential",
+      "Signer pour l'obtention de son laissez-passer": "Sign in for your verifiable credential",
+      "Signer pour s'authentifier sur Dases Lab": "Sign in for Dases Lab authentication",
+      "Mon Profil": "My Profile",
+      "langue": "language",
+      "Nom": "Family Name",
+      "Prénom": "Given Name",
+      "Entité": "Entity",
+      "Adresse entité": "Entity Address",
+      "Laissez-passer": "Verifiable Credential",
+      "Logo de l'entité": "Entity Logo",
+      "Télécharger le self-description": "Download self-description",
     }
   },
   fr: {
@@ -132,8 +141,18 @@ const resources = {
       "Vous pouvez maintenant vous connecter sur la page d'accueil": "Vous pouvez maintenant vous connecter sur la page d'accueil",
       "Retourner sur le Portail": "Retourner sur le Portail",
       "Vous pouvez télécharger votre laissez-passer pour le conserver en local": "Vous pouvez télécharger votre laissez-passer pour le conserver en local",
-      "Télécharger votre laissez-passer": "Télécharger votre laissez-passer"
-
+      "Télécharger votre laissez-passer": "Télécharger votre laissez-passer",
+      "Signer pour l'obtention de son laissez-passer": "Signer pour l'obtention de son laissez-passer",
+      "Signer pour s'authentifier sur Dases Lab": "Signer pour s'authentifier sur Dases Lab",
+      "Mon Profil": "Mon Profil",
+      "langue": "langue",
+      "Nom": "Nom",
+      "Prénom": "Prénom",
+      "Entité": "Entité",
+      "Adresse entité": "Adresse entité",
+      "Laissez-passer": "Laissez-passer",
+      "Logo de l'entité": "Logo de l'entité",
+      "Télécharger le self-description": "Télécharger le self-description",
     }
   }
 };

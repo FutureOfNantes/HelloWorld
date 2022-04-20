@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { useNavigate } from 'react-router-dom';
 
-const Connection = ({ buttonName, typeConnection, id }) => {
+const Connection = ({ buttonName, typeConnection, id, t }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
@@ -33,7 +33,7 @@ const Connection = ({ buttonName, typeConnection, id }) => {
                     navigate("/vc");
                 }
             }
-            const texte = `Signer pour s'authentifier sur Dases Lab`;
+            const texte = `${t("Signer pour s'authentifier sur Dases Lab")}`;
             const ethrDid = await sign(texte);
             await verifyVC();
         }

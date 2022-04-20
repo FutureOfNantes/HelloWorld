@@ -18,6 +18,7 @@ import DashboardCatalog from './component/Dashboard/DashboardCatalog';
 import DashboardMyOffer from './component/Dashboard/DashboardMyOffer';
 import DashboardSurvey from './component/Dashboard/DashboardSurvey';
 import DashboardConfirm from './component/Dashboard/DashboardConfirm';
+import DashboardProfile from './component/Dashboard/DashboardProfile';
 
 const App = () => {
   const { t, i18n } = useTranslation();
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="/vc" element={<VerifiableCredential t={t} />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard t={t} i18n={i18n} />} >
+          <Route path="/dashboard/profile" element={<DashboardProfile t={t} i18n={i18n} />} />
           <Route path="/dashboard/add" element={<AddService />} />
           <Route path="/dashboard/myoffer" element={<DashboardMyOffer t={t} />} />
           <Route path="/dashboard/catalog" element={<DashboardCatalog t={t} />} />
