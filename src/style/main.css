@@ -143,6 +143,7 @@ strong {font-weight: 700;}
 
 .questionLink {
 	color: var(--black);
+	text-decoration: underline;
 }
 
 .questionLink:after {
@@ -1103,10 +1104,18 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 	font-family: Inter, sans-serif;
 }
 
-/**** -------------- ONBOARDING ------------ ****/ 
+/**** -------------- ONBOARDING ------------ ****/
 
-.closeButton.fixed {
+.modal {
 	position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: blur(2px);
+    background-color: var(--lightGreyTransparent);
+    z-index: 1;
+    overflow-y: scroll;
 }
 
 .closeButton {
@@ -1117,7 +1126,7 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 	cursor: pointer;
 	position: absolute;
 	top: 1em;
-	left: 1em;
+	left: 4em;
 	font-family: 'Inter', sans-serif;
 	font-weight: 700;
 	font-size: 1em;
@@ -1133,12 +1142,20 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 }
 
 .onboardingStep {
-   justify-content: center;
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   width: 40%;
-   padding: 5em 0;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	min-width: 640px;
+	max-width: 740px;
+	box-sizing: border-box;
+	width: 40%;
+	padding: 5em;
+	margin: 0 auto;
+	background: #fff;
+	border-radius: 0 0 0.5em 0.5em;
+	z-index: 242;
+	position: relative;
 }
 
 .onboardingStep h1 {
@@ -1155,8 +1172,40 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 	text-align: center;
 }
 
+.onboardingStep h2 {
+	text-align: left;
+	font-weight: 700;
+	width: 100%;
+	margin: 1em 0;
+}
+
+.onboardingStep .flex-1 {
+	padding-right: 3em;
+}
+
 .button.connectMetamask {
 	line-height: 3em;
+	width: 100%;
+}
+
+.button.connectWalltId {
+	line-height: 3em;
+	width: 100%;
+}
+
+.button.connectBCD {
+	line-height: 3em;
+	width: 100%;
+}
+
+.button.disabled {
+	color: var(--pink);
+}
+
+.button.disabled span {
+	font-size: 0.75em;
+	padding-left: 1em;
+	font-weight: 500;
 }
 
 input[type=submit].connectMetamask {
@@ -1169,7 +1218,31 @@ input[type=submit].connectMetamask {
 
 .button.connectMetamask:before {
 	content: '';
-	background: url(img/metamask.png);
+	background: url(img/metamask.png) center no-repeat;
+	background-size: 2em;
+	width: 2em;
+	height: 2em;
+	display: inline-block;
+	position: relative;
+	top: 0.5em;
+	margin-right: 1em
+}
+
+.button.connectWalltId:before {
+	content: '';
+	background: url(img/walltIdIcon.png) center no-repeat;
+	background-size: 2em;
+	width: 2em;
+	height: 2em;
+	display: inline-block;
+	position: relative;
+	top: 0.5em;
+	margin-right: 1em
+}
+
+.button.connectBCD:before {
+	content: '';
+	background: url(img/BCDIcon.png) center no-repeat;
 	background-size: 2em;
 	width: 2em;
 	height: 2em;
