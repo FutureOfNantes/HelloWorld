@@ -78,6 +78,7 @@ const resources = {
       "Laissez-passer": "Verifiable Credential",
       "Logo de l'entité": "Entity Logo",
       "Télécharger le self-description": "Download self-description",
+      "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Welcome on the experimental laboratory of Data Space for Education & Skills",
     }
   },
   fr: {
@@ -153,6 +154,8 @@ const resources = {
       "Laissez-passer": "Laissez-passer",
       "Logo de l'entité": "Logo de l'entité",
       "Télécharger le self-description": "Télécharger le self-description",
+      "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences",
+
     }
   }
 };

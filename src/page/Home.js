@@ -3,12 +3,12 @@ import fedcat from '../assets/img/fedcat.png';
 import sdicon from '../assets/img/sdicon.png';
 import gaiaxlogo from '../assets/img/gaiaxlogo.png';
 
-const Home = () => {
+const Home = ({ t }) => {
     return (
         <div className="homePage">
             <section className="hero">
                 <div className="container">
-                    <h1>Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences</h1>
+                    <h1>{t("Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences")}</h1>
                     <h2>Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain</h2>
                     <p>#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain</p>
                     <img src={hero} alt="" />
