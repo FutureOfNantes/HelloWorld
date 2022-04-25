@@ -5,7 +5,7 @@ const DashboardConfirm = () => {
 	const navigate = useNavigate();
 
 	const handleClose = () => {
-		navigate(-1);
+		navigate("/dashboard/myoffer");
 	}
 
 	return (

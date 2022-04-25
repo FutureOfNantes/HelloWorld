@@ -15,8 +15,6 @@ const Main = ({ t, i18n }) => {
         dispatch(fetchAsyncServices());
       }, [dispatch])
 
-
-
     return (
         <Fragment>
             <Header t={t} i18n={i18n} />

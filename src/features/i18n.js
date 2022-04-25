@@ -17,10 +17,10 @@ const resources = {
       "Connecter": "Connect",
       "Footer": "Dases Lab is the portal for cataloging services and data from the education & skills data space",
       "Mentions légales": "Terms and Conditions",
-      "Contactez-nous" : "Contact us",
-      "Recherchez un produit" : "Search for a product by keyword, for example: learning traces",
+      "Contactez-nous": "Contact us",
+      "Recherchez un produit": "Search for a product by keyword, for example: learning traces",
       "Filtrer": "Filter:",
-      "Type de ressource" : "Type of ressource",
+      "Type de ressource": "Type of ressource",
       "Données": "Data",
       "Données ouvertes": "Open Data",
       "Oui": "Yes",
@@ -40,7 +40,7 @@ const resources = {
       "Déconnexion": "Log out",
       "Test d'utilisabilité": "Usability test",
       "Donnez-nous votre avis sur": "Give us a feedback on the use of this portail with a form that takes only one minute to complete !",
-      "Aidez-nous à améliorer Dases Lab !":"Help us to improve Dases Lab !",
+      "Aidez-nous à améliorer Dases Lab !": "Help us to improve Dases Lab !",
       "Formulaire d'évaluation de l'utilisabilité du portail Dases Lab": "Dases Lab Portal Usability Evaluation Form",
       "Enquête macro": "Macro Survey",
       "plus de temps": "If you have a little more time, and you are part of the EdTech ecosystem, do not hesitate to participate in a more in-depth survey of your daily life, your aspirations and your means. This more macroscopic survey allows us to take the pulse of the sector to better adapt our functional response.",
@@ -78,7 +78,18 @@ const resources = {
       "Laissez-passer": "Verifiable Credential",
       "Logo de l'entité": "Entity Logo",
       "Télécharger le self-description": "Download self-description",
+      "Authentification": "Authentication",
+      "Pour publier et utiliser des ressources sur le portail, vous devez utiliser un portefeuille d’identité décentralisée": "To publish and use resources on the portal, you need to use a decentralized identity wallet",
+      "Se connecter avec Metamask": "Log in with Metamask",
+      "Se connecter avec Walt.id": "Log in with Walt.id",
+      "Se connecter avec MyWallet": "Log in with MyWallet",
+      "bientôt disponible": "coming soon",
+      "Le futur de l’identité sur le web est décentralisé !": "The future of web identity is decentralized!",
+      "Un portefeuille vous permet d’être pleinement propriétaire de votre identité": "A wallet allows you to fully own your identity",
+      "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !": "We store absolutely nothing about you: everything is on the blockchain!",
+      "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur": "Metamask is the most used solution in 2022, other wallets will be added in the future",
       "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Welcome on the experimental laboratory of Data Space for Education & Skills",
+
     }
   },
   fr: {
@@ -94,9 +105,9 @@ const resources = {
       "Footer": "Dases Lab est le portail de catalogage des services et données du data space éducation & compétences",
       "Mentions légales": "Mentions légales",
       "Contactez-nous": "Contactez-nous",
-      "Recherchez un produit" : "Recherchez un produit par mot-cle, par exemple : traces d'apprentissage",
+      "Recherchez un produit": "Recherchez un produit par mot-cle, par exemple : traces d'apprentissage",
       "Filtrer": "Filtrer:",
-      "Type de ressource" : "Type de ressource",
+      "Type de ressource": "Type de ressource",
       "Données": "Données",
       "Données ouvertes": "Données ouvertes",
       "Oui": "Oui",
@@ -155,8 +166,18 @@ const resources = {
       "Logo de l'entité": "Logo de l'entité",
       "Télécharger le self-description": "Télécharger le self-description",
       "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences",
+      "Authentification": "Authentification",
+      "Pour publier et utiliser des ressources sur le portail, vous devez utiliser un portefeuille d’identité décentralisée": "Pour publier et utiliser des ressources sur le portail, vous devez utiliser un portefeuille d’identité décentralisée",
+      "Se connecter avec Metamask": "Se connecter avec Metamask",
+      "Se connecter avec Walt.id": "Se connecter avec Walt.id",
+      "Se connecter avec MyWallet": "Se connecter avec MyWallet",
+      "bientôt disponible": "bientôt disponible",
+      "Le futur de l’identité sur le web est décentralisé !": "Le futur de l’identité sur le web est décentralisé !",
+      "Un portefeuille vous permet d’être pleinement propriétaire de votre identité":"Un portefeuille vous permet d’être pleinement propriétaire de votre identité",
+      "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !": "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !",
+      "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur": "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur",
 
-    }
+}
   }
 };
 
@@ -173,4 +194,4 @@ i18n
     }
   });
 
-  export default i18n;
+export default i18n;

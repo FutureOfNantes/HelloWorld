@@ -84,8 +84,8 @@ const AddService = () => {
     }
 
     const handleSign = async () => {
-        const texte = `Signer pour l'ajout du service : ${service.title}`;
-        await sign(texte);
+        // const texte = `Signer pour l'ajout du service : ${service.title}`;
+        // await sign(texte);
         dispatch(addAsyncService(service));
         navigate("/dashboard/confirm")
     }
