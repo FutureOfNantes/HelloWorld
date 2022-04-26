@@ -89,7 +89,7 @@ const resources = {
       "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !": "We store absolutely nothing about you: everything is on the blockchain!",
       "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur": "Metamask is the most used solution in 2022, other wallets will be added in the future",
       "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Welcome on the experimental laboratory of Data Space for Education & Skills",
-
+      "Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain": "Accelerating innovation in education, certification and skills development through a federated catalog of blockchain-based data sharing and services.",
     }
   },
   fr: {
