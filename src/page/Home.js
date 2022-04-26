@@ -9,13 +9,13 @@ const Home = ({ t }) => {
             <section className="hero">
                 <div className="container">
                     <h1>{t("Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences")}</h1>
-                    <h2>Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain</h2>
-                    <p>#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain</p>
+                    <h2>{t("Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain")}</h2>
+                    <p>{t("#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain")}</p>
                     <img src={hero} alt="" />
                 </div>
                 <div className="container flex alignLeft">
                     <div className="flex-1 indexBlocs">
-                        Un catalogue fédéré de données et services liés à <strong>l’éducation et aux compétences </strong><br />
+                        {t("Un catalogue fédéré de données et services liés à <strong>l’éducation et aux compétences )}</strong><br />
                         <a className="questionLink" href="https://daseslab.on.fleek.co/">catalogue fédéré ?</a>
                     </div>
                     <div className="flex-1 indexBlocs">
