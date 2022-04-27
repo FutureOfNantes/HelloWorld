@@ -16,7 +16,7 @@ const Home = ({ t }) => {
                 <div className="container flex alignLeft">
                     <div className="flex-1 indexBlocs">
                         {t("Un catalogue fédéré de données et services liés à")} <strong> {t("l’éducation et aux compétences")} </strong><br />
-                        <a className="questionLink" href="https://daseslab.on.fleek.co/">catalogue fédéré ?</a>
+                        <a className="questionLink" href="https://daseslab.on.fleek.co/"> {t("catalogue fédéré ?")} </a>
                     </div>
                     <div className="flex-1 indexBlocs">
                         {t("Un référencement automatisé des services via des")} <strong> {t("self-descriptions")} </strong><br />
