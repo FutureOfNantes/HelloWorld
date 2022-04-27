@@ -51,7 +51,7 @@ const Home = ({ t }) => {
                     <section className="container flex row">
                         <div className="flex-1">
                             <h1>{t("La self-description, particule élémentaire du data space")}</h1>
-                            <p>{t("La self-description est, en plus des verifiable credentials 🤔 et des smart contracts 🤔, un élément central du catalogue fédéré de données et services. C’est un document signé électroniquement et infalsifiable qui permet d’identifier les acteurs et leurs ressources du data space.")} </p>
+                            <p>{t("La self-description est, en plus des verifiable credentials")} 🤔 {t("et des smart contracts")} 🤔, {t("un élément central du catalogue fédéré de données et services. C’est un document signé électroniquement et infalsifiable qui permet d’identifier les acteurs et leurs ressources du data space.")} </p>
                             <button className="button whiteButton">
                                 {t("Plus de détails sur le fonctionnement")}
                             </button>
