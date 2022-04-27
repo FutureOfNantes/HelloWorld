@@ -93,7 +93,7 @@ const resources = {
       "#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain": "#Transparency #Traceability #Portability #Interoperability #Blockchain",
       "Un catalogue fédéré de données et services": "A federated catalog of data and services related to",
       "l’éducation et aux compétences":  "education and skills",
-      'catalogue fédéré ?": "Federated catalog ?",
+      "catalogue fédéré ?": "Federated catalog ?",
       "Un référencement automatisé des services via des": "Automated referencing of services via",
       "self-descriptions": "self-descriptions",
       "Une initiative d’envergure européenne en partie issue des": "An initiative of European scope, partly resulting from" , 
