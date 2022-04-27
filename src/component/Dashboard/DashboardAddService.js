@@ -10,7 +10,7 @@ import AddPage5 from "./AddPage/AddPage5";
 import { addInfo, addAsyncService } from '../../features/reducers/serviceSlice';
 import sign from "../../features/sign";
 
-const AddService = () => {
+const AddService = ({ t }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const service = useSelector((state) => state.newService);
@@ -120,10 +120,10 @@ const AddService = () => {
             setNewService(5)
     }
 
-    const Button = () => {
+    const Button = ({ t }) => {
         return (
             <button className="button blackButton" onClick={handleSubmit}>
-                Continuer
+                {t("Continuer")}
             </button>
         )
     }
@@ -133,11 +133,11 @@ const AddService = () => {
             <section className="main flex column centerJustify flex-1">
                 <header className="flex row wrap">
                 <ul className="container breadcrumb flex row">
-                    <li className="back"><button onClick={handleBack}>retour</button></li>
+                    <li className="back"><button onClick={handleBack}>{t("retour")}</button></li>
                 </ul>
                     <div className="flex-1 alignCenter">
-                        <h1>Partager une ressource</h1>
-                        <h2>Formulaire d’ajout de ressource au catalogue décentralisé</h2>
+                        <h1>{t("Partager une ressource")}</h1>
+                        <h2>{t("Formulaire d’ajout de ressource au catalogue décentralisé")}</h2>
                     </div>
                 </header>
 
@@ -146,14 +146,14 @@ const AddService = () => {
                     <section className="addResourceNav">
 
                         <ul className="formProgression flex column center">
-                            <li className={info} onClick={handleInfo}>1. Informations sur la ressource</li>
-                            <li className={contenu} onClick={handleContenu}>2. Contenu</li>
-                            <li className={acces} onClick={handleAcces}>3. Accès</li>
-                            <li className={cond} onClick={handleCond}>4. Conditions d'utilisation</li>
-                            <li className={publ} onClick={handlePubl}>5. Publication</li>
+                            <li className={info} onClick={handleInfo}>1. {t("Informations sur la ressource")}</li>
+                            <li className={contenu} onClick={handleContenu}>2. {t("Contenu")}</li>
+                            <li className={acces} onClick={handleAcces}>3. {t("Accès")}</li>
+                            <li className={cond} onClick={handleCond}>4. {t("Conditions d'utilisation")}</li>
+                            <li className={publ} onClick={handlePubl}>5. {t("Publication")}</li>
                             <li>
-                                Gagnez du temps si vous possédez déjà une self-description <br />
-                                ➡ <a href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">Déposer votre self-description sur le github</a>
+                                {t("Gagnez du temps si vous possédez déjà une self-description")}<br />
+                                ➡ <a href="https://github.com/Prometheus-X-association/selfdescription" target="_blank" rel="noopener noreferrer">{t("Déposer votre self-description sur le github")}</a>
                             </li>
                         </ul>
 
@@ -161,14 +161,14 @@ const AddService = () => {
                     <form className="addResourceForm flex-1" action="">
                         <section className="sectionContent flex column flexStart">
                             <div className="form flex column w100p" action="">
-                                { newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} />}
-                                { newService === 2 && <AddPage2 setButtonContinuer={setButtonContinuer} />}
-                                { newService === 3 && <AddPage3 setButtonContinuer={setButtonContinuer} />}
-                                { newService === 4 && <AddPage4 setButtonContinuer={setButtonContinuer} />}
-                                { newService < 5 && buttonContinuer && <Button />}
-                                { newService === 5 && <Fragment><AddPage5 />
+                                { newService === 1 && <AddPage1 setButtonContinuer={setButtonContinuer} t={t} />}
+                                { newService === 2 && <AddPage2 setButtonContinuer={setButtonContinuer} t={t} />}
+                                { newService === 3 && <AddPage3 setButtonContinuer={setButtonContinuer} t={t} />}
+                                { newService === 4 && <AddPage4 setButtonContinuer={setButtonContinuer} t={t} />}
+                                { newService < 5 && buttonContinuer && <Button t={t} />}
+                                { newService === 5 && <Fragment><AddPage5 t={t}/>
                                 <button className="button blackButton connectMetamask" onClick={handleSign}>
-                                    Signer l'ajout au catalogue sur Metamask
+                                    {t("Ajouter au catalogue")}
                                 </button></Fragment>}
                             </div>
                         </section>

@@ -90,23 +90,55 @@ const resources = {
       "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur": "Metamask is the most used solution in 2022, other wallets will be added in the future",
       "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences": "Welcome on the experimental laboratory of Data Space for Education & Skills",
       "Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain": "Accelerating innovation in education, certification and skills development through a federated catalog of blockchain-based data sharing and services.",
-      "#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain  :" : "#Transparency #Traceability #Portability #Interoperability #Blockchain",
-      "Un catalogue fédéré de données et services liés à " : "A federated catalog of data and services related to",
-      "l’éducation et aux compétences" :  "education and skills",
+      "#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain": "#Transparency #Traceability #Portability #Interoperability #Blockchain",
+      "Un catalogue fédéré de données et services": "A federated catalog of data and services related to",
+      "l’éducation et aux compétences":  "education and skills",
       "Un référencement automatisé des services via des": "Automated referencing of services via",
       "self-descriptions": "self-descriptions",
-      "Une initiative d’envergure européenne en partie issue des" : "An initiative of European scope, partly resulting from" , 
+      "Une initiative d’envergure européenne en partie issue des": "An initiative of European scope, partly resulting from" , 
       "travaux menés par gaia-x": "work carried out by gaia-x",
-      "Un catalogue fédéré de données et services": "A federated catalog of data and services",
+      "Un catalogue fédéré de données et services liés à": "A federated catalog of data and services linked to",
       "Le catalogue fédéré agrège de façon décentralisée toutes les données ainsi que les services que les participants au catalogue possèdent. Nous ne stockons rien.": "The federated catalog aggregates in a decentralized way all the data as well as the services that the catalog participants own. We don't store anything",
       "Accéder au catalogue": "Access the catalog",
       "Participer en partageant des données ou des services":"Participate by sharing data or services",
       "La self-description, particule élémentaire du data space": "The self-description, elementary particle of the data space",
-      "La self-description est, en plus des verifiable credentials 🤔 et des smart contracts 🤔, un élément central du catalogue fédéré de données et services. C’est un document signé électroniquement et infalsifiable qui permet d’identifier les acteurs et leurs ressources du data space": "The self-description is, in addition to verifiable credentials 🤔 and smart contracts 🤔, a central element of the federated catalog of data and services. It is an electronically signed and unforgeable document that identifies actors and their data space resources." ,
+      "La self-description est, en plus des verifiable credentials 🤔 et des smart contracts 🤔, un élément central du catalogue fédéré de données et services. C’est un document signé électroniquement et infalsifiable qui permet d’identifier les acteurs et leurs ressources du data space": "The self-description is, in addition to verifiable credentials 🤔 and smart contracts 🤔, a central element of the federated catalog of data and services. It is an electronically signed and unforgeable document that identifies actors and their data space resources.",
       "Plus de détails sur le fonctionnement": "More details on how it works",
       "Une initiative issue de Gaia-X":"An initiative from Gaia-X",
       "Gaia-X est une initiative qui développe un cadre logiciel de contrôle et de gouvernance et qui met en œuvre un ensemble commun de politiques et de règles pouvant être appliquées à tout objet technologique.":"Gaia-X is an initiative that develops a software framework for control and governance and implements a common set of policies and rules that can be applied to any technology object.",
       "En savoir plus sur gaia-x":"More about Gaia-X",
+
+      "Partager une ressource": "Share a resource",
+      "Formulaire d’ajout de ressource au catalogue décentralisé": "Form for adding resource to the decentralized catalog",
+      "Informations sur la ressource": "Information about the resource",
+      "Contenu": "Content",
+      "Accès": "Access",
+      "Conditions d'utilisation": "Access conditions",
+      "Publication": "Publication",
+      "Gagnez du temps si vous possédez déjà une self-description": "Save time if you already have a self-description",
+      "Déposer votre self-description sur le github": "Drop your self-description on the github",
+      "Continuer": "Next",
+      "Titre de votre ressource (5 caractères minimum)": "Title of your resource (at least 5 characters)",
+      "Description de votre ressource (5 caractères minimum)": "Description of your resource (at least 5 characters)",
+      "Quel type de ressource souhaitez-vous partager ?": "Which type of resource would you like to share?",
+      "Etiquette de la ressource (ajouter ou en créer une)": "Resource tag (add or create one)",
+      "Type de données proposées": "Type of data offered",
+      "Niveau concerné par les données": "Level concerned by the data",
+      "Format des données": "Data format",
+      "La ressource que vous mettez à disposition donne-t-elle accès des données à caractère personnel ?": "Does the resource you make available provide access to personal data?",
+      "Standard de description des données": "Data description standard",
+      "Une information personnelle": "Personal information is information relating to a natural person who can be identified, directly or indirectly. For example: a name, a photo, a fingerprint, a postal address, an email address, a telephone number, a social security number, an internal registration number, an IP address, a computer login ID, a voice recording, etc. .",
+      "Quel niveau de label Gaia-X votre ressource satisfait-elle ?": "What Gaia-X label level does your resource meet?",
+      "Pas de label": "No label",
+      "L’accès aux données est": "Data access is",
+      "Fermé": "Closed",
+      "Ouvert": "Open",
+      "L’accès se fait via": "Access is via",
+      "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?": "Where can the user learn more about the data (URL)?",
+      "Licence d'utilisation de votre ressource": "License to use your resource",
+      "Prêt pour le catalogage ?": "Ready for cataloging?"
+
+
 
     }
   },
@@ -194,7 +226,6 @@ const resources = {
       "Un portefeuille vous permet d’être pleinement propriétaire de votre identité":"Un portefeuille vous permet d’être pleinement propriétaire de votre identité",
       "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !": "Nous ne stockons absolument rien vous concernant : tout est sur la blockchain !",
       "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur": "Metamask est la solution la plus utilisée en 2022, d’autres portefeuilles viendront s’ajouter dans le futur",
-      "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences":  "Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences",
       "Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain": "Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain",
       "#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain" : "#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain",
       "Un catalogue fédéré de données et services liés à" :  "Un catalogue fédéré de données et services liés à",
@@ -213,6 +244,46 @@ const resources = {
       "Une initiative issue de Gaia-X":"Une initiative issue de Gaia-X",
       "Gaia-X est une initiative qui développe un cadre logiciel de contrôle et de gouvernance et qui met en œuvre un ensemble commun de politiques et de règles pouvant être appliquées à tout objet technologique.":"Gaia-X est une initiative qui développe un cadre logiciel de contrôle et de gouvernance et qui met en œuvre un ensemble commun de politiques et de règles pouvant être appliquées à tout objet technologique.",
       "En savoir plus sur gaia-x":"En savoir plus sur gaia-x",
+
+
+      "Partager une ressource": "Partager une ressource",
+      "Formulaire d’ajout de ressource au catalogue décentralisé": "Formulaire d’ajout de ressource au catalogue décentralisé",
+      "Informations sur la ressource": "Informations sur la ressource",
+      "Contenu": "Contenu",
+      "Accès": "Accès",
+      "Conditions d'utilisation": "Conditions d'utilisation",
+      "Publication": "Publication",
+      "Gagnez du temps si vous possédez déjà une self-description": "Gagnez du temps si vous possédez déjà une self-description",
+      "Déposer votre self-description sur le github": "Déposer votre self-description sur le github",
+      "Continuer": "Continuer",
+      "Titre de votre ressource (5 caractères minimum)": "Titre de votre ressource (5 caractères minimum)",
+      "Description de votre ressource (5 caractères minimum)": "Description de votre ressource (5 caractères minimum)",
+      "Quel type de ressource souhaitez-vous partager": "Quel type de ressource souhaitez-vous partager",
+      "Etiquette de la ressource (ajouter ou en créer une)": "Etiquette de la ressource (ajouter ou en créer une)",
+      "Type de données proposées": "Type de données proposées",
+      "Niveau concerné par les données": "Niveau concerné par les données",
+      "Format des données": "Format des données",
+      "La ressource que vous mettez à disposition donne-t-elle accès des données à caractère personnel ?": "La ressource que vous mettez à disposition donne-t-elle accès des données à caractère personnel ?",
+      "Standard de description des données": "Standard de description des données",
+      "Une information personnelle": "Une information personnelle est une information relative à une personne physique susceptible d'être identifiée, directement ou indirectement. Par exemple : un nom, une photo, une empreinte, une adresse postale, une adresse mail, un numéro de téléphone, un numéro de sécurité sociale, un matricule interne, une adresse IP, un identifiant de connexion informatique, un enregistrement vocal, etc.",
+      "Quel niveau de label Gaia-X votre ressource satisfait-elle ?": "Quel niveau de label Gaia-X votre ressource satisfait-elle ?",
+      "Pas de label": "Pas de label",
+      "L’accès aux données est": "L’accès aux données est",
+      "Fermé": "Fermé",
+      "Ouvert": "OUvert",
+      "L’accès se fait via": "L’accès se fait via",
+      "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?": "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?",
+      "Licence d'utilisation de votre ressource": "Licence d'utilisation de votre ressource",
+      "Prêt pour le catalogage ?": "Prêt pour le catalogage ?",
+
+
+
+
+
+
+
+
+
 }
   }
 };

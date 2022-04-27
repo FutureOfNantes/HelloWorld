@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addAccessData, addAccessType, addUrl, addDocumentation } from '../../../features/reducers/serviceSlice';
 
 
-const AddPage3 = ({ setButtonContinuer }) => {
+const AddPage3 = ({ setButtonContinuer, t }) => {
 	const dispatch = useDispatch();
 	const service = useSelector((state) => state.newService);
 
@@ -39,20 +39,20 @@ const AddPage3 = ({ setButtonContinuer }) => {
 	return (
 		<div>
 			<fieldset className="formGroup radio">
-				<legend>L’accès aux données est</legend>
+				<legend>{t("L’accès aux données est")}</legend>
 				<div className="flex row">
 					<div className="flex-1 p01em">
 						<input type="radio" className="formField" placeholder="L’accès aux données est" name="isOpenOrNot" id='isClosed' value="false" required 
 						onClick={handleAccess}/>
-						<label htmlFor="isClosed" className="button actAsButton radioLabel button whiteButton block textCenter">Fermé</label>
+						<label htmlFor="isClosed" className="button actAsButton radioLabel button whiteButton block textCenter">{t("Fermé")}</label>
 					</div>
 					<div className="flex-1 p01em">
 						<input type="radio" className="formField" placeholder="L’accès aux données est" name="isOpenOrNot" id='isOpen' value="true" required 
 						onClick={handleAccess}/>
-						<label htmlFor="isOpen" className="button actAsButton radioLabel button whiteButton block textCenter">Ouvert</label>
+						<label htmlFor="isOpen" className="button actAsButton radioLabel button whiteButton block textCenter">{t("Ouvert")}</label>
 					</div>
 				</div>
-				<legend>L’accès se fait via</legend>
+				<legend>{t("L’accès se fait via")}</legend>
 				<div className="flex row">
 					<div className="flex-1 p01em">
 						<input type="radio" className="formField" placeholder="L’accès aux données est" name="accessType" id='accessTypeApi' value="false" required 
@@ -69,7 +69,7 @@ const AddPage3 = ({ setButtonContinuer }) => {
 			<div className="formGroup field">
 				<input type="url" className="formField" placeholder="Où l’utilisateur peut-il en savoir plus sur les données ?" name="resourceName" id='webAddress' required 
 				onChange={handleUrl}/>
-				<label htmlFor="webAddress" className="formLabel">Où l’utilisateur peut-il en savoir plus sur les données (URL) ?</label>
+				<label htmlFor="webAddress" className="formLabel">{t("Où l’utilisateur peut-il en savoir plus sur les données (URL) ?")}</label>
 			</div>
 			<div className="formGroup field">
 				<input type="url" className="formField" placeholder="Documentation" name="documentation" id='documentation' required 

@@ -15,7 +15,7 @@ const DashboardCatalog = ({ t }) => {
     return (
         <section className="main sectionContent flex column flex-1">
             <header>
-                <h1><img src={searchIcon} alt="" />Catalogue</h1>
+                <h1><img src={searchIcon} alt="" />{t("Catalogue")}</h1>
             </header>
             <SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} t={t} />
             <CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData} t={t} />

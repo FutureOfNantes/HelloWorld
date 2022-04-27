@@ -37,7 +37,7 @@ const App = () => {
         </Route>
         <Route path="/dashboard" element={<Dashboard t={t} i18n={i18n} />} >
           <Route path="/dashboard/profile" element={<DashboardProfile t={t} i18n={i18n} />} />
-          <Route path="/dashboard/add" element={<AddService />} />
+          <Route path="/dashboard/add" element={<AddService t={t}/>} />
           <Route path="/dashboard/myoffer" element={<DashboardMyOffer t={t} />} />
           <Route path="/dashboard/catalog" element={<DashboardCatalog t={t} />} />
           <Route path="/dashboard/survey" element={<DashboardSurvey t={t} />} />
