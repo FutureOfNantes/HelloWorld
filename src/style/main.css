@@ -257,6 +257,12 @@ header {
 	text-transform: initial;
 }
 
+.mainNav li button.pinkButton {
+	padding: 0.5em 1em 0.5em 1em;
+	text-transform: initial;
+	margin-right: 1em
+}
+
 .mainNav li button.roundblue {
 	background: var(--blue);
 	color: #fff;
@@ -1133,6 +1139,17 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 	color: var(--black);
 }
 
+.modal .form {
+	padding-top: 0;
+}
+
+.modal .form .formGroup input[type=submit] {
+	position: absolute;
+    right: 0.5em;
+    width: auto;
+    top: 0.5em;
+}
+
 .onboarding {
 	background: var(--lightGrey);
 	text-align: center;
@@ -1186,16 +1203,19 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 .button.connectMetamask {
 	line-height: 3em;
 	width: 100%;
+	margin-bottom: 0.5em
 }
 
 .button.connectWalltId {
 	line-height: 3em;
 	width: 100%;
+	margin-bottom: 0.5em
 }
 
 .button.connectBCD {
 	line-height: 3em;
 	width: 100%;
+	margin-bottom: 0.5em
 }
 
 .button.disabled {
@@ -1687,7 +1707,7 @@ fieldset legend {
 .homePage .hero .container h1, .homePage .hero .container h2 {
 	width: 66%;
 	margin: 0 auto;
-	line-height: 1.25;
+	line-height: 1.5;
 }
 
 .homePage .hero .container h2 {
