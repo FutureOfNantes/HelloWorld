@@ -15,6 +15,7 @@ import MentionsFr from './page/MentionsFr';
 import MentionsEn from './page/MentionsEn';
 import Home from './page/Home';
 import Main from './page/Main';
+import MdEditor from './page/MdEditor';
 import DashboardCatalog from './component/Dashboard/DashboardCatalog';
 import DashboardMyOffer from './component/Dashboard/DashboardMyOffer';
 import DashboardSurvey from './component/Dashboard/DashboardSurvey';
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/service/:id" element={<Service dashboard="false" t={t} />} />
           <Route path="/metamask" element={<NoMetamask />} />
           <Route path="/vc" element={<VerifiableCredential t={t} />} />
+          <Route path="/md" element={<MdEditor />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard t={t} i18n={i18n} />} >
           <Route path="/dashboard/profile" element={<DashboardProfile t={t} i18n={i18n} />} />

@@ -49,8 +49,8 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 					</p>
 				</div>))}
 			<div className="catalogueCell addService">
-				{!dashboard && <Connection buttonName={t("Participer à l'offre")} typeConnection={typeConnection} />}
-				{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button>}
+				{ !dashboard && <button typeConnection={typeConnection}>{t("Participer à l'offre")} </button> }
+				{ dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button> }
 			</div>
 		</section>
 	)
