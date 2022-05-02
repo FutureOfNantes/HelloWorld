@@ -1,13 +1,11 @@
 import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Daseslogo from '../style/img/favicon.svg'
-import Connection from './Connection'
 import { useMatch, Link } from 'react-router-dom'
 
-
-const Header = ({ t, i18n }) => {
+const Header = ({ t, i18n, setModalConnection }) => {
     const typeConnection = 'header'
     const match = useMatch('/catalogue')
- 
+
     return (
         <header>
             <div className="header_topBar">
@@ -27,8 +25,8 @@ const Header = ({ t, i18n }) => {
                             </Link>
                         </li>
                         <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>
-                        <li>
-                            <Connection buttonName={t('Connecter')} typeConnection={typeConnection} t={t} />
+                        <li><button className="button blackButton connectWallet" onClick={() => { setModalConnection(true)}} >{t('Connecter')} </button>
+
                         </li>
                         <li>
                             <section className="searchEngine container flex wrap row">
