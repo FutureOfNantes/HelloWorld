@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-const Mentions = ({ t }) => {
+const MentionsEn = ({ t }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
       }, [])
@@ -8,7 +8,7 @@ const Mentions = ({ t }) => {
     return (
        <div>
             <main className="container768 sectionContent textBlock">
-            <h1>Informations légales</h1>
+            <h1>Informations légales A TRADUIRE EN ANGLAIS</h1>
             <h2>A propos du Dases Lab</h2>
             <p>Dases Lab propose un exemple de plateforme d’échanges de données de l’Education et la formation tout au long de la vie. Il s’agit d’un site à visée expérimentale. </p>
             <h3>Un catalogue de ressources</h3>
@@ -220,5 +220,5 @@ C’est ce qu’on appelle aussi, l’identité décentralisée.</p>
     )
 }
 
-export default Mentions;
+export default MentionsEn;
 

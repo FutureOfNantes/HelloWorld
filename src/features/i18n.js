@@ -139,7 +139,8 @@ const resources = {
       "L’accès se fait via": "Access is via",
       "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?": "Where can the user learn more about the data (URL)?",
       "Licence d'utilisation de votre ressource": "License to use your resource",
-      "Prêt pour le catalogage ?": "Ready for cataloging?"
+      "Prêt pour le catalogage ?": "Ready for cataloging?",
+      "mentions": "/mentionsEn",
 
 
 
@@ -278,6 +279,7 @@ const resources = {
       "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?": "Où l’utilisateur peut-il en savoir plus sur les données (URL) ?",
       "Licence d'utilisation de votre ressource": "Licence d'utilisation de votre ressource",
       "Prêt pour le catalogage ?": "Prêt pour le catalogage ?",
+      "mentions": "/mentionsFr"
 
 
 

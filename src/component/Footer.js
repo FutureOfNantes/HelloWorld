@@ -9,7 +9,7 @@ const Footer = ({ t }) => {
 					{t('Footer')}
 				</p>
 				<ul>
-					<li><Link to="/mentions">{t('Mentions légales')}</Link></li>
+					<li><Link to={t('mentions')}>{t('Mentions légales')}</Link></li>
 					<li><a href="https://calendly.com/mathieu-strabach-menjs/dases?month=2022-04">{t('Contactez-nous')}</a></li>
 					<li><a href="https://github.com/pgrandne/daseslab">GitHub</a></li>
 				</ul>

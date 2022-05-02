@@ -11,7 +11,8 @@ import PageNotFound from './page/PageNotFound';
 import Dashboard from './page/Dashboard';
 import AddService from './component/Dashboard/DashboardAddService';
 import Service from './page/Service';
-import Mentions from './page/Mentions';
+import MentionsFr from './page/MentionsFr';
+import MentionsEn from './page/MentionsEn';
 import Home from './page/Home';
 import Main from './page/Main';
 import DashboardCatalog from './component/Dashboard/DashboardCatalog';
@@ -28,7 +29,8 @@ const App = () => {
       <Routes>
         <Route element={<Main t={t} i18n={i18n} />} >
           <Route path="/community" element={() => { window.location.href = "https://prometheus-x.org" }} />
-          <Route path="/mentions" element={<Mentions t={t} />} />
+          <Route path="/mentionsFr" element={<MentionsFr />} />
+          <Route path="/mentionsEn" element={<MentionsEn />} />      
           <Route path="/" element={<Home t={t} />} />
           <Route path="/catalogue" element={<Catalog t={t} />} />
           <Route path="/service/:id" element={<Service dashboard="false" t={t} />} />
