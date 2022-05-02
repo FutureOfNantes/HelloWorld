@@ -1,11 +1,14 @@
 import gaiaxSimplified from '../style/img/gaiaxSimplified.svg'
 import Daseslogo from '../style/img/favicon.svg'
 import { useMatch, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
-const Header = ({ t, i18n, setModalConnection }) => {
-    const typeConnection = 'header'
+import { modalReducer } from '../features/reducers/connectionSlice';
+
+const Header = ({ t, i18n }) => {
+    const dispatch = useDispatch();
     const match = useMatch('/catalogue')
-    const match2= useMatch('/md')
+    const match2 = useMatch('/md')
 
     return (
         <header>
@@ -22,17 +25,21 @@ const Header = ({ t, i18n, setModalConnection }) => {
                     <ul className="mainNav">
                         <li>
                             <Link to="/catalogue">
-                            <button className={match ?"current": ""}>{t('Catalogue')}</button>
+                                <button className={match ? "current" : ""}>{t('Catalogue')}</button>
                             </Link>
                         </li>
                         <li>
                             <Link to="/md">
-                            <button className={match2 ?"current": ""}>{t('Markdown')}</button>
+                                <button className={match2 ? "current" : ""}>{t('Markdown')}</button>
                             </Link>
                         </li>
                         <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>
-                        <li><button className="button blackButton connectWallet" onClick={() => { setModalConnection(true)}} >{t('Connecter')} </button>
-
+                        <li><button
+                            className="button blackButton connectWallet"
+                            onClick={() => { dispatch(modalReducer({ modal: 'welcome', source: 'header' })) }}
+                        >
+                            {t('Connecter')}
+                        </button>
                         </li>
                         <li>
                             <section className="searchEngine container flex wrap row">

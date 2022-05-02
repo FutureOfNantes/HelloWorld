@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import './App.css';
 import './style/main.css';
 
-import NoMetamask from './page/NoMetamask'
 import Catalog from './page/Catalog';
 import VerifiableCredential from './page/VerifiableCredential';
 import PageNotFound from './page/PageNotFound';
@@ -35,7 +34,6 @@ const App = () => {
           <Route path="/" element={<Home t={t} />} />
           <Route path="/catalogue" element={<Catalog t={t} />} />
           <Route path="/service/:id" element={<Service dashboard="false" t={t} />} />
-          <Route path="/metamask" element={<NoMetamask />} />
           <Route path="/vc" element={<VerifiableCredential t={t} />} />
           <Route path="/md" element={<MdEditor />} />
         </Route>

@@ -1,8 +1,8 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
+import NoMetamask from './NoMetamask'
 import Footer from '../component/Footer';
 import Header from '../component/Header';
 import Connection from '../component/Connection';
@@ -11,23 +11,22 @@ import { fetchAsyncServices } from '../features/reducers/serviceSlice';
 
 const Main = ({ t, i18n }) => {
     const dispatch = useDispatch();
+    const modalConnection = useSelector((state) => state.connection.modal);
 
     useEffect(() => {
         dispatch(fetchAsyncUsers());
         dispatch(fetchAsyncServices());
-      }, [dispatch])
-
-      const [modalConnection, setModalConnection] = useState(false);
+    }, [dispatch])
 
 
     return (
         <Fragment>
-            <Header t={t} i18n={i18n} setModalConnection={setModalConnection} />
-            {modalConnection && <Connection t={t} setModalConnection={setModalConnection} />}
+            <Header t={t} i18n={i18n} />
+            { modalConnection === 'welcome' && <Connection t={t} /> }
+            { modalConnection === 'noMetamask' && <NoMetamask t={t} /> }  
             <Outlet />
-            <Footer t={t} /> 
+            <Footer t={t} />
         </Fragment>
-
     )
 }
 

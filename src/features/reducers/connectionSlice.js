@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 export const connectionSlice = createSlice({
     name: "connection",
     initialState: {
+        modal: '',
+        source: '',
         connected: false,
         wallet: true,
         onboarded: true,
@@ -10,6 +12,11 @@ export const connectionSlice = createSlice({
         account: {},
     },
     reducers: {
+        modalReducer: (state, action) => {
+            state.modal = action.payload.modal;
+            state.source = action.payload.source;
+            return state;
+        },
         connectReducer: (state, action) => {
             state.connected = action.payload;
             return state;
@@ -33,6 +40,13 @@ export const connectionSlice = createSlice({
     }
 })
 
-export const { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } = connectionSlice.actions;
+export const { 
+    modalReducer,
+    connectReducer, 
+    walletReducer, 
+    onboardedReducer, 
+    accountReducer, 
+    didReducer
+ } = connectionSlice.actions;
 
 

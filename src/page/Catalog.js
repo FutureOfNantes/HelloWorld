@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-
 import SearchBar from '../component/SearchBar'
 import CatalogList from '../component/CatalogList'
 
-const Catalog = ({ t, i18n }) => {
-
+const Catalog = ({ t }) => {
 	const dashboard = false
 	const [query, setQuery] = useState("");
 	const [licence, setLicence] = useState("");
@@ -20,13 +18,23 @@ const Catalog = ({ t, i18n }) => {
 						{t("Développeurs, chercheurs et innovateurs")} <br /><br />
 						<a href="/" className="questionLink">{t('Comment est-il alimenté ? Par qui ?')}</a>
 					</div>
-					{/* <h1>{t('Catalogue des données et services du')}<br />{t('Data Space Education & Compétences')}</h1> */}
 				</section>
 			</section>
 			<section className="searchEngine container flex wrap row">
-				<SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} t={t} />
+				<SearchBar
+					setQuery={setQuery}
+					setLicence={setLicence}
+					setOpenData={setOpenData}
+					t={t}
+				/>
 			</section>
-			<CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData} t={t} />
+			<CatalogList
+				dashboard={dashboard}
+				query={query}
+				licence={licence}
+				openData={openData}
+				t={t}
+			/>
 		</div>
 	)
 }

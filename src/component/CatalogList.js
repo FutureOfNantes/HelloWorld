@@ -1,13 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+
+import { modalReducer } from '../features/reducers/connectionSlice';
 import entityUnkown from '../assets/entityUnKnown.svg'
 import menjs from '../assets/logos/menjs.jpg'
-import Connection from './Connection';
 
 const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
-	const typeConnection = "add"
+	const dispatch = useDispatch();
 
 	if (!servicesList.length) {
 		return <h3>Loading...</h3>;
@@ -49,8 +50,13 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 					</p>
 				</div>))}
 			<div className="catalogueCell addService">
-				{ !dashboard && <button typeConnection={typeConnection}>{t("Participer à l'offre")} </button> }
-				{ dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button> }
+				{!dashboard && <button
+					onClick={() => { dispatch(modalReducer({ modal: true, source: 'add' })) }}
+				>
+					{t("Participer à l'offre")}
+				</button>}
+
+				{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button>}
 			</div>
 		</section>
 	)
