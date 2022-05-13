@@ -10,7 +10,7 @@ const Home = ({ t }) => {
                 <div className="container">
                     <h1>{t("Bienvenue sur le laboratoire d’expérimentation du Data Space Education & Compétences")}</h1>
                     <h2>{t("Accélérer l’innovation en éducation, en certification et développement des compétences à travers un catalogue fédéré de partage de données et services basé sur la blockchain")}</h2>
-                    <p>{t("#Transparence     #Traçabilité     #Portabilité     #Interopérabilité    #Blockchain")}</p>
+                    <p>{t("#Transparence")}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("#Portabilité")}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{t("#Interopérabilité")}</p>
                     <img src={hero} alt="" />
                 </div>
                 <div className="container flex alignLeft">

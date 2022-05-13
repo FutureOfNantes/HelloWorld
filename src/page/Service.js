@@ -1,10 +1,9 @@
 import Connection from '../component/Connection';
-import entityUnkown from '../assets/entityUnKnown.svg'
-import menjs from '../assets/logos/menjs.jpg'
 import visions from '../assets/logos/visions.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAsyncVisions } from '../features/reducers/visionsSlice';
 import { useNavigate, useParams } from 'react-router-dom';
+import { modalReducer } from '../features/reducers/connectionSlice';
 
 
 const Service = ({ dashboard, t }) => {
@@ -35,6 +34,21 @@ const Service = ({ dashboard, t }) => {
         dispatch(addAsyncVisions(data));
     }
 
+    const logoSelect = (entity) => {
+		switch(entity) {
+			case 'MENJS':
+				return ('/logos/menjs.jpg');
+			case 'Inokufu':
+				return ('prometheus.svg')
+			case 'Mindmatcher':
+				return ('/logos/prometheus.svg')
+			case 'Visions':
+				return ('/logos/prometheus.svg')
+			default:
+				return ('/logos/entityUnKnown.svg')
+		}
+	}
+
     return (
         <section className="main flex column flex-1">
             <ul className="container breadcrumb flex row">
@@ -45,10 +59,7 @@ const Service = ({ dashboard, t }) => {
             <div className="servicePage">
                 <main className="container sectionContent">
                     <section className="container servicePageTitle flex row">
-                        {(service[0].entity === 'MENJS') &&
-                            <img src={menjs} alt="" />}
-                        {(service[0].entity !== 'MENJS') &&
-                            <img src={entityUnkown} alt="" />}
+                    <img src={logoSelect(service[0].entity)} alt="" />
                         <div>
                             <h1>{service[0].title}</h1>
                             <ul className="resourceTags flex row center wrap">
@@ -56,9 +67,9 @@ const Service = ({ dashboard, t }) => {
                                 <li className="isResourceOpen locked"></li>
                                 <li>
                                     <ul className="tagList flex row">
-                                        <li>API</li>
-                                        <li>Students</li>
-                                        <li>Skills</li>
+                                        <li className="tag tagSkyBlue">API</li>
+                                        <li className="tag tagLightBlue">Dataset</li>
+                                        <li className="tag tagPurple">Students</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -66,7 +77,12 @@ const Service = ({ dashboard, t }) => {
                         {service[0].personalData === "oui" &&
                             <ul className="ctas">
                                 <li>
-                                    {dashboard === "false" && <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} />}
+                                    {dashboard === "false" && <button className="button blackButton"
+                                    onClick={() => { dispatch(modalReducer({ modal: 'welcome', source: 'use' })) }}
+                        >
+                            {t("Demander l'intégration")}
+                        </button>}      
+                                     {/* <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /> */}
                                     {dashboard === "true" && <button className="useService button blackButton export" onClick={handleIntegration}>Demander l'intégration</button>}
                                     <br/>
                                     <span>powered by <img src={visions} alt="" /></span>

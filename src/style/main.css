@@ -71,7 +71,11 @@ table {
  	--turquoise: #8A90AD;
  	--green: #2F9898;
  	--lightGreyTransparent: #0a102a1c;
- 	--lightYellow : #FFF6EF
+ 	--lightYellow : #FFF6EF;
+	--purple : #f3bfff;
+	--skyBlue : #D4F7F7;
+	--lightBlue : #CDE5E3;
+
 }
 
 
@@ -542,8 +546,20 @@ section.hero {
 .catalogueCell .title ul li .tag{
 	font-size: 0.75em;
 	padding: 0.5em 1em;
-	background: var(--lightGrey);
+	/* background: var(--lightGrey); */
 	border-radius: 0.5em;
+}
+
+.tagPurple{
+	background: var(--purple);
+}
+
+.tagSkyBlue{
+	background: var(--skyBlue);
+}
+
+.tagLightBlue{
+	background: var(--lightBlue);
 }
 
 .catalogueCell .description {
@@ -698,7 +714,7 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 .servicePageTitle > div .resourceTags li .tagList li {
 	padding: 0.25em 1em;
 	border-radius: 2em;
-	background: var(--lightGrey);
+	/* background: var(--lightGrey); */
 	font-size: 0.875em;
 	font-weight: 700;
 }
@@ -1143,7 +1159,7 @@ footer a { text-decoration: none; color: var(--blue); display: block; padding: 0
 	padding-top: 0;
 }
 
-.modal .form .formGroup input[type=submit] {
+.modal .form .formGroup button {
 	position: absolute;
     right: 0.5em;
     width: auto;
@@ -1357,8 +1373,10 @@ input[type=submit].connectMetamask {
 	border-radius: 0.5em;
 	line-height: 2.5;
 	width: 100%;
-	outline: 3px solid rgba(0, 0, 0, .15);
-	font-weight: 700
+	outline: 3px solid var(--pink);
+	font-weight: 700;
+	line-height: 2.25;
+	box-sizing: border-box;
 }
 
 .form .formField.select {
@@ -1367,7 +1385,7 @@ input[type=submit].connectMetamask {
 }
 
 .form .formField:hover {
-	outline: 3px solid rgba(0,0,0,0.25)
+	outline: 3px solid var(--black);
 }
 
 
@@ -1385,7 +1403,7 @@ input[type=submit].connectMetamask {
 	top: 1.25em;
 	cursor: text;
 	font-size: 0.875em;
-	color: rgba(0, 0, 0, .6);
+	color: var(--pink);
 	font-weight: 700
 }
 

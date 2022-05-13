@@ -1,21 +1,22 @@
 import sign from '../features/sign'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { connectReducer, walletReducer, onboardedReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
+import { connectReducer, walletReducer, accountReducer, didReducer } from '../features/reducers/connectionSlice';
 import { modalReducer } from '../features/reducers/connectionSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Fragment, useState } from 'react';
 import Daseslogo from '../style/img/favicon.svg'
 import { Magic } from 'magic-sdk'
 import { ethers } from 'ethers';
 
-const Connection = ({ t, id }) => {
+const Connection = ({ t }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usersList = useSelector((state) => state.usersList.user);
     const prov = useSelector((state) => state.connection.source);
     const [email, setEmail] = useState('');
     const [magicLinkLoading, setMagicLinkLoading] = useState(false);
+    const { id } = useParams();
 
     const handleConnect = async (source) => {
         if (source === 'email') {

@@ -2,8 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 
 import { modalReducer } from '../features/reducers/connectionSlice';
-import entityUnkown from '../assets/entityUnKnown.svg'
-import menjs from '../assets/logos/menjs.jpg'
 
 const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 	const servicesList = useSelector((state) => state.servicesList.service);
@@ -23,6 +21,21 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 		navigate("/dashboard/add")
 	}
 
+	const logoSelect = (entity) => {
+		switch(entity) {
+			case 'MENJS':
+				return ('/logos/menjs.jpg');
+			case 'Inokufu':
+				return ('prometheus.svg')
+			case 'Mindmatcher':
+				return ('/logos/prometheus.svg')
+			case 'Visions':
+				return ('/logos/prometheus.svg')
+			default:
+				return ('/logos/entityUnKnown.svg')
+		}
+	}
+
 	return (
 		<section className="container flex wrap catalogueList">
 			{servicesList.filter(item => (item.title.toLowerCase().includes(query) ||
@@ -32,16 +45,13 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 			).map((item) => (
 				<div key={item.id} className="catalogueCell" onClick={() => handleService(item.id)}>
 					<div className="title flex center">
-						{(item.entity === 'MENJS') &&
-							<img src={menjs} alt="" />}
-						{(item.entity !== 'MENJS') &&
-							<img src={entityUnkown} alt="" />}
+							<img src={logoSelect(item.entity)} alt="" />
 						<div>
 							<h2>{item.title}</h2>
 							<ul className="flex">
-								<li key="api"><span className="tag">API</span></li>
-								<li key="lo"><span className="tag">Education</span></li>
-								{/* <li key="li">{licencesList[0]}</li> */}
+								<li key="api"><span className="tag tagSkyBlue">API</span></li>
+								<li key="Dataset"><span className="tag tagLightBlue">Dataset</span></li>							
+								<li key="Students"><span className="tag tagPurple">Students</span></li>
 							</ul>
 						</div>
 					</div>
@@ -55,7 +65,6 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 				>
 					{t("Participer à l'offre")}
 				</button>}
-
 				{dashboard && <button className="button blackButton connectWallet" onClick={handleAdd}>{t("Participer à l'offre")}</button>}
 			</div>
 		</section>
