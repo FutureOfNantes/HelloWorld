@@ -33,7 +33,6 @@ const App = () => {
           <Route path="/" element={<Home t={t} />} />
           <Route path="/catalogue" element={<Catalog t={t} />} />
           <Route path="/service/:id" element={<Service dashboard="false" t={t} />} />
-          <Route path="/vc" element={<VerifiableCredential t={t} />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard t={t} i18n={i18n} />} >
           <Route path="/dashboard/profile" element={<DashboardProfile t={t} i18n={i18n} />} />
@@ -43,6 +42,7 @@ const App = () => {
           <Route path="/dashboard/survey" element={<DashboardSurvey t={t} />} />
           <Route path="/dashboard/confirm" element={<DashboardConfirm />} />
           <Route path="/dashboard/service/:id" element={<Service dashboard="true" t={t} />} />
+          <Route path="/dashboard/vc" element={<VerifiableCredential t={t} />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

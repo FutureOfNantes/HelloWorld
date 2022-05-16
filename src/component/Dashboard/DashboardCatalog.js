@@ -9,6 +9,7 @@ const DashboardCatalog = ({ t }) => {
     const [query, setQuery] = useState("");
 	const [licence, setLicence] = useState("");
     const [openData, setOpenData] = useState("");
+    const [type, setType] = useState("");
 	const servicesList = useSelector((state) => state.servicesList.service);
 	if (!servicesList.length) return <h3>Loading...</h3>;
 
@@ -17,8 +18,8 @@ const DashboardCatalog = ({ t }) => {
             <header>
                 <h1><img src={searchIcon} alt="" />{t("Catalogue")}</h1>
             </header>
-            <SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} t={t} />
-            <CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData} t={t} />
+            <SearchBar setQuery={setQuery} setLicence={setLicence} setOpenData={setOpenData} setType={setType} t={t} />
+            <CatalogList dashboard={dashboard} query={query} licence={licence} openData={openData} type={type} t={t} />
         </section>
     )
 }

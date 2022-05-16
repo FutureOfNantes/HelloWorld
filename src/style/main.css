@@ -509,10 +509,6 @@ section.hero {
 
 /* ---- Contenu du catalogue ----- */
 
-.catalogueBackground {
-	background: #8A90AD;
-}
-
 .catalogueCell {
 	transition: all 0.150s;
 	flex: 1 0 20%;
@@ -531,6 +527,17 @@ section.hero {
 	border: 3px solid transparent;
 	outline: 1px solid #0a102a1c;
 }
+
+.catalogueCell.onBuilding{
+		border: 5px solid;
+		border-image: repeating-linear-gradient(
+		  -55deg,
+		  #000,
+		  #000 20px,
+		  #ffb101 20px,
+		  #ffb101 40px
+		) 10;
+	  }
 
 .catalogueCell:hover {
 	border-color: var(--black);

@@ -1,4 +1,4 @@
-const SearchBar = ({ setQuery, setLicence, setOpenData, t }) => {
+const SearchBar = ({ setQuery, setLicence, setOpenData, setType, t }) => {
 
     return (
         <section className="searchEngine container flex column">
@@ -10,10 +10,10 @@ const SearchBar = ({ setQuery, setLicence, setOpenData, t }) => {
                 <div>
                     {t('Filtrer')}
                 </div>
-                <select name="type" id="type">
+                <select name="type" id="type" onChange={e => setType(e.target.value)}>
                     <option value="">{t('Type de ressource')}</option>
-                    <option value="data">{t('Données')}</option>
-                    <option value="service">{t('Service')}</option>
+                    <option value="Dataset">{t('Données')}</option>
+                    <option value="Service">{t('Service')}</option>
                     <option value="code">{t('Code')}</option>
                 </select>
                 <select name="licence" id="licence" onChange={e => setLicence(e.target.value)}>

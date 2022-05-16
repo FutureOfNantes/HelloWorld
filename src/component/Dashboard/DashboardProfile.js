@@ -6,7 +6,6 @@ import { getResolver } from 'ethr-did-resolver';
 
 
 const DashboardProfile = ({ t, i18n }) => {
-    console.log(i18n.language)
     const navigate = useNavigate();
     const account = useSelector((state) => state.connection.account);
     const handleDownload = async () => {
@@ -76,36 +75,6 @@ const DashboardProfile = ({ t, i18n }) => {
                                         <td>{account.emailOwner}</td>
                                     </tr>
                                     <tr>
-                                        <td>{t('Laissez-passer')}</td>
-                                        <td>
-                                            <button className="button whiteButton" onClick={handleDownload}>
-                                                {t('Télécharger votre laissez-passer')}
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-                </main>
-            </div>
-
-
-
-
-
-            <div className="servicePage">
-                <main className="container sectionContent">
-                    <section className="container servicePageTitle flex row">
-                        <div>
-                            <h1>{t('Mon Entité')}</h1>
-                        </div>
-                    </section>
-                    <section className="container servicePageContent flex wrap column">
-                        <div className="serviceDetails">
-                            <table>
-                                <tbody>
-                                    <tr>
                                         <td>{t('Entité')}</td>
                                         <td>{account.companyName}</td>
                                     </tr>
@@ -129,8 +98,8 @@ const DashboardProfile = ({ t, i18n }) => {
                             </table>
                         </div>
                     </section>
-                    </main>
-                    </div>
+                </main>
+            </div>
         </section>
     )
 }

@@ -43,6 +43,10 @@ const DashboardNav = ({ t, i18n }) => {
         navigate("/dashboard/profile");
     }
 
+    const handleVc = () => {
+        navigate("/dashboard/vc");
+    }
+
     const handleMyOffer = async () => {
         navigate("/dashboard/myoffer")
         setclassNav({
@@ -95,7 +99,7 @@ const DashboardNav = ({ t, i18n }) => {
                         <span className="didNumber">{shortDID}</span>
                     </li>
                     <li>
-                        <button className="ellipsis" onClick={handleProfile}></button>
+                        <button className="ellipsis" onClick={(account.givenName) ? handleProfile : handleVc}></button>
                     </li>
                     <li>
                         <button className="notifications"></button>

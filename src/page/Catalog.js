@@ -8,6 +8,7 @@ const Catalog = ({ t }) => {
 	const [query, setQuery] = useState("");
 	const [licence, setLicence] = useState("");
 	const [openData, setOpenData] = useState("");
+	const [type, setType] = useState("");
 
 	return (
 		<div>
@@ -25,6 +26,7 @@ const Catalog = ({ t }) => {
 					setQuery={setQuery}
 					setLicence={setLicence}
 					setOpenData={setOpenData}
+					setType={setType}
 					t={t}
 				/>
 			</section>
@@ -33,6 +35,7 @@ const Catalog = ({ t }) => {
 				query={query}
 				licence={licence}
 				openData={openData}
+				type={type}
 				t={t}
 			/>
 		</div>
