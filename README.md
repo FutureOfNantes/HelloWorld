@@ -1,5 +1,3 @@
-**Hello world!!!**
-
 # Dases Lab #
 
 Welcome in Dases Lab, we are building a Miminum Viable Product for Data Space of Education & Skills. You can find the latest version of Dases Lab on this [website](https://daseslab.on.fleek.co/).
@@ -12,11 +10,12 @@ DasesLab provides a toolkit for anynone who wants to build a dataspace Gaia-X sp
 
 Dases Lab is made up of several autonomous blocks:
 
-- Block 1
-- Block 2
-- Block 3
+- Identity Access Management
+- Self-description Creation
+- Visions connection
+- Catalog
 
-Display a Tree
+(Display a Tree)
 
 ## Building
 ### Front End ###
@@ -25,14 +24,21 @@ We use ReactJS
 For a stable relase you can click on the last one at the right of the page
 
 
-Please clone the repository in in your folder where you want to use it : git clone daes
+Please clone the repository in your folder where you want to use it : git clone daes
 go to the folder : cd daseslab
+in /src/features/api.js comment the 3 first lines and uncomment the 3 last lines
 install the dependencies : npm install
 launch the server locally : npm start
 go to localhost:3000
 
-### Back End ###
+In parallel you need to launch the Back End for using the Portail
 
+### Back End ###
+Download the zip dases-proto.
+Unzip it and go to the folder : cd dases-proto
+install the dependencies :
+launch the server locally : npm start
+By default the server is launched on  localhost:5000
 
 
 
