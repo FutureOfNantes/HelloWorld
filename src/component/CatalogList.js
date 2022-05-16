@@ -7,6 +7,7 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 	const servicesList = useSelector((state) => state.servicesList.service);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	console.log(servicesList)
 
 	if (!servicesList.length) {
 		return <h3>Loading...</h3>;
@@ -26,7 +27,7 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 			case 'MENJS':
 				return ('/logos/menjs.jpg');
 			case 'Inokufu':
-				return ('prometheus.svg')
+				return ('/logos/prometheus.svg')
 			case 'Mindmatcher':
 				return ('/logos/prometheus.svg')
 			case 'Visions':
@@ -43,7 +44,8 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 				item.licence.includes(licence) &&
 				item.personalData.includes(openData)
 			).map((item) => (
-				<div key={item.id} className="catalogueCell" onClick={() => handleService(item.id)}>
+				<div key={item.id} className={(item.accessData === "true") ? "catalogueCell" : "catalogueCell catalogueBackground"}
+				onClick={() => handleService(item.id)}>
 					<div className="title flex center">
 							<img src={logoSelect(item.entity)} alt="" />
 						<div>
@@ -61,7 +63,7 @@ const CatalogList = ({ dashboard, query, licence, openData, t }) => {
 				</div>))}
 			<div className="catalogueCell addService">
 				{!dashboard && <button
-					onClick={() => { dispatch(modalReducer({ modal: true, source: 'add' })) }}
+					onClick={() => { dispatch(modalReducer({ modal: 'welcome', source: 'add' })) }}
 				>
 					{t("Participer à l'offre")}
 				</button>}

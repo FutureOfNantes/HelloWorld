@@ -1,4 +1,3 @@
-import entityUnkown from '../../assets/entityUnKnown.svg'
 import faviconDL from '../../style/img/favicon.svg'
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -14,6 +13,22 @@ const DashboardNav = ({ t, i18n }) => {
     const did = useSelector((state) => state.connection.did);
     const navigate = useNavigate();
     const shortDID = (did.substring(1, 22) + '...' + did.substring(54))
+    const entity = account.companyName
+
+    const logoSelect = (entity) => {
+		switch(entity) {
+			// case 'MENJS':
+			// 	return ('/logos/menjs.jpg');
+			// case 'Inokufu':
+			// 	return ('/logos/prometheus.svg')
+			// case 'Mindmatcher':
+			// 	return ('/logos/prometheus.svg')
+			// case 'Visions':
+			// 	return ('/logos/prometheus.svg')
+			default:
+				return ('/logos/entityUnKnown.svg')
+		}
+	}
 
     const handleDisconnect = async () => {
         navigate("/");
@@ -66,7 +81,8 @@ const DashboardNav = ({ t, i18n }) => {
                     </li>
                     <li>
                         <button className="userLogo alert">
-                            <img src={entityUnkown} alt="" />
+                            {/* <img src={entityUnkown} alt="" /> */}
+                            <img src={logoSelect(entity)} alt="" />
                         </button>
                     </li>
                     <li>

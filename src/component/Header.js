@@ -8,7 +8,6 @@ import { modalReducer } from '../features/reducers/connectionSlice';
 const Header = ({ t, i18n }) => {
     const dispatch = useDispatch();
     const match = useMatch('/catalogue')
-    const match2 = useMatch('/md')
 
     return (
         <header>
@@ -26,11 +25,6 @@ const Header = ({ t, i18n }) => {
                         <li>
                             <Link to="/catalogue">
                                 <button className={match ? "current" : ""}>{t('Catalogue')}</button>
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/md">
-                                <button className={match2 ? "current" : ""}>{t('Markdown')}</button>
                             </Link>
                         </li>
                         <li><button onClick={() => window.open("https://prometheus-x.org/", "_blank")}>{t('Communauté')}</button></li>

@@ -1,4 +1,3 @@
-import Connection from '../component/Connection';
 import visions from '../assets/logos/visions.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAsyncVisions } from '../features/reducers/visionsSlice';
@@ -9,8 +8,6 @@ import { modalReducer } from '../features/reducers/connectionSlice';
 const Service = ({ dashboard, t }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const buttonName = "Demander l'intégration"
-    const typeConnection = "use"
     const { id } = useParams();
     const servicesList = useSelector((state) => state.servicesList.service);
     const usersList = useSelector((state) => state.usersList.user);

@@ -5,7 +5,6 @@ import { connectReducer, walletReducer, accountReducer, didReducer } from '../fe
 import { modalReducer } from '../features/reducers/connectionSlice';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Fragment, useState } from 'react';
-import Daseslogo from '../style/img/favicon.svg'
 import { Magic } from 'magic-sdk'
 import { ethers } from 'ethers';
 
@@ -50,7 +49,7 @@ const Connection = ({ t }) => {
             }
         }
         else if (source === 'metamask') {
-            console.log("metamask")
+            console.log("connexion avec metamask")
             if (window.ethereum) {
                 console.log("metamask present")
                 dispatch(modalReducer({ modal: '' }))

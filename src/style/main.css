@@ -509,11 +509,15 @@ section.hero {
 
 /* ---- Contenu du catalogue ----- */
 
+.catalogueBackground {
+	background: #8A90AD;
+}
 
 .catalogueCell {
 	transition: all 0.150s;
 	flex: 1 0 20%;
-	background: #fff;
+	/* background: #fff; */
+	/* background: #8A90AD; */
 	padding: 1.25em;
 	box-shadow: 
 		0px 22px 81px -11px rgba(2, 32, 57, 0.16),
