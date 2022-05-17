@@ -73,13 +73,13 @@ const AddPage2 = ({ setButtonContinuer, t }) => {
         <div className="flex row selectServiceType">
 
           <div className="flex-1">
-            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="Dataset" required
+            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeDataSet' value="data" required
               onClick={handleRessource} />
             <label htmlFor="resourceTypeDataSet" className="button actAsButton radioLabel forresourceTypeDataSet textCenter">{t("Données")}</label>
           </div>
 
           <div className="flex-1">
-            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="Service" required
+            <input type="radio" className="formField" placeholder="Type de ressource" name="resourceType" id='resourceTypeService' value="service" required
               onClick={handleRessource} />
             <label htmlFor="resourceTypeService" className="button actAsButton radioLabel forresourceTypeService textCenter">Service</label>
           </div>
@@ -91,7 +91,7 @@ const AddPage2 = ({ setButtonContinuer, t }) => {
           </div>
         </div>
       </fieldset >
-      {service.type === "Dataset" && <div>
+      {service.type === "data" && <div>
         <div className="formGroup select">
           <CreatableSelect className="formGroup select" isMulti
             options={tagOptions}
@@ -201,7 +201,7 @@ const AddPage2 = ({ setButtonContinuer, t }) => {
           <br />
         </fieldset>
       </div>}
-      {service.type === "Service" && <div>
+      {service.type === "service" && <div>
         L'ajout de services sera possible dans quelques semaines
       </div>}
       {service.type === "code" && <div>
