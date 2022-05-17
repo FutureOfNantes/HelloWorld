@@ -26,11 +26,11 @@ const CatalogList = ({ dashboard, query, licence, openData, type, t }) => {
 			case 'MENJS':
 				return ('/logos/menjs.jpg');
 			case 'Inokufu':
-				return ('/logos/prometheus.svg')
+				return ('/logos/px.png')
 			case 'Mindmatcher':
-				return ('/logos/prometheus.svg')
+				return ('/logos/px.png')
 			case 'Visions':
-				return ('/logos/prometheus.svg')
+				return ('/logos/px.png')
 			default:
 				return ('/logos/entityUnKnown.svg')
 		}
