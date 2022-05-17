@@ -6,6 +6,8 @@ DasesLab is a project from [Gaia-X Ecosystem](https://www.gaia-x.eu/), which is 
 
 DasesLab provides a toolkit for anynone who wants to build a dataspace Gaia-X specifications. You can read the technical documentation on this [website](lien site doc)
 
+---
+
 ## Presentation of Blocks
 
 Dases Lab is made up of several autonomous blocks:
@@ -18,6 +20,30 @@ Dases Lab is made up of several autonomous blocks:
 (Display a Tree)
 
 ## Building
+
+#### Prerequisites
+MetaMask is requested in your browser. The Network must be localhost if you use it locally or Rinkeby if you use it on the tesnet
+##### Install nodejs
+1. Install cURL if you don't have it:
+```bash
+sudo apt install curl
+```
+
+2. Create APT sources list for Nodesource Nodejs 16 repo:
+``` bash
+cd ~
+curl -sL https://deb.nodesource.com/setup_16.x | sudo bash -
+```
+3. Install Nodejs 16
+``` bash
+sudo apt -y install nodejs
+```
+
+4. Test installation using
+```bash
+$ node -v
+$ npm version
+```
 ### Front End ###
 We use ReactJS
 
@@ -45,5 +71,5 @@ By default the server is launched on  localhost:5000
 ## Roadmap
 Dases Lab is an on going project. We follow the latest advances and specifications updates of Gaia-X
 
-- [X] implementation/feature 1
-- [ ] implementation/feature 2
+- [X] implementation/magiclink
+- [ ] implementation/FranceConnect

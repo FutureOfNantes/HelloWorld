@@ -22,11 +22,11 @@ const Home = ({ t }) => {
                 <div className="container flex alignLeft">
                     <div className="flex-1 indexBlocs">
                         {t("Un catalogue fédéré de données et services liés à")} <strong> {t("l’éducation et aux compétences")} </strong><br />
-                        <div className="questionLink" onMouseOver={() => {alert("A venir")}}> {t("catalogue fédéré ?")} </div>
+                        <div className="questionLink" onClick={() => {alert("A venir")}}> {t("catalogue fédéré ?")} </div>
                     </div>
                     <div className="flex-1 indexBlocs">
                         {t("Un référencement automatisé des services via des")} <strong> {t("self-descriptions")} </strong><br />
-                        <div className="questionLink" onMouseOver={() => {alert("A venir")}}>self-description ?</div>
+                        <div className="questionLink" onClick={() => {alert("A venir")}}>self-description ?</div>
                     </div>
                     <div className="flex-1 indexBlocs">
                         {t("Une initiative d’envergure européenne en partie issue des")} <strong> {t("travaux menés par gaia-x")} </strong><br />
@@ -63,7 +63,7 @@ const Home = ({ t }) => {
                             <h1>{t("La self-description, particule élémentaire du data space")}</h1>
                             <p>{t("La self-description est, en plus des verifiable credentials")} 🤔 {t("et des smart contracts")} 🤔, {t("un élément central du catalogue fédéré de données et services. C’est un document signé électroniquement et infalsifiable qui permet d’identifier les acteurs et leurs ressources du data space.")} </p>
                             <button className="button whiteButton"
-                            onMouseOver={() => {alert("A venir")}}
+                            onClick={() => {alert("A venir")}}
                             >
                                 {t("Plus de détails sur le fonctionnement")}
                             </button>
