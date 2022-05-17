@@ -91,7 +91,7 @@ const AddPage2 = ({ setButtonContinuer, t }) => {
           </div>
         </div>
       </fieldset >
-      {service.type === "data" && <div>
+      {service.type === "Dataset" && <div>
         <div className="formGroup select">
           <CreatableSelect className="formGroup select" isMulti
             options={tagOptions}
@@ -201,7 +201,7 @@ const AddPage2 = ({ setButtonContinuer, t }) => {
           <br />
         </fieldset>
       </div>}
-      {service.type === "service" && <div>
+      {service.type === "Service" && <div>
         L'ajout de services sera possible dans quelques semaines
       </div>}
       {service.type === "code" && <div>
