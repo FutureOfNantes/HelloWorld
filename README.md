@@ -67,16 +67,16 @@ $ npm install
 ```
 
 3. Update API URL
-In src/features/api.js comment the second line and uncomment the fifth line:
-line 2 => // const environment = 'https://dases-proto.herokuapp.com'
-line 5 => const environment = 'http://localhost:5000'
+In src/features/api.js comment the second line and uncomment the fifth line:  
+`line 2 => // const environment = 'https://dases-proto.herokuapp.com'`  
+`line 5 => const environment = 'http://localhost:5000'`  
 
 4. Launch the server locally
 ```bash
 $ npm start
 ```
 
-5. Open your browser and go to http://localhost:3000
+5. Open your browser and go to `http://localhost:3000`
 The backend server must be launched to display and interact with the catalog
 Please follow next section for installing and deploying backend server
 
@@ -96,20 +96,22 @@ $ npm install
 
 3. Create an .env file
 Copy the file env.example and rename it .env
-For the 3 env variables, replace bold string by your key
-For MONGODB_APP_CONNECT you need an account on MongoDB, and copy paste the APP CONNECT URL
-MONGODB_APP_CONNECT = **"THE CONNECTION STRING PROVIDED BY MONGODB"**
+For the 3 env variables, replace bold string by your key  
+For `MONGODB_APP_CONNECT` you need an account on MongoDB, and copy paste the URL provided by MongoDB  
+`MONGODB_APP_CONNECT = **"THE CONNECTION STRING PROVIDED BY MONGODB"**`
 
-For PUBLIC_KEY, you need an Ethereum Public Key. You can get one on Metamask
+For  `PUBLIC_KEY`, you need an Ethereum Public Key. You can get one on Metamask
 PUBLIC_KEY = **"PUBLIC KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
 
-For PRIVATE_KEY, you need the Private key associated to the previous Public Key
+For `PRIVATE_KEY`, you need the Private key associated to the previous Public Key
 PRIVATE_KEY = **"PRIVATE KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
 
 4. Launch the server locally
 ```bash
 $ npm start
 ```
+The server is launched on localhost:5000 by default
+
 ## Roadmap
-Dases Lab is an on going project. We follow the latest advances and specifications updates of Gaia-X.
+Dases Lab is an on going project. We follow the latest advances and specifications updates of Gaia-X.  
 The project is on stand-by since July 2022.

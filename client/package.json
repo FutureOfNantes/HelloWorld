@@ -14,7 +14,7 @@
     "ethr-did-resolver": "^5.0.4",
     "i18next": "^21.6.14",
     "magic-link": "^0.0.1",
-    "magic-sdk": "^8.1.1",
+    "magic-sdk": "^9.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.29.0",
