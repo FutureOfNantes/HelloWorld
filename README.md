@@ -22,6 +22,7 @@ Dases Lab is made up of several autonomous blocks:
 ## Building
 
 #### Prerequisites
+##### Metamask
 MetaMask is requested in your browser. The Network must be localhost if you use it locally or Rinkeby if you use it on the tesnet
 ##### Install nodejs
 1. Install cURL if you don't have it:
