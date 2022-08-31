@@ -4,7 +4,7 @@ Welcome in Dases Lab, we are building a Miminum Viable Product for Data Space of
 
 DasesLab is a project from [Gaia-X Ecosystem](https://www.gaia-x.eu/), which is a project reportedly working on the development of a federation of data infrastructure and service providers for Europe with the objective of ensuring a European digital sovereignty.
 
-DasesLab provides a toolkit for anynone who wants to build a dataspace Gaia-X specifications. You can read the technical documentation on this [wiki](https://perrin.gitbook.io/dases-lab-wiki/).
+DasesLab provides a toolkit for anyone who wants to build a dataspace with Gaia-X specifications. You can read the technical documentation on this [wiki](https://perrin.gitbook.io/dases-lab-wiki/).
 
 ---
 
@@ -17,14 +17,15 @@ Dases Lab is made up of several autonomous blocks:
 - Visions connection
 - Catalog
 
-(Display a Tree)
-
 ## Building
 
 #### Prerequisites
 ##### Metamask
-MetaMask is requested in your browser. The Network must be localhost if you use it locally or Rinkeby if you use it on the tesnet
-##### Install nodejs
+MetaMask is requested in your browser: https://metamask.io/ 
+The Network must be localhost if you use it locally or Rinkeby if you use it on the testnet
+##### Nodejs
+Daseslab uses Nodejs. You can install it by following these steps:
+
 1. Install cURL if you don't have it:
 ```bash
 sudo apt install curl
@@ -45,32 +46,70 @@ sudo apt -y install nodejs
 $ node -v
 $ npm version
 ```
+##### Clone the project
+Clone the repository on your local machine
+```bash
+$ git clone https://github.com/pgrandne/daseslab.git
+```
+
 ### Front End ###
-We use ReactJS
+We use React. The Front End scripts are in "client" folder.
+If you want to launch the Front End locally:
 
-For a stable relase you can click on the last one at the right of the page
+1. Go to "client" folder
+```bash
+$ cd client
+```
 
+2. Install the dependencies
+```bash
+$ npm install
+```
 
-Please clone the repository in your folder where you want to use it : git clone daes
-go to the folder : cd daseslab
-in /src/features/api.js comment the 3 first lines and uncomment the 3 last lines
-install the dependencies : npm install
-launch the server locally : npm start
-go to localhost:3000
+3. Update API URL
+In src/features/api.js comment the second line and uncomment the fifth line:
+line 2 => // const environment = 'https://dases-proto.herokuapp.com'
+line 5 => const environment = 'http://localhost:5000'
 
-In parallel you need to launch the Back End for using the Portail
+4. Launch the server locally
+```bash
+$ npm start
+```
+
+5. Open your browser and go to http://localhost:3000
+The backend server must be launched to display and interact with the catalog
+Please follow next section for installing and deploying backend server
+
 
 ### Back End ###
-Download the zip dases-proto.
-Unzip it and go to the folder : cd dases-proto
-install the dependencies :
-launch the server locally : npm start
-By default the server is launched on  localhost:5000
+We use Node.js
 
+1. Go to "backend" folder
+```bash
+$ cd backend
+```
 
+2. Install the dependencies
+```bash
+$ npm install
+```
 
+3. Create an .env file
+Copy the file env.example and rename it .env
+For the 3 env variables, replace bold string by your key
+For MONGODB_APP_CONNECT you need an account on MongoDB, and copy paste the APP CONNECT URL
+MONGODB_APP_CONNECT = **"THE CONNECTION STRING PROVIDED BY MONGODB"**
+
+For PUBLIC_KEY, you need an Ethereum Public Key. You can get one on Metamask
+PUBLIC_KEY = **"PUBLIC KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
+
+For PRIVATE_KEY, you need the Private key associated to the previous Public Key
+PRIVATE_KEY = **"PRIVATE KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
+
+4. Launch the server locally
+```bash
+$ npm start
+```
 ## Roadmap
-Dases Lab is an on going project. We follow the latest advances and specifications updates of Gaia-X
-
-- [X] implementation/magiclink
-- [ ] implementation/FranceConnect
+Dases Lab is an on going project. We follow the latest advances and specifications updates of Gaia-X.
+The project is on stand-by since July 2022.

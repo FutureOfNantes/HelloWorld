@@ -1,11 +1,12 @@
-export const URL_SD = 'https://dases-proto.herokuapp.com/sd'
-export const URL_USER = 'https://dases-proto.herokuapp.com/users'
-export const URL_NONCE = 'https://dases-proto.herokuapp.com/nonce'
-export const URL_VERIFY = 'https://dases-proto.herokuapp.com/verify'
+// For Production Deployment : If you want to use locally => Comment the line, else uncomment
+const environment = 'https://dases-proto.herokuapp.com'
 
-// export const URL_SD = 'http://localhost:5000/sd'
-// export const URL_USER = 'http://localhost:5000/users'
-// export const URL_NONCE = 'http://localhost:5000/nonce'
-// export const URL_VERIFY = 'http://localhost:5000/verify'
+// For Local Deployment : If you want to use locally => Uncomment, else comment the line
+// const environment = 'http://localhost:5000'
+
+export const URL_SD = environment + '/sd'
+export const URL_USER = environment + '/users'
+export const URL_NONCE = environment + '/nonce'
+export const URL_VERIFY = environment + '/verify'
 
 export const URL_VISIONS = 'https://staging.visionstrust.com/decentralized/px'
