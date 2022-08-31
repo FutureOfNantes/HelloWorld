@@ -96,15 +96,15 @@ $ npm install
 
 3. Create an .env file
 Copy the file env.example and rename it .env
-For the 3 env variables, replace bold string by your key  
+For the 3 env variables, replace string in quotes by your key  
 For `MONGODB_APP_CONNECT` you need an account on MongoDB, and copy paste the URL provided by MongoDB  
-`MONGODB_APP_CONNECT = **"THE CONNECTION STRING PROVIDED BY MONGODB"**`
+`MONGODB_APP_CONNECT = "THE CONNECTION STRING PROVIDED BY MONGODB"`
 
-For  `PUBLIC_KEY`, you need an Ethereum Public Key. You can get one on Metamask
-PUBLIC_KEY = **"PUBLIC KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
+For  `PUBLIC_KEY`, you need an Ethereum Public Key. You can get one on Metamask  
+`PUBLIC_KEY = "PUBLIC KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"`
 
-For `PRIVATE_KEY`, you need the Private key associated to the previous Public Key
-PRIVATE_KEY = **"PRIVATE KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"**
+For `PRIVATE_KEY`, you need the Private key associated to the previous Public Key  
+`PRIVATE_KEY = "PRIVATE KEY OF VERIFIABLE CREDENTIAL SIGNER => TRUST ANCHOR"`
 
 4. Launch the server locally
 ```bash
