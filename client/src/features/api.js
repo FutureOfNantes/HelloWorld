@@ -1,8 +1,8 @@
 // For Production Deployment : If you want to use locally => Comment the line, else uncomment
-// const environment = 'https://dases-proto.herokuapp.com'
+const environment = 'https://dases-proto.herokuapp.com'
 
 // For Local Deployment : If you want to use locally => Uncomment, else comment the line
-const environment = 'http://localhost:5000'
+// const environment = 'http://localhost:5000'
 
 export const URL_SD = environment + '/sd'
 export const URL_USER = environment + '/users'
