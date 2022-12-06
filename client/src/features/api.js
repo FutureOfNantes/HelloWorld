@@ -10,4 +10,4 @@ export const URL_USER = environment + '/users'
 export const URL_NONCE = environment + '/nonce'
 export const URL_VERIFY = environment + '/verify'
 
-export const URL_VISIONS = 'https://visionstrust.com/decentralized/px'
+export const URL_VISIONS = 'https://staging.visionstrust.com/decentralized/px'
