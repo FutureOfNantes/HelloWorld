@@ -8,7 +8,7 @@ export const postVerify = async (req, res) => {
     console.log(req.body)
     const siweMessage = new SiweMessage(message);
     try {
-        await siweMessage.validate(signature);
+        await siweMessage.verify({ signature: signature });
         res.send(true);
     } catch {
         res.send(false);

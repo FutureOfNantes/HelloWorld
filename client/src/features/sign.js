@@ -25,7 +25,7 @@ const sign = async (texte) => {
             statement,
             uri: origin,
             version: '1',
-            chainId: '4',
+            chainId: '1',
             nonce: await res.text()
         });
         return message.prepareMessage();
