@@ -30,7 +30,7 @@ const Service = ({ dashboard, t }) => {
         const data = {
             "providerJwt": "eyJhbGciOiJFUzI1NkstUiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRGFzZXNJZGVudGl0eSJdLCJjcmVkZW50aWFsU3ViamVjdCI6eyJzdGF0ZW1lbnQiOnsidHlwZSI6IkNlcnRpZmljYXQgUGFydGljaXBhbnQgREFTRVMiLCJkaWRPd25lciI6ImRpZDpldGhyOjB4NDoweEM4NDM5YjRhMmE2Y2EwMTg1M2E4ZTA1OTcxNzdiNTk5QUYyZkYzQmYiLCJnaXZlbk5hbWUiOiJQZXJyaW4iLCJmYW1pbHlOYW1lIjoiR1JBTkRORSIsImVtYWlsT3duZXIiOiJwZXJyaW4uZ3JhbmRuZUBnbWFpbC5jb20iLCJjb21wYW55TmFtZSI6Ik1FTkpTIiwiY29tcGFueUFkcmVzcyI6IjIxIHJ1ZSBkZXMgQXJjaGl2ZXMgNzUwMDMgUGFyaXMiLCJsZWdhbFJlcHJlc2VudGF0aXZlIjoiUGVycmluIEdSQU5ETkUiLCJlbWFpbExlZ2FsUmVwcmVzZW50YXRpdmUiOiJwZXJyaW4uZ3JhbmRuZUBnbWFpbC5jb20ifX19LCJzdWIiOiJkaWQ6ZXRocjoweDQ6MHhDODQzOWI0YTJhNmNhMDE4NTNhOGUwNTk3MTc3YjU5OUFGMmZGM0JmIiwibmJmIjoxNjQ2NDI1MTI5LCJpc3MiOiJkaWQ6ZXRocjpyaW5rZWJ5OjB4YzVBNzViYTg3ODc2YjIzNzI2NWIwNUY4NDgxNjBmNTRkMzZDYTA2NSJ9.TY47-R5_jLsYdtxdZ634NBKKCbJdA5WPldSat6zqR8KFx19lX2_nNHrxvaetkSf6lStLAtoMkYvtNWmX3b6S_wE",
             "sdJwt": "eyJhbGciOiJFUzI1NkstUiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiU2VsZkRlc2NyaXB0aW9uIl0sImNyZWRlbnRpYWxTdWJqZWN0Ijp7InN0YXRlbWVudCI6eyJoYXNTZXJ2aWNlVGl0bGUiOiJGb3JtYXRpb25zIGluaXRpYWxlcyBlbiBGcmFuY2UiLCJoYXNTZXJ2aWNlRGVzY3JpcHRpb24iOiJDZSBqZXUgZGUgZG9ubsOpZXMgZXN0IHJlcHJpcyBkZSBsYSBwbGF0ZWZvcm1lIG9wZW5kYXRhIGRlIGwnT05JU0VQIiwiaGFzS2V5d29yZCI6WyJlZHVjYXRpb24iLCJ0cmFpbmluZyJdLCJoYXNEYXRhVHlwZSI6WyJEaXBsb21lcyIsIkNvbXBldGVuY2VzIiwiRm9ybWF0aW9uIiwiQmFkZ2UiXSwicHJvdmlkZWRCeSI6Ik1FTkpTIiwiaGFzUHJvdmlzaW9uVHlwZSI6IlB1YmxpY1Byb3Zpc2lvbmluZyIsImhhc1NlcnZpY2VNb2RlbCI6IkRhYVMiLCJoYXNXZWJBZGRyZXNzIjoiaHR0cHM6Ly9kYXRhLmVkdWNhdGlvbi5nb3V2LmZyL2V4cGxvcmUvZGF0YXNldC9mci1lbi1mb3JtYXRpb25zLWluaXRpYWxlcy1lbi1mcmFuY2UvaW5mb3JtYXRpb24iLCJ0eXBlU2VydmljZU9mZmVyaW5nIjoiRGF0YSIsImRpZE93bmVyIjoiZGlkOmV0aHI6MHg0OjB4Qzg0MzliNGEyYTZjYTAxODUzYThlMDU5NzE3N2I1OTlBRjJmRjNCZiIsIm5hbWVPd25lciI6IlBlcnJpbiBHUkFORE5FIiwiY29tcGFueU93bmVyIjoiTUVOSlMiLCJlbWFpbE93bmVyIjoicGVycmluLmdyYW5kbmVAZWR1Y2F0aW9uLmdvdXYuZnIifX19LCJzdWIiOiJkaWQ6ZXRocjoweDQ6MHhDODQzOWI0YTJhNmNhMDE4NTNhOGUwNTk3MTc3YjU5OUFGMmZGM0JmIiwibmJmIjoxNjQ2NDI1MTI5LCJpc3MiOiJkaWQ6ZXRocjpyaW5rZWJ5OjB4YzVBNzViYTg3ODc2YjIzNzI2NWIwNUY4NDgxNjBmNTRkMzZDYTA2NSJ9.mT-aXdo9Vi36ab2udwXzctqLsKuvVzpWs62In4lJc78OmrV-TikvaR8PV_HGggkYDYpKJJMBe0NvgWdjnN-2XQA",
-            "userJwt": "eyJhbGciOiJFUzI1NkstUiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiRGFzZXNJZGVudGl0eSJdLCJjcmVkZW50aWFsU3ViamVjdCI6eyJzdGF0ZW1lbnQiOnsidHlwZSI6IkNlcnRpZmljYXQgUGFydGljaXBhbnQgREFTRVMiLCJkaWRPd25lciI6ImRpZDpldGhyOjB4NDoweGEzNTM0ZTQ1RTMzYUMxOTQzYkNCODc1MThlMzQ2RjhENEY3MDZDNzciLCJnaXZlbk5hbWUiOiJKb2huIiwiZmFtaWx5TmFtZSI6IkRPRSIsImVtYWlsT3duZXIiOiJqb2huLmRvZUBjb250YWN0LmNvbSIsImNvbXBhbnlOYW1lIjoiRWRUZWNoVGVzdCIsImNvbXBhbnlBZHJlc3MiOiIxNSBydWUgZGVzIEFyY2hpdmVzIDc1MDAzIFBhcmlzIiwibGVnYWxSZXByZXNlbnRhdGl2ZSI6IkpvaG4gRG9lIiwiZW1haWxMZWdhbFJlcHJlc2VudGF0aXZlIjoiam9obi5kb2VAY29udGFjdC5jb20ifX19LCJzdWIiOiJkaWQ6ZXRocjoweDQ6MHhhMzUzNGU0NUUzM2FDMTk0M2JDQjg3NTE4ZTM0NkY4RDRGNzA2Qzc3IiwibmJmIjoxNjQ2NDI1MTI5LCJpc3MiOiJkaWQ6ZXRocjpyaW5rZWJ5OjB4YzVBNzViYTg3ODc2YjIzNzI2NWIwNUY4NDgxNjBmNTRkMzZDYTA2NSJ9.6Pm4RU2l_zTdjp_83FRID1kG_e15_ztDMxXfbhdEFNrIRMv19ftpaQWwMfO8MWeYNna5aOaXwhB5TK7auY7NMwA"
+            "userJwt": "eyJhbGciOiJFUzI1NkstUiIsInR5cCI6IkpXVCJ9.eyJ2YyI6eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvMjAxOC9jcmVkZW50aWFscy92MSJdLCJ0eXBlIjpbIlZlcmlmaWFibGVDcmVkZW50aWFsIiwiUGFydGljaXBhbnQiXSwiY3JlZGVudGlhbFN1YmplY3QiOnsidHlwZSI6IkNlcnRpZmljYXQgUGFydGljaXBhbnQgREFTRVMiLCJpZCI6ImRpZDpldGhyOm1haW5uZXQ6MHg5NGI5NDIwRjY1ZkIzZWM5NjZkOTZCQjAzNGIzNUFGODY0ODdEOTI5IiwiZ2l2ZW5OYW1lIjoiRE9FIiwiZmFtaWx5TmFtZSI6IkpvaG4iLCJlbWFpbE93bmVyIjoiam9obi5kb2VAZ21haWwuY29tIiwiY29tcGFueU5hbWUiOiJNRU5KUyIsImNvbXBhbnlBZGRyZXNzIjoiMTUgcnVlIGRlcyBhcmNoaXZlcyA3NTAwMyBQQVJJUyJ9fSwic3ViIjoiZGlkOmV0aHI6bWFpbm5ldDoweDk0Yjk0MjBGNjVmQjNlYzk2NmQ5NkJCMDM0YjM1QUY4NjQ4N0Q5MjkiLCJpc3MiOiJkaWQ6ZXRocjoweDE6MHhjNUE3NWJhODc4NzZiMjM3MjY1YjA1Rjg0ODE2MGY1NGQzNkNhMDY1In0.3dCI4KWBkGQGgcELhFBP7If7sgIsr2EBs4G51JG3-OIMZXFikauNewNtCk53MQCEBYb3wpw51wF467w6GMbjLAA"
         }
 
         window.alert("Vous allez être redirigé vers le service Visions pour signer le contrat d'échange de données");
@@ -39,19 +39,19 @@ const Service = ({ dashboard, t }) => {
     }
 
     const logoSelect = (entity) => {
-		switch(entity) {
-			case 'MENJS':
-				return ('/logos/menjs.jpg');
-			case 'Inokufu':
-				return ('prometheus.svg')
-			case 'Mindmatcher':
-				return ('/logos/prometheus.svg')
-			case 'Visions':
-				return ('/logos/prometheus.svg')
-			default:
-				return ('/logos/entityUnKnown.svg')
-		}
-	}
+        switch (entity) {
+            case 'MENJS':
+                return ('/logos/menjs.jpg');
+            case 'Inokufu':
+                return ('prometheus.svg')
+            case 'Mindmatcher':
+                return ('/logos/prometheus.svg')
+            case 'Visions':
+                return ('/logos/prometheus.svg')
+            default:
+                return ('/logos/entityUnKnown.svg')
+        }
+    }
 
     return (
         <section className="main flex column flex-1">
@@ -63,7 +63,7 @@ const Service = ({ dashboard, t }) => {
             <div className="servicePage">
                 <main className="container sectionContent">
                     <section className="container servicePageTitle flex row">
-                    <img src={logoSelect(service[0].entity)} alt="" />
+                        <img src={logoSelect(service[0].entity)} alt="" />
                         <div>
                             <h1>{service[0].title}</h1>
                             <ul className="resourceTags flex row center wrap">
@@ -82,13 +82,13 @@ const Service = ({ dashboard, t }) => {
                             <ul className="ctas">
                                 <li>
                                     {dashboard === "false" && <button className="button blackButton"
-                                    onClick={() => { dispatch(modalReducer({ modal: 'welcome', source: 'use' })) }}
-                        >
-                            {t("Demander l'intégration")}
-                        </button>}      
-                                     {/* <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /> */}
+                                        onClick={() => { dispatch(modalReducer({ modal: 'welcome', source: 'use' })) }}
+                                    >
+                                        {t("Demander l'intégration")}
+                                    </button>}
+                                    {/* <Connection buttonName={buttonName} typeConnection={typeConnection} id={service[0].id} /> */}
                                     {dashboard === "true" && <button className="useService button blackButton export" onClick={handleIntegration}>Demander l'intégration</button>}
-                                    <br/>
+                                    <br />
                                     <span>powered by <img src={visions} alt="" /></span>
                                 </li>
                             </ul>}
