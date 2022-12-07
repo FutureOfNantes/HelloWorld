@@ -26,7 +26,7 @@ export const createSd = async (req, res) => {
     const issuer = new EthrDID({
         identifier: process.env.PUBLIC_KEY,
         privateKey: process.env.PRIVATE_KEY,
-        chainNameOrId: 'rinkeby'
+        chainNameOrId: 'mainnet'
     })
 
     const vcPayload = {

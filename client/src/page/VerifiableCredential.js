@@ -50,8 +50,8 @@ const VerifiableCredential = ({ t }) => {
 
     const handleVc = async () => {
         const currentUser = await usersList.filter(users => (users.did === did));
-        const rpcUrl = "https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e";
-        const resolver = new Resolver(getResolver({ rpcUrl, name: "rinkeby" }));
+        const rpcUrl = "https://mainnet.infura.io/v3/11e7b04babfe468fa32e880ba32611f1";
+        const resolver = new Resolver(getResolver({ rpcUrl, name: "mainnet" }));
         const verifiedVC = await verifyCredential(currentUser[0].vcJwt, resolver)
         const element = document.createElement("a");
         var jsonVc = JSON.stringify(verifiedVC.verifiableCredential, null, 2);

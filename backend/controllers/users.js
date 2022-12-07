@@ -22,7 +22,7 @@ export const createUser = async (req, res) => {
   const issuer = new EthrDID({
     identifier: '0xc5A75ba87876b237265b05F848160f54d36Ca065',
     privateKey: '371f46c966c57f7fb1567839cc38952b0e364d03e91331909882e1344dddf52a',
-    chainNameOrId: 'rinkeby'
+    chainNameOrId: 1
   })
 
   const vcPayload = {
@@ -31,13 +31,13 @@ export const createUser = async (req, res) => {
       '@context': ['https://www.w3.org/2018/credentials/v1'],
       type: ['VerifiableCredential', 'Participant'],
       credentialSubject: {
-          type: 'Certificat Participant DASES',
-          id : did,
-          givenName: givenName,
-          familyName: familyName,
-          emailOwner: emailOwner,
-          companyName: companyName,
-          companyAddress: companyAddress
+        type: 'Certificat Participant DASES',
+        id: did,
+        givenName: givenName,
+        familyName: familyName,
+        emailOwner: emailOwner,
+        companyName: companyName,
+        companyAddress: companyAddress
       }
     }
   }

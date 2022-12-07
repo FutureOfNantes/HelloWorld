@@ -4,7 +4,7 @@ import { ethers } from 'ethers';
 import { EthrDID } from 'ethr-did';
 
 
-const sign =  async (texte) => {
+const sign = async (texte) => {
     const connectWallet = async () => {
         await provider.send('eth_requestAccounts', [])
             .catch(() => console.log('user rejected request'));
@@ -62,9 +62,9 @@ const sign =  async (texte) => {
     await connectWallet();
     await signInWithEthereum();
     await sendForVerification();
-    const ethrDid = new EthrDID({ identifier, provider, chainNameOrId: 'rinkeby' });
+    const ethrDid = new EthrDID({ identifier, provider, chainNameOrId: 'mainnet' });
 
-    return(ethrDid)
+    return (ethrDid)
 }
 
 export default sign;

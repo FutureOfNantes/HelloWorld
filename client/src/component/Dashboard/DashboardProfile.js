@@ -9,8 +9,8 @@ const DashboardProfile = ({ t, i18n }) => {
     const navigate = useNavigate();
     const account = useSelector((state) => state.connection.account);
     const handleDownload = async () => {
-        const rpcUrl = "https://rinkeby.infura.io/v3/d541faa3a3b74d409e82828b772fce9e";
-        const resolver = new Resolver(getResolver({ rpcUrl, name: "rinkeby" }));
+        const rpcUrl = "https://mainnet.infura.io/v3/11e7b04babfe468fa32e880ba32611f1";
+        const resolver = new Resolver(getResolver({ rpcUrl, name: "mainnet" }));
         const verifiedVC = await verifyCredential(account.vcJwt, resolver)
         const element = document.createElement("a");
         var jsonVc = JSON.stringify(verifiedVC.verifiableCredential, null, 2);
