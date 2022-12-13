@@ -4,7 +4,7 @@ Welcome in Dases Lab, we are building a Miminum Viable Product for Data Space of
 
 DasesLab is a project from [Gaia-X Ecosystem](https://www.gaia-x.eu/), which is a project reportedly working on the development of a federation of data infrastructure and service providers for Europe with the objective of ensuring a European digital sovereignty.
 
-DasesLab provides a toolkit for anyone who wants to build a dataspace with Gaia-X specifications. You can read the technical documentation on this [wiki](https://perrin.gitbook.io/dases-lab-wiki/).
+DasesLab provides a toolkit for anyone who wants to build a dataspace with Gaia-X specifications. You can read more info about this dataspace on this [wiki](https://dataspace.prometheus-x.org/).
 
 ---
 
